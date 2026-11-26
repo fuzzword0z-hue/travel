@@ -211,6 +211,14 @@ details[open] .chev{transform:rotate(90deg)}
 .tips-box div+div{margin-top:4px}
 .tips-box b{color:var(--text)}
 .short{color:var(--accent);font-weight:700}
+.atm-guide{margin-top:10px;border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:14px}
+.atm-guide summary{cursor:pointer;font-weight:700}
+.atm-guide ol{margin:8px 0 6px;padding-left:20px;color:var(--text-2)}
+.atm-guide li{margin:3px 0}
+.atm-guide b{color:var(--text)}
+.warn-line{font-size:13px;color:var(--accent);margin-top:6px}
+.warn-line b{color:var(--accent)}
+.muted-line{font-size:12.5px;color:var(--text-3);margin-top:6px}
 .plans-hint{font-size:12px;color:var(--text-3);margin:0 0 4px}
 @media print{.bnav,.theme-btn{display:none}section[hidden]{display:block}}
 </style>
@@ -276,7 +284,7 @@ details[open] .chev{transform:rotate(90deg)}
 <!-- 일정 -->
 <section id="tab-plan" class="view" hidden>
   <h2 class="sec-title">일정 & 당일 동선</h2>
-  <p class="sec-desc">이동 시간·요금은 예상치(3인, 택시 1대 기준)예요. 💴 현금 / 💳 카드 표시는 결제 수단 추천이에요.</p>
+  <p class="sec-desc">이동 시간·요금은 예상치(3인 기준)예요. 택시는 공항 오갈 때만 타요. 💴 현금 / 💳 카드 표시는 결제 수단 추천이에요.</p>
   <p class="plans-hint">← 옆으로 넘겨 다른 플랜 보기 →</p>
   <div class="plans" id="planBtns"></div>
   <div class="days" id="dayBtns" role="tablist" aria-label="날짜"></div>
@@ -294,13 +302,13 @@ details[open] .chev{transform:rotate(90deg)}
       <span class="badge b-navy">⛩️ 전통 명소</span>
       <span class="badge b-acc">☕ 동네 카페</span>
       <span class="badge b-navy">🛍️ 백화점 쇼핑</span>
-      <span class="badge b-ok">🚕 택시로 편하게 이동</span>
+      <span class="badge b-ok">🐢 느긋한 속도 · 🚇 대중교통</span>
     </div>
     <ul class="why">
       <li><b>“본점”과 예약 맛집 위주</b> — 이치란 총본점, 하츠키 본점, 오오야마 본점처럼 <b>그 지역 대표 맛집</b>을 고르는 스타일이에요. 식사 시간을 축으로 동선을 짜는 게 맞습니다.</li>
       <li><b>자연·정원 + 조용한 분위기</b> — 모모치 해변, 오호리 공원, 高宮庭園茶寮(정원 찻집)까지. 사람 많은 관광지보다 <b>풍경 좋은 곳에서 쉬어가는</b> 걸 좋아하세요.</li>
-      <li><b>무리하지 않는 하루 3~4곳</b> — 가족 여행이고 택시를 쓰는 걸 보면 이동 피로를 줄이는 게 중요합니다.</li>
-      <li>⚠️ <b>보완 포인트</b>: ① 1일차 저녁이 늦게 시작돼 배고플 수 있음 ② 모모치 해변은 <b>일몰(17:20경) 때</b>가 가장 예뻐요 ③ 4일차 점심이 남쪽(다카미야)이라 공항 가기 전 시간이 빠듯함 — 高宮庭園茶寮는 타베로그로 미리 예약 ④ 12/28(월) 규슈국립박물관 휴관, 12/29부터 일부 가게 연말 휴무 시작.</li>
+      <li><b>느긋하게, 대중교통으로</b> — 부모님(60·70대)과 함께라 <b>하루 장소 3~4곳 + 오후 휴식</b>이 적당해요. 지하철·버스는 환승이 적은 노선 위주로 골랐어요.</li>
+      <li>⚠️ <b>원래 계획을 대중교통으로 다니면</b>: ① 2일차가 장소 6곳에 이동 7번이라 부모님께 많아요 ② 4일차는 시장 → 다카미야 → 호텔 이동만 약 1시간 10분이라, 점심을 13:00에 마쳐야 해요 ③ 3일차 쇼핑 4시간 + 돈키호테는 긴 편이에요. → <b>‘느긋한 추천 ⭐’</b> 플랜에 모두 반영했어요.</li>
     </ul>
   </div>
 
@@ -316,7 +324,7 @@ details[open] .chev{transform:rotate(90deg)}
   <h2 class="sec-title">상황별 플랜 B 팁</h2>
   <div class="grid g3">
     <div class="card"><h3>☔ 비 오거나 추운 날</h3><div style="font-size:14px;color:var(--text-2)">모모치 해변 → <b>후쿠오카 타워 전망대</b>(실내 야경), 오호리 공원 → <b>후쿠오카시 미술관</b>(공원 안, 월요일 휴관). 텐진 지하상가는 비 와도 OK.</div></div>
-    <div class="card"><h3>🧓 부모님 체력이 걱정될 때</h3><div style="font-size:14px;color:var(--text-2)">2일차 오후에 호텔 1시간 휴식 넣기 → 오오야마 저녁을 19시로. 3일차 다자이후는 오전만, 쇼핑은 이와타야 한 곳 집중.</div></div>
+    <div class="card"><h3>🧓 부모님 체력이 걱정될 때</h3><div style="font-size:14px;color:var(--text-2)">‘느긋한 추천 ⭐’ 플랜이 기본이에요. 더 쉬고 싶으면 3일차 야나기바시 시장을 건너뛰고, 쇼핑은 이와타야 한 곳만. 지하철역 엘리베이터는 역 안내도에서 ‘EV’ 표시를 찾으세요.</div></div>
     <div class="card"><h3>⏰ 웨이팅이 너무 길 때</h3><div style="font-size:14px;color:var(--text-2)">이치란은 <b>하카타역 지점·캐널시티점</b>도 같은 맛. 모츠나베는 하카타역 KITTE·아뮤플라자 식당가에 오오야마 지점이 있어요.</div></div>
   </div>
 </section>
@@ -350,6 +358,19 @@ details[open] .chev{transform:rotate(90deg)}
     </div>
     <div class="legend" style="margin-top:8px"><span><i style="background:var(--s3)"></i>현금 인출</span><span><i style="background:var(--s1)"></i>카드결제</span><span><i style="background:var(--surface-2);box-shadow:inset 0 0 0 1px var(--line)"></i>남는 금액</span></div>
     <div class="tips-box" id="atmPlan"></div>
+    <details class="atm-guide">
+      <summary>🏧 세븐뱅크 ATM 출금 순서 (트래블로그)</summary>
+      <ol>
+        <li>카드 넣고 화면에서 <b>한국어</b> 선택</li>
+        <li><b>출금</b> 선택 후 안내 확인</li>
+        <li>계좌 종류: <b>보통예금</b> (또는 건너뛰기)</li>
+        <li>금액 입력 — <b>1,000엔 단위</b>, 1회 최대 ¥100,000</li>
+        <li>카드 <b>비밀번호 4자리</b> 입력</li>
+        <li>통화 선택 화면에서 <b>‘지금 환전하지 않고 진행 (JPY / 일본 엔화)’</b></li>
+      </ol>
+      <div class="warn-line">⚠️ 원화(KRW)나 현지 환전 옵션을 누르면 추가 수수료가 붙어요. 꼭 <b>JPY</b>로 진행하세요.</div>
+      <div class="muted-line">하나머니 앱에 엔화로 미리 환전해 둔 경우 출금 수수료 무료 · 출금이 안 되면 다른 세븐일레븐 ATM에서 다시 시도하거나 트래블월렛 카드로 인출</div>
+    </details>
   </div>
   <div class="card" style="margin-top:10px">
     <h3>카테고리별 비중</h3>
@@ -438,146 +459,195 @@ const D1 = {
   date:'12/26', dow:'토', title:'도착 & 나카스 야경', summary:'입국 → 체크인 → 나카스 강변 → 이치란 총본점',
   notice:'<b>연말 입국 혼잡</b> — 한국발 항공편이 몰려 입국심사가 40~60분 걸릴 수 있어요. Visit Japan Web QR을 미리 캡처해 두세요.',
   items:[
-    {t:'13:35', ico:'🛫', title:'청주공항 도착', desc:'출발 2시간 전 도착 · 수하물 위탁, 환전 마무리', q:'청주국제공항'},
+    {t:'13:35', ico:'🛫', title:'청주공항 도착', desc:'출발 2시간 전 도착 · 수하물 위탁', q:'청주국제공항'},
     {t:'15:35', ico:'✈️', title:'청주 출발 → 후쿠오카', desc:'비행 약 1시간 25분', key:true},
-    {t:'17:00', ico:'🛬', title:'후쿠오카공항 국제선 도착', desc:'입국심사·세관·수하물 찾기 약 40~60분 → 17:50경 택시 승차', tips:['💴 도착 로비 세븐일레븐(세븐은행) ATM에서 트래블로그로 1차 현금 인출 (예산 탭 참고)','택시 승강장은 국제선 터미널 1층 정면','3인 + 캐리어는 일반 택시 1대로 충분 (트렁크 2~3개)'], q:'Fukuoka Airport International Terminal'},
-    {mv:true, mode:'🚕 택시', dur:'20~30분', cost:'¥2,500~3,500', from:'Fukuoka Airport International Terminal', to:HOTEL, gm:'driving', alt:'대안: 국제선→하카타역 니시테츠 버스 약 20분, 1인 ¥310'},
-    {t:'18:30', end:'18:20~18:50', ico:'🏨', title:'9호텔 하카타 체크인', desc:'예상하신 18:40 체크인은 적절해요. 짐 풀고 방한 준비 후 19:10 출발', tips:['저녁이 20시경이라 공항/기내에서 가볍게 요기해 두면 좋아요'], q:HOTEL, key:true},
-    {mv:true, mode:'🚶 도보', dur:'약 10분 (호텔 → 나카강변)', cost:'무료', from:HOTEL, to:'Nakasu Yatai Fukuoka', gm:'walking', alt:'호텔이 레이센마치라 나카스까지 걸어서 충분해요 — 가와바타 상점가를 지나 강변으로'},
+    {t:'17:00', ico:'🛬', title:'후쿠오카공항 국제선 도착', desc:'입국심사·세관·수하물 찾기 약 40~60분 → 17:50경 택시 승차', tips:['💴 도착 로비 세븐일레븐(세븐뱅크) ATM에서 트래블로그로 1차 현금 인출 (예산 탭 참고)','택시 승강장은 국제선 터미널 1층 정면','3인 + 캐리어는 일반 택시 1대로 충분 (트렁크 2~3개)'], q:'Fukuoka Airport International Terminal'},
+    {mv:true, mode:'🚕 택시', dur:'20~30분', cost:'¥2,500~3,500', from:'Fukuoka Airport International Terminal', to:HOTEL, gm:'driving', alt:'공항 오갈 때만 택시 — 캐리어 들고 환승하지 않아도 돼요'},
+    {t:'18:30', end:'18:20~18:50', ico:'🏨', title:'9호텔 하카타 체크인', desc:'짐 풀고 방한 준비 후 19:10 출발', tips:['저녁이 20시경이라 공항/기내에서 가볍게 요기해 두면 좋아요'], q:HOTEL, key:true},
+    {mv:true, mode:'🚶 도보', dur:'약 10분 (호텔 → 나카강변)', cost:'무료', from:HOTEL, to:'Nakasu Yatai Fukuoka', gm:'walking', alt:'가와바타 상점가(지붕 있는 아케이드)를 지나 강변으로'},
     {t:'19:15', end:'약 45분', ico:'🌃', title:'나카스 강변 산책 & 야타이 구경', desc:'나카강변 포장마차(야타이) 거리와 강에 비친 네온 야경. 후쿠하쿠 데아이바시 다리 → 하카타 리버레인 쪽으로 천천히', tips:['12월 밤 강바람이 차가워요 — 부모님 목도리·장갑·핫팩 챙기기','강변 산책로는 평지라 걷기 편해요. 힘드시면 중간에 바로 이치란으로'], q:'Nakasu Yatai Fukuoka', key:true},
     {mv:true, mode:'🚶 도보', dur:'약 5분', cost:'무료', from:'Nakasu Yatai Fukuoka', to:'Ichiran Ramen Main Store Nakasu', gm:'walking'},
     {t:'20:00', end:'웨이팅 30~60분', ico:'🍜', title:'이치란 라멘 총본점 (나카스)', desc:'24시간 영업 · 예약 불가. 토요일 저녁이라 대기가 있을 수 있어요', tips:['식권 자판기 — 현금 준비 (트래블로그로 인출한 현금)','부모님이 오래 서 계시기 힘들면 순번 받아두고 근처에서 쉬기','1인 ¥1,000~1,600 (토핑·반숙란·밥 추가 시)'], pay:'cash', q:'Ichiran Ramen Main Store Nakasu', key:true},
-    {mv:true, mode:'🚶 도보', dur:'약 10분', cost:'무료', from:'Ichiran Ramen Main Store Nakasu', to:HOTEL, gm:'walking', alt:'추우면 택시 약 5분 ¥700'},
-    {t:'21:30', ico:'🏪', title:'호텔 복귀 · 편의점 털기', desc:'다음 날 아침 간식·음료 구매 후 휴식'},
+    {mv:true, mode:'🚶 도보', dur:'약 10분', cost:'무료', from:'Ichiran Ramen Main Store Nakasu', to:HOTEL, gm:'walking'},
+    {t:'21:30', ico:'🏪', title:'호텔 복귀 · 편의점', desc:'다음 날 아침 간식·음료 구매 후 휴식'},
   ]
 };
+
+/* ---------- PLAN A: 내 계획 (대중교통) ---------- */
 const D2 = {
   date:'12/27', dow:'일', title:'니시진·모모치·오호리', summary:'바다 → 하츠키 코스 → 카페 → 오호리 공원 → 모츠나베',
-  notice:'<b>동선 팁</b> — 모모치 해변·니시진·오호리 공원은 모두 서쪽(지하철 공항선)에 모여 있어 하루에 묶기 좋아요. 일요일이라 오호리 일본정원 개방(월요일 휴관).',
+  notice:'<b>대중교통 팁</b> — 오늘은 지하철을 3번 타요. <b>지하철 1일권(¥640)</b>이 개별 구매(약 ¥770)보다 저렴해요. ⚠️ 장소가 6곳이라 부모님과 걷기엔 많은 편 — 여유롭게 다니려면 ‘느긋한 추천’ 플랜을 보세요.',
   items:[
-    {t:'08:00', ico:'🥐', title:'호텔 조식', desc:'9:00 출발 목표'},
-    {mv:true, mode:'🚇 지하철 공항선', dur:'기온역(호텔 도보 5분) → 니시진 약 12분', cost:'1인 ¥300', from:HOTEL, to:'Nishijin Station Fukuoka', gm:'transit', alt:'3인 지하철 ¥900 vs 택시 약 ¥3,000(25분) — 부모님이 계단·환승이 힘드시면 택시'},
-    {mv:true, mode:'🚕 택시 / 🚶 도보', dur:'택시 7분 · 도보 20분', cost:'¥900', from:'Nishijin Station Fukuoka', to:'Seaside Momochi Beach', gm:'walking'},
-    {t:'09:40', end:'약 1시간 20분', ico:'🏖️', title:'모모치 해변 & 마리존', desc:'인공 해변 산책, 마리존(웨딩 교회 건물)과 후쿠오카 타워 외관 포토스팟', tips:['오전은 한적하고 바다 색이 좋아요. 노을을 원하면 ‘노을·야경 플랜’ 참고'], q:'Seaside Momochi Beach Park'},
-    {mv:true, mode:'🚕 택시', dur:'8~10분', cost:'¥1,000', from:'Seaside Momochi Beach Park', to:'Nishijin Shopping Street Fukuoka', gm:'driving'},
+    {t:'08:00', ico:'🥐', title:'호텔 조식', desc:'9:00 출발'},
+    {mv:true, mode:'🚇 지하철 공항선', dur:'호텔 → 기온역 도보 5분 · 기온 → 니시진 약 12분', cost:'1일권 ¥640', from:HOTEL, to:'Nishijin Station Fukuoka', gm:'transit', alt:'기온역 발권기에서 1일권 구매 (영어·한국어 화면)'},
+    {mv:true, mode:'🚌 버스 / 🚶 도보', dur:'니시테츠 버스 약 10분 · 도보 약 20분', cost:'버스 1인 ¥150~210', from:'Nishijin Station Fukuoka', to:'Seaside Momochi Beach Park', gm:'transit', alt:'후쿠오카 타워 방면 버스 — 구글맵 길찾기로 시간 확인'},
+    {t:'09:40', end:'약 1시간 20분', ico:'🏖️', title:'모모치 해변 & 마리존', desc:'인공 해변 산책, 마리존(웨딩 교회 건물)과 후쿠오카 타워 외관 포토스팟', tips:['오전은 한적하고 바다 색이 좋아요'], q:'Seaside Momochi Beach Park'},
+    {mv:true, mode:'🚌 버스 / 🚶 도보', dur:'버스 약 10분 · 도보 약 20분', cost:'버스 1인 ¥150~210', from:'Seaside Momochi Beach Park', to:'Nishijin Shopping Street Fukuoka', gm:'transit'},
     {t:'11:20', ico:'🏮', title:'니시진 중앙상점가 구경', desc:'현지인 시장 분위기의 상점가. 예약 15분 전 식당 앞 도착'},
     {t:'12:30', end:'1시간 30분~2시간', ico:'🍣', title:'니시진 하츠키 본점 — 코스', desc:'예약 완료 · 1인 ¥8,500 코스', pay:'card', tags:[['ok','예약 완료'],['acc','¥8,500/인']], tips:['부모님 못 드시는 재료는 미리 전달','음료 별도 — 1인 ¥500~1,000 추가 예상'], q:'西新 初喜 本店', key:true},
-    {mv:true, mode:'🚶 도보 / 🚕 택시', dur:'도보 10~15분 · 택시 5분', cost:'무료 / ¥700', from:'西新 初喜 本店', to:KAUHII, gm:'walking', alt:'카페는 사와라구 다카토리(高取) — 니시진 상점가 서쪽 끝 쪽이에요'},
+    {mv:true, mode:'🚶 도보', dur:'약 10~15분 (평지)', cost:'무료', from:'西新 初喜 本店', to:KAUHII, gm:'walking', alt:'카페는 사와라구 다카토리(高取) — 니시진 상점가 서쪽 끝 쪽이에요'},
     {t:'14:30', end:'약 1시간', ico:'☕', title:'카페 카우히이야', pay:'cash', desc:'식후 커피 & 디저트로 쉬어가기 · 早良区高取 28-2', q:KAUHII},
-    {mv:true, mode:'🚕 택시 (추천)', dur:'약 12분', cost:'¥1,500', from:KAUHII, to:'Ohori Park Fukuoka', gm:'driving', alt:'지하철: 후지사키역 또는 니시진역까지 도보 7~10분 → 오호리코엔 약 5분, 1인 ¥210'},
-    {t:'15:40', end:'약 1시간 30분', ico:'🌳', title:'오호리 공원', desc:'호수 한 바퀴(약 2km), 일본정원(¥250, 17시 폐원), 후쿠오카성터 전망대. 해 질 녘 호수가 예뻐요', tips:['호숫가 스타벅스에서 몸 녹이기','일본정원은 16:45 입장 마감 → 먼저 들르기'], q:'Ohori Park'},
-    {mv:true, mode:'🚇 지하철 / 🚕 택시', dur:'오호리코엔 → 기온 약 9분', cost:'1인 ¥260 / 택시 ¥1,800', from:'Ohori Park Fukuoka', to:'もつ鍋おおやま 本店', gm:'transit', alt:'호텔이 기온역 근처라 들러서 30분 쉬었다 가기 좋아요'},
+    {mv:true, mode:'🚶+🚇 도보 → 지하철', dur:'후지사키역까지 도보 약 7분 · 후지사키 → 오호리코엔 약 6분', cost:'1일권 사용', from:KAUHII, to:'Ohori Park Fukuoka', gm:'transit'},
+    {t:'15:40', end:'약 1시간 30분', ico:'🌳', title:'오호리 공원', desc:'호숫가 산책, 일본정원(¥250, 17시 폐원), 후쿠오카성터. 해 질 녘 호수가 예뻐요', tips:['호수 한 바퀴(2km)는 무리하지 말고 반 바퀴만 — 벤치 많아요','호숫가 스타벅스에서 몸 녹이기','일본정원은 16:45 입장 마감'], q:'Ohori Park'},
+    {mv:true, mode:'🚇 지하철', dur:'오호리코엔 → 기온 약 9분 · 호텔까지 도보 5분', cost:'1일권 사용', from:'Ohori Park Fukuoka', to:HOTEL, gm:'transit', alt:'호텔에서 잠깐 쉬었다가 저녁 먹으러 가요'},
     {t:'18:00', end:'약 1시간 30분', ico:'🍲', title:'모츠나베 오오야마 본점', pay:'card', desc:'된장(미소) 맛이 시그니처. 마무리 짬뽕면 필수. 1인 ¥3,000~4,000', tags:[['warn','예약 권장']], tips:['연말 주말 저녁이라 웨이팅 큼 — 온라인/전화 예약 강력 추천'], q:'もつ鍋おおやま 本店', key:true},
-    {t:'19:45', end:'선택', ico:'✨', title:'하카타역 주변 산책', desc:'하카타역 광장 야경, 아뮤플라자·마잉구(기념품, ~21시) — 명란·과자 미리 구경. 호텔에서 택시 5분 / 도보 15분', q:'JR Hakata City'},
+    {t:'19:45', end:'선택', ico:'✨', title:'하카타역 주변 산책', desc:'하카타역 광장 야경, 아뮤플라자·마잉구(기념품, ~21시). 지하철 기온 → 하카타 1정거장(1일권 사용) 또는 도보 15분', q:'JR Hakata City'},
   ]
 };
 const D3 = {
-  date:'12/28', dow:'월', title:'다자이후 & 텐진 쇼핑', summary:'다자이후 텐만구 → 점심 → 텐진 백화점 → 돈키호테',
-  notice:'<b>월요일 주의</b> — 규슈국립박물관 휴관. 다자이후는 연말 참배객이 늘기 시작하니 <b>오전 일찍</b> 가는 게 좋아요.',
+  date:'12/28', dow:'월', title:'다자이후 & 텐진 쇼핑', summary:'다자이후 텐만구 → なんから食堂 → 텐진 백화점 → 돈키호테',
+  notice:'<b>월요일 주의</b> — 규슈국립박물관 휴관. 다자이후는 연말 참배객이 늘기 시작하니 <b>오전 일찍</b> 가는 게 좋아요. 갈 때는 환승 없는 직행버스, 올 때는 텐진으로 바로 가는 전철이 편해요.',
   items:[
     {t:'07:45', ico:'🥐', title:'호텔 조식', desc:'8:40 출발'},
-    {mv:true, mode:'🚕 택시 → 🚌 직행버스 ‘타비토’', dur:'호텔 → 하카타 버스터미널 택시 5분, 버스 약 40분', cost:'택시 ¥800 + 1인 ¥700', from:'Hakata Bus Terminal', to:'Dazaifu Tenmangu', gm:'transit', alt:'대안: 기온역 → 텐진 지하철 4분 → 니시테츠 전철(후츠카이치 환승) 약 35분, 1인 ¥210+¥420'},
-    {t:'09:30', end:'약 2시간 30분', ico:'⛩️', title:'다자이후 텐만구', pay:'cash', desc:'학문의 신 참배, 소 동상 쓰다듬기, 참배길 우메가에모치(구운 찹쌀떡) · 구마 겐고 설계 스타벅스', tips:['우메가에모치 1개 ¥150 전후 — 갓 구운 걸로','오미쿠지(운세) & 가족 합격·건강 부적'], q:'Dazaifu Tenmangu', key:true},
-    {mv:true, mode:'🚃 니시테츠 전철', dur:'다자이후 → 텐진 약 35분 (후츠카이치 환승)', cost:'1인 ¥420', from:'Dazaifu Station', to:'Nishitetsu Fukuoka Tenjin Station', gm:'transit', alt:'참배길 간식으로 허기만 달래고 12시 전후 출발'},
+    {mv:true, mode:'🚇 지하철 → 🚌 직행버스 ‘타비토’', dur:'기온 → 하카타 1정거장(2분) · 하카타 버스터미널 → 다자이후 약 40분', cost:'1인 ¥210 + ¥700', from:'Hakata Bus Terminal', to:'Dazaifu Tenmangu', gm:'transit', alt:'버스터미널은 하카타역과 연결 · 환승 없이 앉아서 가요. 대안: 기온 → 텐진 지하철 → 니시테츠 전철(후츠카이치 환승) 약 45분, 1인 ¥210+¥420'},
+    {t:'09:30', end:'약 2시간 30분', ico:'⛩️', title:'다자이후 텐만구', pay:'cash', desc:'학문의 신 참배, 소 동상 쓰다듬기, 참배길 우메가에모치(구운 찹쌀떡) · 구마 겐고 설계 스타벅스', tips:['우메가에모치 1개 ¥150 전후 — 갓 구운 걸로','오미쿠지(운세) & 가족 건강 부적'], q:'Dazaifu Tenmangu', key:true},
+    {mv:true, mode:'🚃 니시테츠 전철', dur:'다자이후 → 텐진 약 35분 (후츠카이치 환승)', cost:'1인 ¥420', from:'Dazaifu Station', to:'Nishitetsu Fukuoka Tenjin Station', gm:'transit', alt:'후츠카이치역 환승은 같은 승강장 건너편이라 쉬워요'},
     {mv:true, mode:'🚶 도보', dur:'니시테츠 후쿠오카(텐진)역 → 다이묘 약 10분', cost:'무료', from:'Nishitetsu Fukuoka Tenjin Station', to:NANKARA, gm:'walking'},
-    {t:'12:50', end:'약 1시간', ico:'🍱', title:'一丁目 なんから食堂 점심', pay:'cash', desc:'다이묘 1초메 — 텐진 바로 옆이라 다자이후에서 돌아와 먹기 딱 좋은 위치. 백화점까지 도보 5~10분', tips:['12/28(월) 영업 여부·점심시간 확인','웨이팅 길면 이와타야 7F·다이마루 식당가로 변경'], tags:[['warn','휴무 확인']], q:NANKARA, key:true},
+    {t:'12:50', end:'약 1시간', ico:'🍱', title:'一丁目 なんから食堂 점심', pay:'cash', desc:'다이묘 1초메 — 텐진 바로 옆이라 다자이후에서 돌아와 먹기 딱 좋은 위치', tips:['12/28(월) 영업 여부·점심시간 확인','웨이팅 길면 이와타야 7F·다이마루 식당가로 변경'], tags:[['warn','휴무 확인']], q:NANKARA, key:true},
     {mv:true, mode:'🚶 도보', dur:'약 7분', cost:'무료', from:NANKARA, to:'Iwataya Department Store Tenjin', gm:'walking'},
-    {t:'14:00', end:'약 4시간', ico:'🛍️', title:'텐진 쇼핑', pay:'card', desc:'이와타야 본점 → 다이마루 → 텐진 지하상가 → 솔라리아 (시간 남으면 다이묘 골목 편집숍)', tips:['백화점은 여권 제시 시 면세(¥5,000 이상)','연말 세일·후쿠부쿠로 준비 시즌이라 혼잡 — 집합 장소 정해두기'], q:'Iwataya Department Store Tenjin', key:true},
+    {t:'14:00', end:'약 4시간', ico:'🛍️', title:'텐진 쇼핑', pay:'card', desc:'이와타야 본점 → 다이마루 → 텐진 지하상가 → 솔라리아', tips:['백화점은 여권 제시 시 면세(¥5,000 이상)','연말이라 혼잡 — 집합 장소 정해두기'], q:'Iwataya Department Store Tenjin', key:true},
     {t:'18:00', end:'약 1시간 30분', ico:'🍽️', title:'저녁 — 백화점 식당가', pay:'card', desc:'이와타야/다이마루 레스토랑 층. 1인 ¥2,500~4,000', tips:['식당가 마지막 주문 20:30~21:00 전후'], q:'Daimaru Fukuoka Tenjin'},
     {mv:true, mode:'🚶 도보', dur:'5~10분', cost:'무료', from:'Daimaru Fukuoka Tenjin', to:'Don Quijote Fukuoka Tenjin', gm:'walking'},
     {t:'19:40', ico:'🏬', title:'돈키호테 텐진본점', pay:'card', desc:'과자·약·화장품 대량 구매 & 면세. 밤늦게까지 영업', q:'Don Quijote Fukuoka Tenjin'},
-    {mv:true, mode:'🚕 택시 / 🚇 지하철', dur:'택시 약 8분 · 지하철 텐진→기온 4분', cost:'¥1,200 / 1인 ¥210', from:'Don Quijote Fukuoka Tenjin', to:HOTEL, gm:'transit', alt:'짐이 많으면 택시가 편해요'},
+    {mv:true, mode:'🚇 지하철', dur:'텐진 → 기온 약 4분 · 호텔까지 도보 5분', cost:'1인 ¥210', from:'Tenjin Station Fukuoka', to:HOTEL, gm:'transit'},
     {t:'21:00', ico:'🏨', title:'호텔 복귀 · 짐 싸기', desc:'다음 날 체크아웃 대비 쇼핑 짐 정리'},
   ]
 };
 const D4 = {
   date:'12/29', dow:'화', title:'시장 & 정원 점심 → 귀국', summary:'체크아웃 → 야나기바시 시장 → 高宮庭園茶寮 → 공항',
-  notice:'<b>高宮庭園茶寮는 12/29 영업해요.</b> 타베로그에서 예약할 수 있으니 갈 거라면 <b>미리 예약</b>하세요 (11:30 전후, 인원수). 야나기바시 시장은 연말 장보기 대목이라 매우 붐벼요.',
+  notice:'<b>高宮庭園茶寮는 12/29 영업 — 타베로그에서 미리 예약</b>하세요. ⚠️ 대중교통으로는 시장 → 다카미야 → 호텔 복귀까지 이동만 약 1시간 10분이라, 점심을 <b>13:00에 마쳐야</b> 해요. 여유롭게 하려면 ‘느긋한 추천’ 플랜처럼 시장을 3일차로 옮기세요.',
   items:[
     {t:'08:00', ico:'🥐', title:'조식 & 체크아웃', desc:'9:30 체크아웃 → 프런트에 짐 맡기기', tips:['짐 보관표 사진 찍어두기']},
-    {mv:true, mode:'🚕 택시', dur:'약 8~10분', cost:'¥1,100', from:HOTEL, to:'Yanagibashi Rengo Market', gm:'driving', alt:'도보 약 25분 (나카강을 따라 남쪽으로)'},
-    {t:'09:50', end:'약 1시간 15분', ico:'🐟', title:'야나기바시 연합시장', pay:'cash', desc:'‘하카타의 부엌’. 어묵 튀김·명란·해산물 간식으로 가볍게 (점심 배는 남겨두기)', tips:['현금 필수 · 1인 ¥1,000~1,500','오전 일찍일수록 덜 붐벼요'], q:'Yanagibashi Rengo Market', key:true},
-    {mv:true, mode:'🚕 택시 (추천)', dur:'약 15분', cost:'¥1,800~2,200', from:'Yanagibashi Rengo Market', to:'高宮庭園茶寮', gm:'driving', alt:'버스 약 25분 + 도보, 3인 ¥630 — 부모님 동반이라 문 앞까지 가는 택시 추천'},
-    {t:'11:30', end:'약 1시간 45분', ico:'🍵', title:'高宮庭園茶寮 점심', pay:'card', desc:'일본 정원을 바라보며 먹는 점심. 1인 ¥3,000~5,000 예상', tags:[['acc','타베로그 예약 필수']], tips:['타베로그에서 12/29 11:30 전후로 미리 예약','13:15에는 일어나야 일정이 여유로워요'], q:'高宮庭園茶寮', key:true},
-    {mv:true, mode:'🚕 택시', dur:'약 20분', cost:'¥2,500', from:'高宮庭園茶寮', to:HOTEL, gm:'driving'},
-    {t:'14:00', ico:'🧳', title:'9호텔 — 짐 찾기', desc:'14:30 택시 출발 (호텔에 택시 호출 부탁)'},
+    {mv:true, mode:'🚌 버스 / 🚶 도보', dur:'버스 약 15분 · 도보 약 25분 (나카강을 따라 평지)', cost:'버스 1인 ¥150~210', from:HOTEL, to:'Yanagibashi Rengo Market', gm:'transit', alt:'구글맵 길찾기에서 ‘柳橋’ 정류장 방면 버스 확인'},
+    {t:'10:00', end:'약 50분', ico:'🐟', title:'야나기바시 연합시장', pay:'cash', desc:'‘하카타의 부엌’. 어묵 튀김·명란·해산물 간식으로 가볍게 (점심 배는 남겨두기)', tips:['현금 필수 · 1인 ¥1,000~1,500','연말 장보기 대목이라 매우 붐벼요'], q:'Yanagibashi Rengo Market', key:true},
+    {mv:true, mode:'🚌 버스', dur:'약 25분 + 도보', cost:'1인 ¥210~260', from:'Yanagibashi Rengo Market', to:'高宮庭園茶寮', gm:'transit', alt:'11:00 전에는 출발해야 예약 시간에 맞아요'},
+    {t:'11:30', end:'약 1시간 30분', ico:'🍵', title:'高宮庭園茶寮 점심', pay:'card', desc:'일본 정원을 바라보며 먹는 점심. 1인 ¥3,000~5,000 예상', tags:[['acc','타베로그 예약 필수']], tips:['타베로그에서 12/29 11:30으로 미리 예약','13:00에는 일어나야 14:30 택시에 맞출 수 있어요'], q:'高宮庭園茶寮', key:true},
+    {mv:true, mode:'🚃+🚇 니시테츠 → 지하철', dur:'다카미야역 → 텐진 약 7분 · 텐진 → 기온 4분 · 도보 5분 (총 약 40분)', cost:'1인 ¥210 + ¥210', from:'高宮庭園茶寮', to:HOTEL, gm:'transit'},
+    {t:'14:00', ico:'🧳', title:'9호텔 — 짐 찾기', desc:'14:30 택시 출발 (프런트에 택시 호출 부탁)'},
     {mv:true, mode:'🚕 택시', dur:'20~30분', cost:'¥2,500~3,500', from:HOTEL, to:'Fukuoka Airport International Terminal', gm:'driving', alt:'연말 도로 정체 감안해 30분 잡기'},
     {t:'15:00', end:'출발 3시간 전', ico:'🛂', title:'후쿠오카공항 국제선', desc:'체크인·출국심사 후 면세점 (명란·과자 기념품)', tips:['연말 출국 인파 → 3시간 전 도착은 아주 좋은 선택이에요'], q:'Fukuoka Airport International Terminal'},
     {t:'18:00', ico:'✈️', title:'후쿠오카 출발 → 청주', desc:'19:20 청주공항 도착 예정', key:true},
   ]
 };
 
-/* 대안 일정 */
-const D1_B = {...D1, title:'도착 & 일찍 먹고 야타이 산책', summary:'체크인 → 이치란 먼저 → 나카스 강변·야타이',
+/* ---------- PLAN R: 느긋한 추천 (부모님 동반 · 대중교통) ---------- */
+const D2_R = {...D2, title:'오호리 산책 → 하츠키 → 호텔 휴식', summary:'늦은 출발 → 오호리 공원 → 하츠키 코스 → 카페 → 호텔 쉬기 → 모츠나베',
+  notice:'<b>느긋하게 바꾼 점</b> — 모모치 해변을 빼고 9:30에 출발해요. 오후에 <b>호텔에서 1시간 반 쉬고</b> 저녁을 먹어요. 지하철 1일권(¥640) 하나로 모두 이동해요. 기운이 남으면 카페 뒤에 모모치 해변 노을(17:20경)을 추가해도 좋아요 (버스 약 15분).',
   items:[
-    ...D1.items.slice(0,5),
-    {mv:true, mode:'🚶 도보', dur:'약 10분', cost:'무료', from:HOTEL, to:'Ichiran Ramen Main Store Nakasu', gm:'walking'},
-    {t:'19:10', end:'웨이팅 30~60분', ico:'🍜', title:'이치란 라멘 총본점 (나카스)', desc:'배고픈 가족을 위해 저녁 먼저! 대기 중 순번표 받고 근처 구경 가능', q:'Ichiran Ramen Main Store Nakasu', key:true},
-    {t:'20:30', end:'약 1시간', ico:'🌃', title:'나카스 강변 & 야타이 2차', desc:'배부르게 먹고 강변 산책. 야타이에서 교자·오뎅 한 접시 나눠 먹기(1인 ¥1,000 내외)', pay:'cash', tips:['추우면 따뜻한 포장마차 안에서 쉬어가기 — 현금만 받는 곳이 많아요'], q:'Nakasu Yatai Fukuoka'},
-    {mv:true, mode:'🚶 도보', dur:'약 10분', cost:'무료', from:'Nakasu Yatai Fukuoka', to:HOTEL, gm:'walking'},
-    {t:'21:45', ico:'🏪', title:'호텔 복귀 · 편의점', desc:'휴식'},
+    {t:'08:30', ico:'🥐', title:'느긋한 호텔 조식', desc:'9:30 출발'},
+    {mv:true, mode:'🚇 지하철 공항선', dur:'기온 → 오호리코엔 약 9분', cost:'1일권 ¥640', from:HOTEL, to:'Ohori Park Fukuoka', gm:'transit', alt:'기온역 발권기에서 1일권 구매'},
+    {t:'10:00', end:'약 1시간 40분', ico:'🌳', title:'오호리 공원 & 일본정원', desc:'한적한 아침 호숫가 산책, 일본정원(¥250, 9시 개원)에서 연못 정원 감상', tips:['호수 반 바퀴만 걸어도 충분 — 벤치가 많아요','호숫가 스타벅스에서 따뜻한 음료'], pay:'cash', q:'Ohori Park', key:true},
+    {mv:true, mode:'🚇 지하철', dur:'오호리코엔 → 니시진 약 4분', cost:'1일권 사용', from:'Ohori Park Fukuoka', to:'Nishijin Station Fukuoka', gm:'transit'},
+    {t:'12:00', ico:'🏮', title:'니시진 상점가 잠깐 구경', desc:'예약 15분 전 식당 앞 도착'},
+    {t:'12:30', end:'1시간 30분~2시간', ico:'🍣', title:'니시진 하츠키 본점 — 코스', desc:'예약 완료 · 1인 ¥8,500 코스', pay:'card', tags:[['ok','예약 완료'],['acc','¥8,500/인']], tips:['부모님 못 드시는 재료는 미리 전달'], q:'西新 初喜 本店', key:true},
+    {mv:true, mode:'🚶 도보', dur:'약 10~15분 (평지)', cost:'무료', from:'西新 初喜 本店', to:KAUHII, gm:'walking'},
+    {t:'14:30', end:'약 1시간', ico:'☕', title:'카페 카우히이야', pay:'cash', desc:'식후 커피 & 디저트 · 早良区高取 28-2', q:KAUHII},
+    {mv:true, mode:'🚶+🚇 도보 → 지하철', dur:'후지사키역 도보 약 7분 · 후지사키 → 기온 약 16분', cost:'1일권 사용', from:KAUHII, to:HOTEL, gm:'transit'},
+    {t:'16:15', end:'약 1시간 30분', ico:'🛏️', title:'호텔에서 휴식', desc:'부모님 낮잠·발 쉬기. 저녁 먹으러 가까운 오오야마로'},
+    {t:'18:00', end:'약 1시간 30분', ico:'🍲', title:'모츠나베 오오야마 본점', pay:'card', desc:'호텔에서 가까워요. 1인 ¥3,000~4,000', tags:[['warn','예약 권장']], q:'もつ鍋おおやま 本店', key:true},
   ]};
-const D2_B = {...D2, title:'오호리 아침 → 모모치 노을', summary:'오호리 공원(아침) → 하츠키 코스 → 카페 → 모모치 노을·타워 야경 → 모츠나베',
-  notice:'<b>왜 바꿨나요?</b> — 오호리 공원은 오전이 한적하고, 모모치 해변은 <b>일몰(17:20경)</b>이 하이라이트. 해 진 뒤 후쿠오카 타워(전망대 ¥800) 야경까지 이어집니다.',
+const D3_R = {...D3, title:'다자이후 → 점심 → 시장 → 텐진', summary:'직행버스로 다자이후 → なんから食堂 → 야나기바시 시장(선택) → 백화점 2시간 → 이른 저녁',
+  notice:'<b>느긋하게 바꾼 점</b> — 4일차에 있던 <b>야나기바시 시장을 오늘 오후로</b> 옮겼어요(다이묘에서 가까워요). 쇼핑은 백화점 두 곳만 2시간, 저녁은 17:30으로 당겨 붐비기 전에 먹어요. 돈키호테는 호텔 근처 <b>나카스점</b>에 원하면 들러요.',
   items:[
-    {t:'08:00', ico:'🥐', title:'호텔 조식', desc:'9:30 출발'},
-    {mv:true, mode:'🚇 지하철', dur:'기온 → 오호리코엔 약 9분', cost:'1인 ¥260', from:HOTEL, to:'Ohori Park Fukuoka', gm:'transit'},
-    {t:'09:50', end:'약 2시간', ico:'🌳', title:'오호리 공원 & 일본정원', desc:'아침 호수 산책, 일본정원(9시 개원), 후쿠오카성터 천수대 전망', q:'Ohori Park', key:true},
-    {mv:true, mode:'🚕 택시', dur:'약 10분', cost:'¥1,200', from:'Ohori Park Fukuoka', to:'西新 初喜 本店', gm:'driving'},
-    {t:'12:30', end:'1시간 30분~2시간', ico:'🍣', title:'니시진 하츠키 본점 — 코스', desc:'예약 완료 · 1인 ¥8,500 코스', pay:'card', tags:[['ok','예약 완료'],['acc','¥8,500/인']], q:'西新 初喜 本店', key:true},
-    {mv:true, mode:'🚶 도보 / 🚕 택시', dur:'도보 10~15분 · 택시 5분', cost:'무료 / ¥700', from:'西新 初喜 本店', to:KAUHII, gm:'walking'},
-    {t:'14:30', end:'약 1시간', ico:'☕', title:'카페 카우히이야', pay:'cash', desc:'식후 커피 · 디저트 · 早良区高取 28-2', q:KAUHII},
-    {t:'15:40', ico:'🏮', title:'니시진 상점가 산책', desc:'카페에서 니시진역 방향으로 상점가 구경'},
-    {mv:true, mode:'🚕 택시 / 🚶 도보', dur:'택시 7분 · 도보 20분', cost:'¥900', from:'Nishijin Station Fukuoka', to:'Seaside Momochi Beach Park', gm:'walking'},
-    {t:'16:30', end:'일몰 17:20경', ico:'🌅', title:'모모치 해변 노을', desc:'마리존 데크에서 바다 위로 지는 해 감상', q:'Seaside Momochi Beach Park', key:true},
-    {t:'17:40', end:'약 50분', ico:'🗼', title:'후쿠오카 타워 전망대 (선택)', desc:'해 진 직후 매직아워 야경. 성인 ¥800 · 외국인 여권 할인 있음', tags:[['navy','선택']], q:'Fukuoka Tower'},
-    {mv:true, mode:'🚕 택시', dur:'약 20분', cost:'¥2,800', from:'Fukuoka Tower', to:'もつ鍋おおやま 本店', gm:'driving'},
-    {t:'19:00', end:'약 1시간 30분', ico:'🍲', title:'모츠나베 오오야마 본점', pay:'card', desc:'19시로 예약 · 1인 ¥3,000~4,000', tags:[['warn','예약 권장']], q:'もつ鍋おおやま 本店', key:true},
+    {t:'08:00', ico:'🥐', title:'호텔 조식', desc:'9:00 출발'},
+    {mv:true, mode:'🚇 지하철 → 🚌 직행버스 ‘타비토’', dur:'기온 → 하카타 2분 · 버스터미널 → 다자이후 약 40분', cost:'1인 ¥210 + ¥700', from:'Hakata Bus Terminal', to:'Dazaifu Tenmangu', gm:'transit', alt:'환승 없이 앉아서 가는 버스라 부모님께 편해요'},
+    {t:'10:00', end:'약 2시간', ico:'⛩️', title:'다자이후 텐만구', pay:'cash', desc:'참배, 우메가에모치, 스타벅스에서 쉬어가기', tips:['참배길은 완만한 오르막 — 천천히'], q:'Dazaifu Tenmangu', key:true},
+    {mv:true, mode:'🚃 니시테츠 전철', dur:'다자이후 → 텐진 약 35분 (후츠카이치 환승)', cost:'1인 ¥420', from:'Dazaifu Station', to:'Nishitetsu Fukuoka Tenjin Station', gm:'transit'},
+    {mv:true, mode:'🚶 도보', dur:'약 10분', cost:'무료', from:'Nishitetsu Fukuoka Tenjin Station', to:NANKARA, gm:'walking'},
+    {t:'12:50', end:'약 1시간', ico:'🍱', title:'一丁目 なんから食堂 점심', pay:'cash', desc:'다이묘 1초메', tags:[['warn','휴무 확인']], q:NANKARA, key:true},
+    {mv:true, mode:'🚌 버스 / 🚶 도보', dur:'버스 약 10분 · 도보 약 15분', cost:'버스 1인 ¥150~210', from:NANKARA, to:'Yanagibashi Rengo Market', gm:'transit'},
+    {t:'14:15', end:'약 45분', ico:'🐟', title:'야나기바시 연합시장 (선택)', pay:'cash', desc:'연말 장보기로 북적이는 ‘하카타의 부엌’. 어묵·명란 간식', tips:['오후엔 일찍 닫는 가게도 있어요 — 힘들면 건너뛰고 바로 백화점으로'], tags:[['navy','선택']], q:'Yanagibashi Rengo Market'},
+    {mv:true, mode:'🚌 버스 / 🚶 도보', dur:'버스 약 10분 · 도보 약 15분', cost:'버스 1인 ¥150~210', from:'Yanagibashi Rengo Market', to:'Iwataya Department Store Tenjin', gm:'transit'},
+    {t:'15:20', end:'약 2시간', ico:'🛍️', title:'텐진 쇼핑 (이와타야·다이마루)', pay:'card', desc:'두 백화점만 집중. 중간에 백화점 카페에서 쉬기', tips:['여권 제시 시 면세(¥5,000 이상)','집합 장소·시간 정해두기'], q:'Iwataya Department Store Tenjin', key:true},
+    {t:'17:30', end:'약 1시간 15분', ico:'🍽️', title:'이른 저녁 — 백화점 식당가', pay:'card', desc:'붐비기 전에 여유롭게', q:'Daimaru Fukuoka Tenjin'},
+    {mv:true, mode:'🚇 지하철', dur:'텐진 → 기온 약 4분 · 도보 5분', cost:'1인 ¥210', from:'Tenjin Station Fukuoka', to:HOTEL, gm:'transit'},
+    {t:'19:15', ico:'🏨', title:'호텔 복귀', desc:'쉬다가 원하면 돈키호테 나카스점(호텔 도보권, 심야 영업)', q:'ドン・キホーテ 中洲店'},
   ]};
-const D3_C = {...D3, title:'다자이후 + 야나가와 코타츠 뱃놀이', summary:'다자이후(아침) → 야나가와 장어덮밥 → 코타츠 뱃놀이 → 텐진 저녁·돈키호테',
-  notice:'<b>겨울 한정</b> — 야나가와 뱃놀이는 12~2월에 배 안에 <b>코타츠(이불 난로)</b>를 놓아줘서 따뜻하게 탈 수 있어요. 니시테츠 ‘다자이후·야나가와 관광 티켓’(약 ¥3,000대)으로 전철+뱃놀이를 묶으면 경제적.',
+const D4_R = {...D4, title:'늦잠 · 쿠시다 신사 → 정원 점심 → 귀국', summary:'느긋한 아침 → 쿠시다 신사 → 高宮庭園茶寮 → 공항',
+  notice:'<b>느긋하게 바꾼 점</b> — 시장을 3일차로 옮겨 아침이 여유로워요. 호텔 바로 앞 쿠시다 신사만 들르고, 점심 후 <b>14:00 전에 여유 있게</b> 호텔로 돌아와요. 高宮庭園茶寮는 타베로그 예약 필수.',
   items:[
-    {t:'07:30', ico:'🥐', title:'호텔 조식', desc:'8:20 출발'},
-    {mv:true, mode:'🚇+🚃 지하철 → 니시테츠', dur:'기온 → 텐진 → 다자이후 약 45분', cost:'지하철 ¥210 + 관광 티켓', from:HOTEL, to:'Dazaifu Station', gm:'transit', alt:'텐진 니시테츠 역 창구에서 관광 티켓 구매'},
-    {t:'09:15', end:'약 2시간', ico:'⛩️', title:'다자이후 텐만구', pay:'cash', desc:'참배 · 우메가에모치 · 스타벅스', q:'Dazaifu Tenmangu', key:true},
-    {mv:true, mode:'🚃 니시테츠', dur:'다자이후 → 야나가와 약 50분 (후츠카이치 환승)', cost:'관광 티켓 사용', from:'Dazaifu Station', to:'Nishitetsu Yanagawa Station', gm:'transit'},
-    {t:'12:30', end:'약 1시간', ico:'🍱', title:'야나가와 명물 장어 세이로무시', pay:'card', desc:'찜통에 쪄낸 장어덮밥. 1인 ¥4,000~5,000', tips:['인기 노포는 웨이팅 — 뱃놀이 하선장 근처 가게도 많아요'], q:'柳川 うなぎ せいろ蒸し', key:true},
-    {t:'13:45', end:'약 70분', ico:'🛶', title:'코타츠 뱃놀이 (가와쿠다리)', desc:'뱃사공 노래 들으며 수로 유람. 코타츠 덕분에 따뜻해요', tags:[['acc','겨울 한정']], q:'柳川川下り', key:true},
-    {mv:true, mode:'🚃 니시테츠 특급', dur:'야나가와 → 텐진 약 50분', cost:'관광 티켓 사용', from:'Nishitetsu Yanagawa Station', to:'Nishitetsu Fukuoka Tenjin Station', gm:'transit'},
-    {t:'16:30', end:'약 1시간 30분', ico:'🛍️', title:'텐진 쇼핑 (집중형)', pay:'card', desc:'이와타야 본점 한 곳 + 지하상가', q:'Iwataya Department Store Tenjin'},
-    {t:'18:00', ico:'🍽️', title:'저녁 — 백화점 식당가', pay:'card', desc:'이와타야/다이마루 레스토랑 층', q:'Daimaru Fukuoka Tenjin'},
-    {t:'19:30', ico:'🏬', title:'돈키호테 텐진본점', pay:'card', desc:'기념품 대량 구매 & 면세', q:'Don Quijote Fukuoka Tenjin'},
-    {mv:true, mode:'🚕 택시', dur:'약 8분', cost:'¥1,200', from:'Don Quijote Fukuoka Tenjin', to:HOTEL, gm:'driving'},
-  ]};
-const D4_B = {...D4, title:'하카타 구시가지 여유 산책 → 귀국', summary:'체크아웃 → 야나기바시 시장 → 쿠시다 신사·가와바타 상점가 → 하카타역 점심 → 공항',
-  notice:'<b>高宮庭園茶寮 예약이 마감됐을 때</b>의 대안. 쿠시다 신사·가와바타 상점가가 호텔(레이센마치)에서 도보 5분이라 이동 시간이 30분 이상 줄어요.',
-  items:[
-    {t:'08:00', ico:'🥐', title:'조식 & 체크아웃', desc:'9:30 짐 맡기기'},
-    {mv:true, mode:'🚕 택시', dur:'약 8~10분', cost:'¥1,100', from:HOTEL, to:'Yanagibashi Rengo Market', gm:'driving'},
-    {t:'09:50', end:'약 1시간', ico:'🐟', title:'야나기바시 연합시장', pay:'cash', desc:'어묵·명란 간식', q:'Yanagibashi Rengo Market', key:true},
-    {mv:true, mode:'🚕 택시', dur:'약 10분', cost:'¥1,200', from:'Yanagibashi Rengo Market', to:'Kushida Shrine Fukuoka', gm:'driving'},
-    {t:'11:10', end:'약 1시간', ico:'⛩️', title:'쿠시다 신사 & 가와바타 상점가', desc:'하카타 총진수 신사, 기온 야마카사 장식 가마 전시. 상점가에서 ‘가와바타 젠자이’. 호텔에서 도보 5분 거리라 짐 찾기도 편해요', q:'Kushida Shrine'},
-    {t:'12:20', end:'약 1시간', ico:'🍣', title:'점심 — 하카타역 식당가', desc:'KITTE·아뮤플라자 식당가 (스시·텐동·명란 정식 등). 1인 ¥2,000~3,500', q:'JR Hakata City Kooten'},
-    {t:'13:30', ico:'🎁', title:'마잉구 기념품 쇼핑', desc:'하카타역 1층 — 명란·도리몬·과자 최종 구매', q:'Ming Hakata Station'},
+    {t:'08:30', ico:'🥐', title:'느긋한 조식 & 짐 정리', desc:'10:00 체크아웃 → 프런트에 짐 맡기기'},
+    {mv:true, mode:'🚶 도보', dur:'약 5분', cost:'무료', from:HOTEL, to:'Kushida Shrine', gm:'walking'},
+    {t:'10:10', end:'약 40분', ico:'⛩️', title:'쿠시다 신사 & 가와바타 상점가', desc:'하카타 총진수 신사, 기온 야마카사 장식 가마. 연말 새해 준비 분위기', q:'Kushida Shrine'},
+    {mv:true, mode:'🚇+🚃 지하철 → 니시테츠', dur:'기온 → 텐진 4분 · 니시테츠 텐진 → 다카미야 약 7분 · 도보 (총 약 35분)', cost:'1인 ¥210 + ¥210', from:'Kushida Shrine', to:'高宮庭園茶寮', gm:'transit', alt:'11:00 전후 출발'},
+    {t:'11:30', end:'약 1시간 45분', ico:'🍵', title:'高宮庭園茶寮 점심', pay:'card', desc:'일본 정원을 바라보며 여유로운 점심', tags:[['acc','타베로그 예약 필수']], q:'高宮庭園茶寮', key:true},
+    {mv:true, mode:'🚃+🚇 니시테츠 → 지하철', dur:'총 약 40분', cost:'1인 ¥210 + ¥210', from:'高宮庭園茶寮', to:HOTEL, gm:'transit'},
     {t:'14:00', ico:'🧳', title:'9호텔 — 짐 찾기', desc:'14:30 택시 출발'},
     {mv:true, mode:'🚕 택시', dur:'20~30분', cost:'¥2,500~3,500', from:HOTEL, to:'Fukuoka Airport International Terminal', gm:'driving'},
     {t:'15:00', ico:'🛂', title:'후쿠오카공항 국제선', desc:'체크인·출국심사·면세점', q:'Fukuoka Airport International Terminal'},
     {t:'18:00', ico:'✈️', title:'후쿠오카 출발 → 청주', desc:'19:20 도착', key:true},
   ]};
 
+/* ---------- 기타 대안 ---------- */
+const D1_B = {...D1, title:'도착 & 일찍 먹고 야타이 산책', summary:'체크인 → 이치란 먼저 → 나카스 강변·야타이',
+  items:[
+    ...D1.items.slice(0,5),
+    {mv:true, mode:'🚶 도보', dur:'약 10분', cost:'무료', from:HOTEL, to:'Ichiran Ramen Main Store Nakasu', gm:'walking'},
+    {t:'19:10', end:'웨이팅 30~60분', ico:'🍜', title:'이치란 라멘 총본점 (나카스)', desc:'배고프니 저녁 먼저! 대기 중 순번표 받고 근처 구경 가능', pay:'cash', q:'Ichiran Ramen Main Store Nakasu', key:true},
+    {t:'20:30', end:'약 1시간', ico:'🌃', title:'나카스 강변 & 야타이 2차', desc:'배부르게 먹고 강변 산책. 야타이에서 교자·오뎅 한 접시 나눠 먹기(1인 ¥1,000 내외)', pay:'cash', tips:['추우면 따뜻한 포장마차 안에서 쉬어가기 — 현금만 받는 곳이 많아요'], q:'Nakasu Yatai Fukuoka'},
+    {mv:true, mode:'🚶 도보', dur:'약 10분', cost:'무료', from:'Nakasu Yatai Fukuoka', to:HOTEL, gm:'walking'},
+    {t:'21:45', ico:'🏪', title:'호텔 복귀 · 편의점', desc:'휴식'},
+  ]};
+const D2_B = {...D2, title:'오호리 아침 → 모모치 노을', summary:'오호리 공원(아침) → 하츠키 코스 → 카페 → 모모치 노을·타워 야경 → 모츠나베',
+  notice:'<b>왜 바꿨나요?</b> — 오호리 공원은 오전이 한적하고, 모모치 해변은 <b>일몰(17:20경)</b>이 하이라이트. 해 진 뒤 후쿠오카 타워(전망대 ¥800) 야경까지. 돌아오는 길이 버스+지하철 약 40분이라 저녁은 19:30.',
+  items:[
+    {t:'08:00', ico:'🥐', title:'호텔 조식', desc:'9:30 출발'},
+    {mv:true, mode:'🚇 지하철', dur:'기온 → 오호리코엔 약 9분', cost:'1일권 ¥640', from:HOTEL, to:'Ohori Park Fukuoka', gm:'transit'},
+    {t:'09:50', end:'약 2시간', ico:'🌳', title:'오호리 공원 & 일본정원', desc:'아침 호수 산책, 일본정원(9시 개원), 후쿠오카성터', q:'Ohori Park', key:true},
+    {mv:true, mode:'🚇 지하철', dur:'오호리코엔 → 니시진 약 4분', cost:'1일권 사용', from:'Ohori Park Fukuoka', to:'西新 初喜 本店', gm:'transit'},
+    {t:'12:30', end:'1시간 30분~2시간', ico:'🍣', title:'니시진 하츠키 본점 — 코스', desc:'예약 완료 · 1인 ¥8,500 코스', pay:'card', tags:[['ok','예약 완료'],['acc','¥8,500/인']], q:'西新 初喜 本店', key:true},
+    {mv:true, mode:'🚶 도보', dur:'약 10~15분', cost:'무료', from:'西新 初喜 本店', to:KAUHII, gm:'walking'},
+    {t:'14:30', end:'약 1시간', ico:'☕', title:'카페 카우히이야', pay:'cash', desc:'식후 커피 · 디저트 · 早良区高取 28-2', q:KAUHII},
+    {mv:true, mode:'🚌 버스', dur:'니시진 → 후쿠오카 타워 방면 약 15분', cost:'1인 ¥150~210', from:KAUHII, to:'Seaside Momochi Beach Park', gm:'transit'},
+    {t:'16:30', end:'일몰 17:20경', ico:'🌅', title:'모모치 해변 노을', desc:'마리존 데크에서 바다 위로 지는 해 감상', q:'Seaside Momochi Beach Park', key:true},
+    {t:'17:40', end:'약 50분', ico:'🗼', title:'후쿠오카 타워 전망대 (선택)', desc:'해 진 직후 야경. 성인 ¥800 · 외국인 여권 할인 있음', tags:[['navy','선택']], q:'Fukuoka Tower'},
+    {mv:true, mode:'🚌+🚇 버스 → 지하철', dur:'타워 → 니시진역 버스 약 10분 · 니시진 → 기온 12분 (총 약 40분)', cost:'버스 ¥150~210 + 1일권', from:'Fukuoka Tower', to:'もつ鍋おおやま 本店', gm:'transit'},
+    {t:'19:30', end:'약 1시간 30분', ico:'🍲', title:'모츠나베 오오야마 본점', pay:'card', desc:'19:30으로 예약 · 1인 ¥3,000~4,000', tags:[['warn','예약 권장']], q:'もつ鍋おおやま 本店', key:true},
+  ]};
+const D3_C = {...D3, title:'다자이후 + 야나가와 코타츠 뱃놀이', summary:'다자이후(아침) → 야나가와 장어덮밥 → 코타츠 뱃놀이 → 텐진 저녁',
+  notice:'<b>겨울 한정</b> — 야나가와 뱃놀이는 12~2월에 배 안에 <b>코타츠(이불 난로)</b>를 놓아줘요. 니시테츠 ‘다자이후·야나가와 관광 티켓’(약 ¥3,000대)으로 전철+뱃놀이를 묶으면 경제적. ⚠️ 전철 이동이 2시간 넘어 부모님께는 긴 하루예요.',
+  items:[
+    {t:'07:30', ico:'🥐', title:'호텔 조식', desc:'8:20 출발'},
+    {mv:true, mode:'🚇+🚃 지하철 → 니시테츠', dur:'기온 → 텐진 → 다자이후 약 45분', cost:'지하철 ¥210 + 관광 티켓', from:HOTEL, to:'Dazaifu Station', gm:'transit', alt:'텐진 니시테츠 역 창구에서 관광 티켓 구매'},
+    {t:'09:15', end:'약 2시간', ico:'⛩️', title:'다자이후 텐만구', pay:'cash', desc:'참배 · 우메가에모치 · 스타벅스', q:'Dazaifu Tenmangu', key:true},
+    {mv:true, mode:'🚃 니시테츠', dur:'다자이후 → 야나가와 약 50분 (후츠카이치 환승)', cost:'관광 티켓 사용', from:'Dazaifu Station', to:'Nishitetsu Yanagawa Station', gm:'transit'},
+    {t:'12:30', end:'약 1시간', ico:'🍱', title:'야나가와 명물 장어 세이로무시', pay:'card', desc:'찜통에 쪄낸 장어덮밥. 1인 ¥4,000~5,000', q:'柳川 うなぎ せいろ蒸し', key:true},
+    {t:'13:45', end:'약 70분', ico:'🛶', title:'코타츠 뱃놀이 (가와쿠다리)', desc:'뱃사공 노래 들으며 수로 유람', tags:[['acc','겨울 한정']], q:'柳川川下り', key:true},
+    {mv:true, mode:'🚃 니시테츠 특급', dur:'야나가와 → 텐진 약 50분', cost:'관광 티켓 사용', from:'Nishitetsu Yanagawa Station', to:'Nishitetsu Fukuoka Tenjin Station', gm:'transit'},
+    {t:'16:30', end:'약 1시간 30분', ico:'🛍️', title:'텐진 쇼핑 (집중형)', pay:'card', desc:'이와타야 본점 한 곳 + 지하상가', q:'Iwataya Department Store Tenjin'},
+    {t:'18:00', ico:'🍽️', title:'저녁 — 백화점 식당가', pay:'card', desc:'이와타야/다이마루 레스토랑 층', q:'Daimaru Fukuoka Tenjin'},
+    {mv:true, mode:'🚇 지하철', dur:'텐진 → 기온 약 4분', cost:'1인 ¥210', from:'Tenjin Station Fukuoka', to:HOTEL, gm:'transit'},
+  ]};
+const D4_B = {...D4, title:'하카타 구시가지 산책 → 귀국', summary:'체크아웃 → 쿠시다 신사·가와바타 상점가 → 하카타역 점심 → 공항',
+  notice:'<b>高宮庭園茶寮 예약이 마감됐을 때</b>의 대안. 모두 호텔에서 걸어서 갈 수 있어 이동 부담이 가장 적어요.',
+  items:[
+    {t:'08:30', ico:'🥐', title:'조식 & 체크아웃', desc:'10:00 짐 맡기기'},
+    {mv:true, mode:'🚶 도보', dur:'약 5분', cost:'무료', from:HOTEL, to:'Kushida Shrine', gm:'walking'},
+    {t:'10:10', end:'약 1시간', ico:'⛩️', title:'쿠시다 신사 & 가와바타 상점가', desc:'하카타 총진수 신사, 기온 야마카사 장식 가마. 상점가에서 ‘가와바타 젠자이’', q:'Kushida Shrine'},
+    {mv:true, mode:'🚇 지하철', dur:'기온 → 하카타 1정거장 2분', cost:'1인 ¥210', from:'Kushida Shrine', to:'JR Hakata City', gm:'transit'},
+    {t:'11:30', end:'약 1시간 15분', ico:'🍣', title:'점심 — 하카타역 식당가', desc:'KITTE·아뮤플라자 식당가 (스시·텐동·명란 정식 등). 1인 ¥2,000~3,500', pay:'card', q:'JR Hakata City Kooten'},
+    {t:'13:00', ico:'🎁', title:'마잉구 기념품 쇼핑', desc:'하카타역 1층 — 명란·과자 최종 구매', pay:'card', q:'Ming Hakata Station'},
+    {t:'14:00', ico:'🧳', title:'9호텔 — 짐 찾기', desc:'지하철 1정거장 또는 도보 15분 · 14:30 택시 출발'},
+    {mv:true, mode:'🚕 택시', dur:'20~30분', cost:'¥2,500~3,500', from:HOTEL, to:'Fukuoka Airport International Terminal', gm:'driving'},
+    {t:'15:00', ico:'🛂', title:'후쿠오카공항 국제선', desc:'체크인·출국심사·면세점', q:'Fukuoka Airport International Terminal'},
+    {t:'18:00', ico:'✈️', title:'후쿠오카 출발 → 청주', desc:'19:20 도착', key:true},
+  ]};
+
 const PLANS = [
-  {id:'A', name:'내 계획 · 시간 최적화', desc:'짜주신 일정 그대로, 시간·동선만 계산', days:[D1,D2,D3,D4],
-   change:'없음 (원안 유지)', reason:'예약 완료된 하츠키 12:30 기준으로 역산. 2일차는 서쪽(공항선 라인)으로 묶어 이동 최소화', load:'보통'},
+  {id:'R', name:'느긋한 추천 ⭐', desc:'부모님 동반 · 대중교통 · 오후 휴식', days:[D1,D2_R,D3_R,D4_R],
+   change:'2일차: 모모치 빼고 오후 호텔 휴식<br>3일차: 야나기바시 시장을 다이묘 점심 뒤로, 쇼핑 2시간<br>4일차: 시장 대신 호텔 앞 쿠시다 신사 → 高宮庭園茶寮', reason:'하루 장소 3~4곳, 환승 최소. 4일차 이동이 1시간 줄어 공항 가는 날도 여유로움', load:'가벼움'},
+  {id:'A', name:'내 계획 (대중교통)', desc:'짜주신 일정 그대로 · 택시는 공항만', days:[D1,D2,D3,D4],
+   change:'없음 (원안 유지, 이동만 버스·지하철로)', reason:'예약 완료된 하츠키 12:30 기준으로 역산. 2일차는 서쪽(공항선 라인)으로 묶어 이동 최소화', load:'많음 (2·4일차)'},
   {id:'B', name:'노을·야경 동선', desc:'모모치는 일몰에, 1일차 저녁은 일찍', days:[D1_B,D2_B,D3,D4],
-   change:'1일차: 이치란 먼저 → 강변·야타이<br>2일차: 오호리(아침) ↔ 모모치(노을) 순서 교체 + 후쿠오카 타워', reason:'첫날 배고픔·추위 해결, 해변은 노을 시간대가 가장 예쁨. 풍경을 좋아하는 취향 반영', load:'보통'},
+   change:'1일차: 이치란 먼저 → 강변·야타이<br>2일차: 오호리(아침) ↔ 모모치(노을) 순서 교체 + 후쿠오카 타워', reason:'해변은 노을 시간대가 가장 예쁨. 다만 돌아오는 길이 길어요', load:'보통'},
   {id:'C', name:'다자이후 + 야나가와', desc:'겨울 한정 코타츠 뱃놀이 추가', days:[D1,D2,D3_C,D4],
-   change:'3일차: 다자이후 후 야나가와 장어덮밥 + 코타츠 뱃놀이, 텐진 쇼핑은 저녁 집중형', reason:'전통·미식 취향에 딱. 12월에만 가능한 경험으로 가족 추억 포인트 ↑', load:'조금 많음'},
-  {id:'D', name:'여유로운 마지막 날', desc:'高宮 예약 실패 시 · 호텔 주변', days:[D1,D2,D3,D4_B],
-   change:'4일차: 高宮庭園茶寮 대신 쿠시다 신사·가와바타 상점가·하카타역 점심', reason:'高宮庭園茶寮 예약 실패 대비. 공항 가는 날 택시 이동 2회 감소, 기념품 쇼핑 시간 확보', load:'가벼움'},
+   change:'3일차: 다자이후 후 야나가와 장어덮밥 + 코타츠 뱃놀이', reason:'12월에만 가능한 경험. 전철 이동이 길어 체력 소모 큼', load:'많음'},
+  {id:'D', name:'高宮 예약 실패 시', desc:'4일차를 호텔 주변 도보로', days:[D1,D2_R,D3_R,D4_B],
+   change:'4일차: 高宮庭園茶寮 대신 쿠시다 신사·하카타역 점심 (2·3일차는 느긋한 추천과 같음)', reason:'예약이 안 될 때 대비. 이동 부담 가장 적음', load:'가벼움'},
 ];
 
 /* ---------- 일정 렌더 ---------- */
-let curPlan = store.get('plan', 'A'); if(!PLANS.find(p=>p.id===curPlan)) curPlan='A';
+let curPlan = store.get('plan2', 'R'); if(!PLANS.find(p=>p.id===curPlan)) curPlan='R';
 let curDay = 0;
 (function initDay(){
   const now = new Date(); const s = new Date(2026,11,26);
@@ -588,7 +658,7 @@ let curDay = 0;
 function renderPlanBtns(){
   $('#planBtns').innerHTML = PLANS.map(p => `<button type="button" class="plan-btn" data-plan="${p.id}" aria-pressed="${p.id===curPlan}">
     <div class="pk">PLAN ${p.id}</div><div class="pn">${esc(p.name)}</div><div class="pd">${esc(p.desc)}</div></button>`).join('');
-  $$('.plan-btn').forEach(b => b.onclick = () => { curPlan = b.dataset.plan; store.set('plan', curPlan); renderPlanBtns(); renderDays(); if (typeof renderQuickDays === 'function') renderQuickDays(); });
+  $$('.plan-btn').forEach(b => b.onclick = () => { curPlan = b.dataset.plan; store.set('plan2', curPlan); renderPlanBtns(); renderDays(); if (typeof renderQuickDays === 'function') renderQuickDays(); });
 }
 function renderDays(){
   const plan = PLANS.find(p=>p.id===curPlan);
@@ -670,18 +740,17 @@ const BUDGET_DEFAULT = [
     {k:'f5', pay:'cash', n:'3일 다자이후 간식', b:'p', v:800, day:2},
     {k:'f6', pay:'cash', n:'3일 なんから食堂 점심', b:'p', v:1500, day:2},
     {k:'f7', pay:'card', n:'3일 백화점 식당가 저녁', b:'p', v:3000, day:2},
-    {k:'f8', pay:'cash', n:'4일 야나기바시 시장 간식', b:'p', v:1500, day:3},
+    {k:'f8', pay:'cash', n:'3일 야나기바시 시장 간식', b:'p', v:1500, day:2},
     {k:'f9', pay:'card', n:'4일 高宮庭園茶寮 점심', b:'p', v:4000, day:3},
     {k:'f10', pay:'card', n:'편의점·간식 (4일간)', b:'p', v:2000, day:null},
   ]},
   {id:'trans', name:'교통', color:'--s4', items:[
-    {k:'t1', pay:'cash', n:'1일 공항 → 호텔 택시', b:'car', v:3000, day:0},
-    {k:'t3', pay:'cash', n:'2일 지하철 (3회)', b:'p', v:770, day:1},
-    {k:'t4', pay:'cash', n:'2일 택시 (해변·카페→공원)', b:'car', v:3400, day:1},
-    {k:'t5', pay:'cash', n:'3일 다자이후 버스·전철', b:'p', v:1120, day:2},
-    {k:'t6', pay:'cash', n:'3일 버스터미널·텐진 택시', b:'car', v:2000, day:2},
-    {k:'t7', pay:'cash', n:'4일 시장·정원·호텔 택시', b:'car', v:5800, day:3},
-    {k:'t8', pay:'cash', n:'4일 호텔 → 공항 택시', b:'car', v:3000, day:3},
+    {k:'tx1', pay:'cash', n:'1일 공항 → 호텔 택시', b:'car', v:3000, day:0},
+    {k:'tx2', pay:'cash', n:'2일 지하철 1일권', b:'p', v:640, day:1},
+    {k:'tx3', pay:'cash', n:'3일 지하철·직행버스·니시테츠', b:'p', v:1540, day:2},
+    {k:'tx4', pay:'cash', n:'3일 시장 오가는 버스 (선택)', b:'p', v:400, day:2},
+    {k:'tx5', pay:'cash', n:'4일 지하철·니시테츠 (다카미야 왕복)', b:'p', v:840, day:3},
+    {k:'tx6', pay:'cash', n:'4일 호텔 → 공항 택시', b:'car', v:3000, day:3},
   ]},
   {id:'act', name:'관광·체험', color:'--s5', items:[
     {k:'a2', pay:'cash', n:'오호리 일본정원', b:'p', v:250, day:1},
@@ -756,11 +825,11 @@ function renderPay(P, R, localYen){
   const w1 = ceil1k(Math.min(tlCash + wlCash, cashBy(0) + cashBy(1) + cashFree/2));
   const w2 = Math.max(0, ceil1k(tlCash + wlCash) - w1);
   $('#atmPlan').innerHTML =
-    `<div>🏧 <b>1차 인출 · 12/26 공항 도착 로비 세븐일레븐 ATM</b> — 트래블로그로 <b>${yen(w1)}</b> (택시·이치란·카페·지하철)</div>` +
-    `<div>🏧 <b>2차 인출 · 12/28 아침 호텔 근처 세븐일레븐 ATM</b> — <b>${yen(w2)}</b> (다자이후·시장·택시) · 남은 현금 보고 조정</div>` +
+    `<div>🏧 <b>1차 인출 · 12/26 공항 도착 로비 세븐일레븐 ATM</b> — 트래블로그로 <b>${yen(w1)}</b> (공항 택시·이치란·카페·지하철 1일권)</div>` +
+    `<div>🏧 <b>2차 인출 · 12/28 아침 호텔 근처 세븐일레븐 ATM</b> — <b>${yen(w2)}</b> (다자이후·시장·버스·전철·공항 택시) · 남은 현금 보고 조정</div>` +
     `<div>💳 하츠키·오오야마·백화점·돈키호테·高宮庭園茶寮는 <b>트래블월렛</b>으로 먼저 결제, 잔액이 모자라면 트래블로그 카드로</div>` +
     (short > 0 ? `<div class="short">⚠️ ${yen(short)} 부족 — 앱에서 추가 충전하거나, 쇼핑 예산을 줄이거나, 한국 신용카드(해외결제 수수료 있음)로 보충</div>` : '') +
-    `<div style="color:var(--text-3);font-size:12.5px">트래블로그는 세븐일레븐 ATM(세븐은행)에서 인출해요. 공항 ATM이 붐비면 호텔 가는 길 세븐일레븐에서 뽑아도 돼요. 화면에서 한국어 선택 가능 · 1,000엔 단위 인출 · 수수료 조건은 앱 공지 확인</div>`;
+    `<div style="color:var(--text-3);font-size:12.5px">트래블로그는 세븐일레븐(세븐뱅크) ATM에서 수수료 없이 인출돼요 (하나머니 엔화 잔액 기준). 1회 최대 ¥100,000 · 1,000엔 단위. 아래 출금 순서 참고</div>`;
 }
 balTL.addEventListener('input', () => { store.set('balTL', +balTL.value); renderBudget(false); });
 balWL.addEventListener('input', () => { store.set('balWL', +balWL.value); renderBudget(false); });
@@ -844,7 +913,7 @@ const CHECK = {
     ['돼지코 어댑터', '일본은 110V 11자 콘센트'],
     ['방한용품', '패딩·목도리·장갑·핫팩 — 강변·해변 바람 강함'],
     ['편한 운동화', '하루 1~1.5만 보 예상'],
-    ['현금은 세븐일레븐 ATM에서 트래블로그로 인출', '공항 도착 로비·시내 세븐일레븐 — 시장·이치란 자판기·택시용'],
+    ['현금은 세븐일레븐 ATM에서 트래블로그로 인출', '공항 도착 로비·시내 세븐일레븐 — 시장·이치란 자판기·교통비·공항 택시용'],
     ['상비약', '소화제·감기약·밴드'],
     ['쇼핑용 접이식 가방', '귀국 짐 늘어날 때'],
   ],
@@ -852,9 +921,9 @@ const CHECK = {
     ['Visit Japan Web 등록', '입국심사·세관 QR — 가족 전원'],
     ['eSIM / 포켓와이파이', '도착 즉시 사용 가능하게 미리 설치'],
     ['트래블로그 ¥59,784 · 트래블월렛 ¥50,000 충전 완료', '카드 2장 모두 챙기기 · 앱에서 해외 ATM 인출/결제 설정 켜두기'],
-    ['트래블로그 세븐일레븐 ATM 인출 수수료 확인', '앱 공지에서 무료 인출 조건·1회 한도 확인'],
+    ['트래블로그 앱에서 해외 인출 기준 통화 확인', '하나머니 엔화 잔액에서 인출되도록 설정 — 그래야 수수료 무료'],
     ['구글 지도 오프라인 저장', '후쿠오카 시내'],
-    ['GO 택시 앱', '택시 호출 — 연말엔 잡기 어려울 수 있음'],
+    ['구글맵 대중교통 길찾기 연습', '버스 정류장·시간은 구글맵이 가장 정확해요 · 2일차는 지하철 1일권(¥640)'],
   ],
 };
 let checked = store.get('checked', {});
