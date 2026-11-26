@@ -48,7 +48,7 @@
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--text);font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;font-size:15px;line-height:1.55;word-break:keep-all;overflow-wrap:anywhere}
 a{color:inherit}
-.wrap{max-width:880px;margin:0 auto;padding-block:0 80px;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+.wrap{max-width:880px;margin:0 auto;padding-block:0 calc(96px + env(safe-area-inset-bottom, 0px));padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
 /* header */
 .hero{padding:28px 0 18px}
 .hero .eyebrow{font-size:13px;color:var(--accent);font-weight:700;letter-spacing:.02em}
@@ -79,23 +79,37 @@ a{color:inherit}
 .resv{list-style:none;margin:0;padding:0}
 .resv li{display:flex;justify-content:space-between;gap:8px;padding:6px 0;border-bottom:1px solid var(--line);font-size:14px}
 .resv li:last-child{border-bottom:0}
-/* tabs */
-.tabs{position:sticky;top:env(safe-area-inset-top, 0px);z-index:10;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);padding:12px 0;margin:18px 0 6px;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
-.tabs::-webkit-scrollbar{display:none}
-.tab{flex:0 0 auto;border:1px solid var(--line);background:var(--surface);color:var(--text-2);padding:9px 16px;border-radius:999px;font:inherit;font-weight:600;cursor:pointer}
-.tab[aria-selected="true"]{background:var(--navy);border-color:var(--navy);color:var(--bg)}
+/* bottom nav */
+.bnav{position:fixed;left:0;right:0;bottom:0;z-index:20;background:color-mix(in srgb,var(--surface) 94%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom, 0px);padding-left:env(safe-area-inset-left, 0px);padding-right:env(safe-area-inset-right, 0px)}
+.bnav-in{max-width:560px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr)}
+.tab{border:0;background:none;font:inherit;color:var(--text-3);padding:8px 2px 9px;display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer;font-size:11.5px;font-weight:600;-webkit-tap-highlight-color:transparent}
+.tab .ti{font-size:21px;line-height:1.1;filter:grayscale(1);opacity:.6;transition:transform .15s}
+.tab[aria-selected="true"]{color:var(--accent)}
+.tab[aria-selected="true"] .ti{filter:none;opacity:1;transform:translateY(-1px)}
+.tab:focus-visible{outline:2px solid var(--navy);outline-offset:-4px;border-radius:10px}
+.view{padding-top:6px}
+.view > .sec-title:first-child{margin-top:20px}
+/* home quick days */
+.qdays{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.qday{text-align:left;border:1px solid var(--line);background:var(--surface);border-radius:14px;padding:12px;cursor:pointer;font:inherit;color:var(--text);box-shadow:var(--shadow)}
+.qday .qd{font-size:12px;color:var(--accent);font-weight:800}
+.qday .qt{font-weight:700;margin-top:2px;font-size:14.5px}
+.qday .qs{font-size:12.5px;color:var(--text-2);margin-top:2px}
+.qday.today{border-color:var(--accent);background:var(--accent-soft)}
+.home-h{font-size:15px;margin:22px 0 10px;color:var(--text-2);font-weight:700}
 section[hidden]{display:none}
 .sec-title{font-size:20px;margin:18px 0 6px;letter-spacing:-.01em}
 .sec-desc{color:var(--text-2);margin:0 0 14px;font-size:14px}
 /* plan selector */
-.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px;margin-bottom:14px}
-.plan-btn{text-align:left;border:1.5px solid var(--line);background:var(--surface);border-radius:14px;padding:12px;cursor:pointer;font:inherit;color:var(--text)}
+.plans{display:flex;gap:8px;margin:0 0 6px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:2px}
+.plans::-webkit-scrollbar{display:none}
+.plan-btn{flex:0 0 172px;scroll-snap-align:start;text-align:left;border:1.5px solid var(--line);background:var(--surface);border-radius:14px;padding:12px;cursor:pointer;font:inherit;color:var(--text)}
 .plan-btn .pk{font-size:12px;font-weight:800;color:var(--accent)}
 .plan-btn .pn{font-weight:700;margin-top:2px}
 .plan-btn .pd{font-size:12.5px;color:var(--text-2);margin-top:2px}
 .plan-btn[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft)}
 /* day tabs */
-.days{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:14px}
+.days{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:0 0 10px;position:sticky;top:env(safe-area-inset-top, 0px);z-index:5;background:var(--bg);padding:8px 0}
 .day-btn{border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:8px 4px;cursor:pointer;font:inherit;color:var(--text-2);text-align:center}
 .day-btn b{display:block;color:var(--text);font-size:15px}
 .day-btn span{font-size:12px}
@@ -179,12 +193,15 @@ details[open] .chev{transform:rotate(90deg)}
 .check input:checked + span .ct{text-decoration:line-through;color:var(--text-3)}
 .foot{margin-top:28px;color:var(--text-3);font-size:12.5px;text-align:center}
 .btn-sm{border:1px solid var(--line);background:var(--surface);color:var(--text-2);border-radius:10px;padding:6px 10px;font:inherit;font-size:13px;cursor:pointer}
-@media print{.tabs,.theme-btn{display:none}section[hidden]{display:block}}
+.plans-hint{font-size:12px;color:var(--text-3);margin:0 0 4px}
+@media print{.bnav,.theme-btn{display:none}section[hidden]{display:block}}
 </style>
 </head>
 <body>
 <div class="wrap">
 
+<!-- 홈 -->
+<section id="tab-home" class="view">
 <header class="hero">
   <div class="eyebrow">FAMILY TRIP · 福岡</div>
   <h1>후쿠오카 가족여행 🍜</h1>
@@ -226,24 +243,30 @@ details[open] .chev{transform:rotate(90deg)}
   </div>
 </div>
 
-<nav class="tabs" role="tablist" aria-label="메뉴">
-  <button class="tab" role="tab" data-tab="plan" aria-selected="true">🗓️ 일정·동선</button>
-  <button class="tab" role="tab" data-tab="ideas" aria-selected="false">💡 취향 분석·추천</button>
-  <button class="tab" role="tab" data-tab="budget" aria-selected="false">💰 예산</button>
-  <button class="tab" role="tab" data-tab="check" aria-selected="false">✅ 준비물</button>
-</nav>
+<h2 class="home-h">🗓️ 날짜별 일정 바로가기</h2>
+<div class="qdays" id="qdays"></div>
+
+<div class="card" style="margin-top:22px">
+  <h3>📲 일본에서 편하게 보기</h3>
+  <div style="font-size:14px;color:var(--text-2)">출발 전에 한 번 열어두면 <b style="color:var(--text)">데이터가 없어도</b> 이 페이지가 열려요.<br>
+  아이폰: Safari 공유 버튼 → <b style="color:var(--text)">홈 화면에 추가</b> · 안드로이드: Chrome 메뉴(⋮) → <b style="color:var(--text)">홈 화면에 추가</b><br>
+  <span style="color:var(--text-3);font-size:12.5px">지도·길찾기 버튼은 인터넷 연결이 필요해요.</span></div>
+</div>
+<p class="foot">이동 시간·요금·영업시간은 2026년 11월 기준 예상치이며 연말에 달라질 수 있어요. 출발 전 각 매장·교통편을 꼭 확인하세요.</p>
+</section>
 
 <!-- 일정 -->
-<section id="tab-plan">
+<section id="tab-plan" class="view" hidden>
   <h2 class="sec-title">일정 & 당일 동선</h2>
-  <p class="sec-desc">플랜을 고르면 날짜별 시간표가 바뀌어요. 이동 시간·요금은 예상치(가족 4인, 택시 1대 기준)입니다.</p>
+  <p class="sec-desc">이동 시간·요금은 예상치(가족 4인, 택시 1대 기준)예요.</p>
+  <p class="plans-hint">← 옆으로 넘겨 다른 플랜 보기 →</p>
   <div class="plans" id="planBtns"></div>
   <div class="days" id="dayBtns" role="tablist" aria-label="날짜"></div>
   <div id="dayView"></div>
 </section>
 
 <!-- 추천 -->
-<section id="tab-ideas" hidden>
+<section id="tab-ideas" class="view" hidden>
   <h2 class="sec-title">여행 취향 분석</h2>
   <div class="card">
     <h3>계획표에서 읽히는 우리 가족 스타일</h3>
@@ -281,7 +304,7 @@ details[open] .chev{transform:rotate(90deg)}
 </section>
 
 <!-- 예산 -->
-<section id="tab-budget" hidden>
+<section id="tab-budget" class="view" hidden>
   <h2 class="sec-title">여행 예산</h2>
   <p class="sec-desc">인원·환율을 바꾸면 자동 계산돼요. 단가를 눌러 직접 수정할 수 있고, 이 기기에 저장됩니다.</p>
   <div class="controls">
@@ -307,22 +330,24 @@ details[open] .chev{transform:rotate(90deg)}
 </section>
 
 <!-- 체크리스트 -->
-<section id="tab-check" hidden>
+<section id="tab-check" class="view" hidden>
   <h2 class="sec-title">출발 전 체크리스트</h2>
   <p class="sec-desc">체크 상태는 이 기기에 저장돼요.</p>
   <div class="card"><h3>📞 예약·확인</h3><ul class="check" data-group="resv"></ul></div>
   <div class="card" style="margin-top:10px"><h3>🧳 준비물</h3><ul class="check" data-group="pack"></ul></div>
   <div class="card" style="margin-top:10px"><h3>📱 앱·결제</h3><ul class="check" data-group="app"></ul></div>
 </section>
+</div>
 
-<div class="card" style="margin-top:24px">
-  <h3>📲 일본에서 편하게 보기</h3>
-  <div style="font-size:14px;color:var(--text-2)">출발 전에 한 번 열어두면 <b style="color:var(--text)">데이터가 없어도</b> 이 페이지가 열려요.<br>
-  아이폰: Safari 공유 버튼 → <b style="color:var(--text)">홈 화면에 추가</b> · 안드로이드: Chrome 메뉴(⋮) → <b style="color:var(--text)">홈 화면에 추가</b><br>
-  <span style="color:var(--text-3);font-size:12.5px">지도·길찾기 버튼은 인터넷 연결이 필요해요.</span></div>
-</div>
-<p class="foot">이동 시간·요금·영업시간은 2026년 11월 기준 예상치이며 연말에 달라질 수 있어요. 출발 전 각 매장·교통편을 꼭 확인하세요.</p>
-</div>
+<nav class="bnav" aria-label="메뉴">
+  <div class="bnav-in" role="tablist">
+    <button class="tab" role="tab" data-tab="home" aria-selected="true"><span class="ti">🏠</span>홈</button>
+    <button class="tab" role="tab" data-tab="plan" aria-selected="false"><span class="ti">🗓️</span>일정</button>
+    <button class="tab" role="tab" data-tab="ideas" aria-selected="false"><span class="ti">💡</span>추천</button>
+    <button class="tab" role="tab" data-tab="budget" aria-selected="false"><span class="ti">💰</span>예산</button>
+    <button class="tab" role="tab" data-tab="check" aria-selected="false"><span class="ti">✅</span>준비물</button>
+  </div>
+</nav>
 <div class="tip" id="tip"></div>
 
 <script>
@@ -530,12 +555,17 @@ let curDay = 0;
 function renderPlanBtns(){
   $('#planBtns').innerHTML = PLANS.map(p => `<button type="button" class="plan-btn" data-plan="${p.id}" aria-pressed="${p.id===curPlan}">
     <div class="pk">PLAN ${p.id}</div><div class="pn">${esc(p.name)}</div><div class="pd">${esc(p.desc)}</div></button>`).join('');
-  $$('.plan-btn').forEach(b => b.onclick = () => { curPlan = b.dataset.plan; store.set('plan', curPlan); renderPlanBtns(); renderDays(); });
+  $$('.plan-btn').forEach(b => b.onclick = () => { curPlan = b.dataset.plan; store.set('plan', curPlan); renderPlanBtns(); renderDays(); if (typeof renderQuickDays === 'function') renderQuickDays(); });
 }
 function renderDays(){
   const plan = PLANS.find(p=>p.id===curPlan);
   $('#dayBtns').innerHTML = plan.days.map((d,i) => `<button type="button" class="day-btn" role="tab" data-i="${i}" aria-selected="${i===curDay}"><b>${i+1}일차</b><span>${d.date} (${d.dow})</span></button>`).join('');
-  $$('.day-btn').forEach(b => b.onclick = () => { curDay = +b.dataset.i; renderDays(); });
+  $$('.day-btn').forEach(b => b.onclick = () => {
+    curDay = +b.dataset.i; renderDays();
+    // 날짜를 바꾸면 그날 일정 맨 위로
+    const top = $('#dayBtns').getBoundingClientRect().top;
+    if (top <= 1) window.scrollTo(0, $('#dayView').offsetTop - $('#dayBtns').offsetHeight - 8);
+  });
   const d = plan.days[curDay];
   const moves = d.items.filter(x=>x.mv);
   const stops = d.items.filter(x=>!x.mv && x.q).length;
@@ -565,13 +595,31 @@ renderPlanBtns(); renderDays();
 
 $('#compareBody').innerHTML = PLANS.map(p => `<tr><td><b>${p.id}</b><br>${esc(p.name)}</td><td>${p.change}</td><td>${esc(p.reason)}</td><td>${esc(p.load)}</td></tr>`).join('');
 
-/* ---------- 탭 ---------- */
-$$('.tab').forEach(t => t.onclick = () => {
-  $$('.tab').forEach(x => x.setAttribute('aria-selected', x===t));
-  ['plan','ideas','budget','check'].forEach(id => $('#tab-'+id).hidden = id !== t.dataset.tab);
-  store.set('tab', t.dataset.tab);
-});
-{ const t = store.get('tab','plan'); const b = $(`.tab[data-tab="${t}"]`); if (b) b.click(); }
+/* ---------- 하단 메뉴 ---------- */
+const VIEWS = ['home','plan','ideas','budget','check'];
+function showView(id, {scroll=true} = {}){
+  if (!VIEWS.includes(id)) id = 'home';
+  $$('.tab').forEach(x => x.setAttribute('aria-selected', x.dataset.tab === id));
+  VIEWS.forEach(v => $('#tab-'+v).hidden = v !== id);
+  if (location.hash.slice(1) !== id) history.replaceState(null, '', '#'+id);
+  store.set('tab', id);
+  if (scroll) window.scrollTo(0, 0);
+  if (id === 'plan') { const sel = $('.plan-btn[aria-pressed="true"]'); if (sel) sel.scrollIntoView({block:'nearest', inline:'center'}); }
+}
+$$('.tab').forEach(t => t.onclick = () => showView(t.dataset.tab));
+window.addEventListener('hashchange', () => showView(location.hash.slice(1)));
+showView(location.hash.slice(1) || store.get('tab','home'), {scroll:false});
+
+/* 홈: 날짜 바로가기 */
+function renderQuickDays(){
+  const plan = PLANS.find(p=>p.id===curPlan);
+  const now = new Date(); const t0 = new Date(2026,11,26);
+  const todayIdx = Math.floor((new Date(now.getFullYear(),now.getMonth(),now.getDate()) - t0)/86400000);
+  $('#qdays').innerHTML = plan.days.map((d,i) => `<button type="button" class="qday ${i===todayIdx?'today':''}" data-i="${i}">
+    <div class="qd">${i+1}일차 · ${d.date} (${d.dow})${i===todayIdx?' · 오늘':''}</div><div class="qt">${esc(d.title)}</div><div class="qs">${esc(d.summary)}</div></button>`).join('');
+  $$('.qday').forEach(b => b.onclick = () => { curDay = +b.dataset.i; renderDays(); showView('plan'); });
+}
+renderQuickDays();
 
 /* ---------- 예산 ----------
   basis: 'krw' = 원화 총액(결제 완료), 'p' = 1인당 엔, 'g' = 가족 전체 엔, 'car' = 택시 1대당 엔(4인 1대)
