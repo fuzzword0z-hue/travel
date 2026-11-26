@@ -4,7 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>후쿠오카 가족여행</title>
-<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon.svg">
+<meta name="theme-color" content="#1f2f4d">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="후쿠오카">
+<meta property="og:title" content="후쿠오카 가족여행 🍜">
+<meta property="og:description" content="12/26–12/29 3박 4일 · 일정·동선·예산·준비물">
+<meta property="og:type" content="website">
 <meta name="description" content="2026.12.26–12.29 후쿠오카 3박 4일 가족여행 일정·동선·예산">
 <style>
 :root{
@@ -307,6 +315,12 @@ details[open] .chev{transform:rotate(90deg)}
   <div class="card" style="margin-top:10px"><h3>📱 앱·결제</h3><ul class="check" data-group="app"></ul></div>
 </section>
 
+<div class="card" style="margin-top:24px">
+  <h3>📲 일본에서 편하게 보기</h3>
+  <div style="font-size:14px;color:var(--text-2)">출발 전에 한 번 열어두면 <b style="color:var(--text)">데이터가 없어도</b> 이 페이지가 열려요.<br>
+  아이폰: Safari 공유 버튼 → <b style="color:var(--text)">홈 화면에 추가</b> · 안드로이드: Chrome 메뉴(⋮) → <b style="color:var(--text)">홈 화면에 추가</b><br>
+  <span style="color:var(--text-3);font-size:12.5px">지도·길찾기 버튼은 인터넷 연결이 필요해요.</span></div>
+</div>
 <p class="foot">이동 시간·요금·영업시간은 2026년 11월 기준 예상치이며 연말에 달라질 수 있어요. 출발 전 각 매장·교통편을 꼭 확인하세요.</p>
 </div>
 <div class="tip" id="tip"></div>
@@ -720,6 +734,11 @@ $$('.check').forEach(ul => {
   ul.innerHTML = CHECK[g].map(([t,d],i) => { const k = g+i; return `<li><label><input type="checkbox" data-k="${k}" ${checked[k]?'checked':''}><span><div class="ct">${esc(t)}</div><div class="cd">${esc(d)}</div></span></label></li>`; }).join('');
 });
 $$('.check input').forEach(c => c.addEventListener('change', () => { checked[c.dataset.k] = c.checked; store.set('checked', checked); }));
+
+/* ---------- 오프라인 지원 ---------- */
+if ('serviceWorker' in navigator && location.protocol === 'https:') {
+  navigator.serviceWorker.register('sw.js').catch(() => {});
+}
 </script>
 </body>
 </html>
