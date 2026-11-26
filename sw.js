@@ -1,5 +1,5 @@
 // 오프라인 지원: 한 번 열어두면 데이터가 없어도 페이지가 열려요.
-const CACHE = 'fukuoka-trip-v7';
+const CACHE = 'fukuoka-trip-v8';
 const FILES = ['./', './index.html', './manifest.webmanifest', './icon.svg'];
 
 self.addEventListener('install', e => {

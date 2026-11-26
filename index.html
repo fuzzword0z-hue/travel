@@ -146,7 +146,7 @@ section[hidden]{display:none}
 .taste{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 4px}
 .why{margin:0;padding-left:18px;color:var(--text-2);font-size:14px}
 .why li{margin:4px 0}
-.compare{width:100%;border-collapse:collapse;font-size:13.5px}
+.compare{width:100%;min-width:600px;border-collapse:collapse;font-size:13.5px}
 .compare th,.compare td{padding:9px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
 .compare th{color:var(--text-3);font-weight:600;font-size:12.5px}
 .tbl-scroll{overflow-x:auto}
@@ -219,6 +219,13 @@ details[open] .chev{transform:rotate(90deg)}
 .warn-line{font-size:13px;color:var(--accent);margin-top:6px}
 .warn-line b{color:var(--accent)}
 .muted-line{font-size:12.5px;color:var(--text-3);margin-top:6px}
+.spots{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media (max-width:640px){.spots{grid-template-columns:1fr}}
+.spot{display:flex;flex-direction:column;gap:6px}
+.sp-top{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.sp-top b{font-size:15.5px}
+.sp-d{font-size:14px;color:var(--text-2)}
+.sp-d b{color:var(--text)}
 .plans-hint{font-size:12px;color:var(--text-3);margin:0 0 4px}
 @media print{.bnav,.theme-btn{display:none}section[hidden]{display:block}}
 </style>
@@ -299,7 +306,9 @@ details[open] .chev{transform:rotate(90deg)}
     <div class="taste">
       <span class="badge b-acc">🍣 미식이 1순위 (본점·코스 예약)</span>
       <span class="badge b-navy">🌳 정원·공원 산책</span>
-      <span class="badge b-navy">⛩️ 전통 명소</span>
+      <span class="badge b-navy">🏮 민속촌·전통 골목 · 탁 트인 곳</span>
+      <span class="badge b-acc">🍨 파르페 · 예쁜 카페</span>
+      <span class="badge b-navy">🐟 시장 구경</span>
       <span class="badge b-acc">☕ 카페 · 👀 구경 (미술관·박물관 X)</span>
       <span class="badge b-navy">🛍️ 백화점 쇼핑</span>
       <span class="badge b-ok">🐢 느긋한 속도 · 🚇 대중교통</span>
@@ -312,6 +321,36 @@ details[open] .chev{transform:rotate(90deg)}
       <li><b>느긋하게, 대중교통으로</b> — 부모님(60·70대)과 함께라 <b>하루 장소 3~4곳 + 오후 휴식</b>이 적당해요. 지하철·버스는 환승이 적은 노선 위주로 골랐어요.</li>
       <li>⚠️ <b>원래 계획을 대중교통으로 다니면</b>: ① 2일차가 장소 6곳에 이동 7번이라 부모님께 많아요 ② 4일차는 시장 → 다카미야 → 호텔 이동만 약 1시간 10분이라, 점심을 13:00에 마쳐야 해요 ③ 3일차 쇼핑 4시간 + 돈키호테는 긴 편이에요. → <b>‘느긋한 추천 ⭐’</b> 플랜에 모두 반영했어요.</li>
     </ul>
+  </div>
+
+  <h2 class="sec-title">🍨 파르페·예쁜 카페</h2>
+  <p class="sec-desc">일정 동선 근처 위주로 골랐어요. 영업시간·휴무는 방문 전 구글맵에서 확인하세요.</p>
+  <div class="spots">
+    <div class="card spot"><div class="sp-top"><b>다이묘 파르페 프루츠 플래닛</b><span class="badge b-ok">3일차 일정 포함</span></div>
+      <div class="sp-d">청과 도매상이 운영하는 과일 파르페 전문점. 겨울엔 후쿠오카 딸기 <b>아마오우</b> 파르페. なんから食堂·백화점과 같은 다이묘·텐진 권역이에요.</div>
+      <a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E5%90%8D%E3%83%91%E3%83%95%E3%82%A7+%E3%83%95%E3%83%AB%E3%83%BC%E3%83%84%E3%83%97%E3%83%A9%E3%83%8D%E3%83%83%E3%83%88">📍 지도</a></div>
+    <div class="card spot"><div class="sp-top"><b>캠벨 얼리</b><span class="badge b-navy">하카타역 9층</span></div>
+      <div class="sp-d">과일가게가 운영하는 카페로 규슈 과일 파르페가 인기. JR 하카타시티 9층이라 비·바람 걱정 없어요. 4일차 대안(PLAN D)에 넣었고, 하카타역에 들를 때 언제든 좋아요.</div>
+      <a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%99%E3%83%AB%E3%83%BB%E3%82%A2%E3%83%BC%E3%83%AA%E3%83%BC+%E5%8D%9A%E5%A4%9A">📍 지도</a></div>
+    <div class="card spot"><div class="sp-top"><b>스즈카케 본점</b><span class="badge b-navy">호텔 근처 · 와(和) 파르페</span></div>
+      <div class="sp-d">후쿠오카 유명 화과자점 본점. 본점에서만 먹을 수 있는 일본식 파르페. 호텔에서 걸어갈 수 있어 4일차 구시가지 산책과 묶기 좋아요 (카페 영업시간 확인).</div>
+      <a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E9%88%B4%E6%87%B8+%E6%9C%AC%E5%BA%97+%E5%8D%9A%E5%A4%9A">📍 지도</a></div>
+    <div class="card spot"><div class="sp-top"><b>블루잼 (BLUE JAM)</b><span class="badge b-warn">거리 멀어요</span></div>
+      <div class="sp-d">사와라구 다무라의 <b>논밭 풍경 속</b> 빵집 겸 카페(2층 카페). 탁 트인 경치를 좋아하시면 딱이지만, 니시진에서도 버스로 꽤 가야 해서 반나절이 필요해요. 넣는다면 2일차 카우히이야 대신 가는 방법이 있어요.</div>
+      <a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=BLUE+JAM+%E6%97%A9%E8%89%AF%E5%8C%BA%E7%94%B0%E6%9D%91">📍 지도</a></div>
+  </div>
+
+  <h2 class="sec-title">🏮 민속촌 느낌 · 탁 트인 전통 장소</h2>
+  <p class="sec-desc">후쿠오카 시내에는 오키나와 같은 민속촌은 없어요. 대신 비슷한 분위기를 걸어서 즐길 수 있는 곳이에요.</p>
+  <div class="spots">
+    <div class="card spot"><div class="sp-top"><b>하카타 구시가지</b><span class="badge b-ok">4일차 일정 포함</span></div>
+      <div class="sp-d">호텔 바로 옆. 쇼후쿠지·조텐지 같은 오래된 절 마당과 돌담 골목, 쿠시다 신사. 입장료 없이 걷는 탁 트인 산책.</div>
+      <a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E8%81%96%E7%A6%8F%E5%AF%BA+%E7%A6%8F%E5%B2%A1">📍 지도</a></div>
+    <div class="card spot"><div class="sp-top"><b>라쿠스이엔 (楽水園)</b><span class="badge b-warn">12/29·화요일 휴원</span></div>
+      <div class="sp-d">1906년 하카타 상인 별장 터의 연못 정원. 다다미 다실에서 <b>말차 체험 ¥1,100</b>(입장료 별도). 하카타역 도보권 · 9:00~17:00. 2일차 아침 오호리 공원 대신 가도 좋아요.</div>
+      <a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E6%A5%BD%E6%B0%B4%E5%9C%92+%E7%A6%8F%E5%B2%A1">📍 지도</a></div>
+    <div class="card spot"><div class="sp-top"><b>다자이후 참배길 · 야나기바시 시장</b><span class="badge b-ok">3일차 일정 포함</span></div>
+      <div class="sp-d">기와지붕 상점이 늘어선 참배길과 현지인 시장. 구경 좋아하시는 부모님께 이번 여행에서 가장 민속촌에 가까운 하루예요.</div></div>
   </div>
 
   <h2 class="sec-title">플랜 비교</h2>
@@ -566,7 +605,7 @@ const D2_R = {...D2, title:'오호리 → 하츠키 → 상점가 산책 → 카
     {mv:true, mode:'🚶 도보', dur:'약 10분', cost:'무료', from:'もつ鍋おおやま 本店', to:'Canal City Hakata', gm:'walking'},
     {t:'20:40', end:'선택 · 약 1시간', ico:'⛲', title:'캐널시티 하카타 구경', desc:'실내 쇼핑몰이라 따뜻해요. 운하 분수쇼(저녁 매 30분 정도), 잡화·기념품 구경 후 걸어서 호텔로', tags:[['navy','선택']], q:'Canal City Hakata'},
   ]};
-const D3_R = {...D3, title:'아침 시장 → 다자이후 → 텐진', summary:'야나기바시 시장 → 다자이후 텐만구 → なんから食堂 → 백화점 2시간 → 이른 저녁',
+const D3_R = {...D3, title:'아침 시장 → 다자이후 → 텐진', summary:'야나기바시 시장 → 다자이후 텐만구 → なんから食堂 → 백화점 → 아마오우 파르페 → 저녁',
   notice:'<b>아침 시장 → 다자이후</b> — 시장은 오전이 활기차고 작아서 1시간이면 충분해요. 시장 근처 <b>니시테츠 야쿠인역</b>에서 다자이후행 전철을 타요. 쇼핑은 백화점 두 곳만, 저녁은 17:30으로 당겨 붐비기 전에 먹어요. 돈키호테는 원하면 호텔 근처 나카스점.',
   items:[
     {t:'07:45', ico:'🥐', title:'가벼운 조식', desc:'시장 간식이 있으니 가볍게 · 8:30 출발'},
@@ -578,18 +617,20 @@ const D3_R = {...D3, title:'아침 시장 → 다자이후 → 텐진', summary:
     {mv:true, mode:'🚶 도보', dur:'약 10분', cost:'무료', from:'Nishitetsu Fukuoka Tenjin Station', to:NANKARA, gm:'walking'},
     {t:'13:20', end:'약 1시간', ico:'🍱', title:'一丁目 なんから食堂 점심', pay:'cash', desc:'다이묘 1초메 · 시장 간식 덕에 늦은 점심도 괜찮아요', tags:[['warn','휴무 확인']], q:NANKARA, key:true},
     {mv:true, mode:'🚶 도보', dur:'약 7분', cost:'무료', from:NANKARA, to:'Iwataya Department Store Tenjin', gm:'walking'},
-    {t:'14:30', end:'약 2시간 30분', ico:'🛍️', title:'텐진 쇼핑 (이와타야·다이마루)', pay:'card', desc:'두 백화점만 집중. 중간에 백화점 카페에서 쉬기', tips:['여권 제시 시 면세(¥5,000 이상)','👤 갸또러스크 선물은 개인 토스 카드로 따로 결제 — 부피가 커서 오늘 사서 호텔에 두기','집합 장소·시간 정해두기'], q:'Iwataya Department Store Tenjin', key:true},
-    {t:'17:15', end:'약 1시간 15분', ico:'🍽️', title:'이른 저녁 — 백화점 식당가', pay:'card', desc:'붐비기 전에 여유롭게', q:'Daimaru Fukuoka Tenjin'},
+    {t:'14:30', end:'약 1시간 30분', ico:'🛍️', title:'텐진 쇼핑 (이와타야·다이마루)', pay:'card', desc:'두 백화점만 집중', tips:['여권 제시 시 면세(¥5,000 이상)','👤 갸또러스크 선물은 개인 토스 카드로 따로 결제 — 부피가 커서 오늘 사서 호텔에 두기','집합 장소·시간 정해두기'], q:'Iwataya Department Store Tenjin', key:true},
+    {mv:true, mode:'🚶 도보', dur:'약 7분 (다이묘 쪽으로)', cost:'무료', from:'Iwataya Department Store Tenjin', to:'大名パフェ フルーツプラネット', gm:'walking'},
+    {t:'16:00', end:'약 50분', ico:'🍨', title:'파르페 — 다이묘 파르페 프루츠 플래닛', pay:'card', desc:'청과 도매상이 운영하는 과일 파르페 전문점. 겨울엔 후쿠오카 딸기 ‘아마오우’ 파르페가 대표', tips:['3인이면 2개 시켜 나눠 먹어도 충분 — 저녁 배 남겨두기','인기점이라 대기 있을 수 있어요 · 영업시간 확인'], tags:[['acc','파르페']], q:'大名パフェ フルーツプラネット', key:true},
+    {t:'17:45', end:'약 1시간 15분', ico:'🍽️', title:'저녁 — 백화점 식당가', pay:'card', desc:'파르페를 먹었으니 가볍게. 우동·소바나 정식 추천', q:'Daimaru Fukuoka Tenjin'},
     {mv:true, mode:'🚇 지하철', dur:'텐진 → 기온 약 4분 · 도보 5분', cost:'1인 ¥210', from:'Tenjin Station Fukuoka', to:HOTEL, gm:'transit'},
-    {t:'18:50', ico:'🏨', title:'호텔 복귀', desc:'쉬다가 원하면 돈키호테 나카스점(호텔 도보권, 심야 영업)', q:'ドン・キホーテ 中洲店'},
+    {t:'19:20', ico:'🏨', title:'호텔 복귀', desc:'쉬다가 원하면 돈키호테 나카스점(호텔 도보권, 심야 영업)', q:'ドン・キホーテ 中洲店'},
   ]};
-const D4_R = {...D4, title:'늦잠 · 쿠시다 신사 → 정원 점심 → 귀국', summary:'느긋한 아침 → 쿠시다 신사 → 高宮庭園茶寮 → 공항',
-  notice:'<b>느긋하게 바꾼 점</b> — 시장은 3일차 아침에 다녀와서 오늘 아침이 여유로워요. 호텔 바로 앞 쿠시다 신사만 들르고, 점심 후 <b>14:00 전에 여유 있게</b> 호텔로 돌아와요. 高宮庭園茶寮는 타베로그 예약 필수.',
+const D4_R = {...D4, title:'하카타 구시가지 산책 → 정원 점심 → 귀국', summary:'느긋한 아침 → 절·신사 골목 산책 → 高宮庭園茶寮 → 공항',
+  notice:'<b>탁 트인 전통 골목</b> — 호텔 바로 옆이 ‘하카타 구시가지’예요. 쇼후쿠지·조텐지 같은 오래된 절과 돌담 골목, 쿠시다 신사를 걸어서 둘러봐요 (입장료 없음). 점심 후 <b>14:00 전에 여유 있게</b> 호텔로 돌아와요. 高宮庭園茶寮는 타베로그 예약 필수.',
   items:[
     {t:'08:30', ico:'🥐', title:'느긋한 조식 & 짐 정리', desc:'10:00 체크아웃 → 프런트에 짐 맡기기'},
-    {mv:true, mode:'🚶 도보', dur:'약 5분', cost:'무료', from:HOTEL, to:'Kushida Shrine', gm:'walking'},
-    {t:'10:10', end:'약 40분', ico:'⛩️', title:'쿠시다 신사 & 가와바타 상점가', desc:'하카타 총진수 신사, 기온 야마카사 장식 가마. 바로 옆 지붕 있는 가와바타 상점가 구경', q:'Kushida Shrine'},
-    {mv:true, mode:'🚇+🚃 지하철 → 니시테츠', dur:'기온 → 텐진 4분 · 니시테츠 텐진 → 다카미야 약 7분 · 도보 (총 약 35분)', cost:'1인 ¥210 + ¥210', from:'Kushida Shrine', to:'高宮庭園茶寮', gm:'transit', alt:'11:00 전후 출발'},
+    {mv:true, mode:'🚶 도보', dur:'약 7분', cost:'무료', from:HOTEL, to:'聖福寺 福岡', gm:'walking'},
+    {t:'09:45', end:'약 1시간', ico:'🏯', title:'하카타 구시가지 산책', desc:'쇼후쿠지(일본 최초의 선종 사찰, 넓은 경내) → 조텐지(돌 정원) → 쿠시다 신사 순서로 오래된 절 골목을 걸어요. 모두 기온역 근처 평지', tips:['경내 산책은 무료 · 탁 트인 절 마당이 민속촌 분위기','쿠시다 신사엔 기온 야마카사 장식 가마 전시'], q:'聖福寺 福岡', key:true},
+    {mv:true, mode:'🚇+🚃 지하철 → 니시테츠', dur:'기온 → 텐진 4분 · 니시테츠 텐진 → 다카미야 약 7분 · 도보 (총 약 35분)', cost:'1인 ¥210 + ¥210', from:'Gion Station Fukuoka', to:'高宮庭園茶寮', gm:'transit', alt:'10:50 전후 출발'},
     {t:'11:30', end:'약 1시간 45분', ico:'🍵', title:'高宮庭園茶寮 점심', pay:'card', desc:'일본 정원을 바라보며 여유로운 점심', tags:[['acc','타베로그 예약 필수']], q:'高宮庭園茶寮', key:true},
     {mv:true, mode:'🚃+🚇 니시테츠 → 지하철', dur:'총 약 40분', cost:'1인 ¥210 + ¥210', from:'高宮庭園茶寮', to:HOTEL, gm:'transit'},
     {t:'14:00', ico:'🧳', title:'9호텔 — 짐 찾기', desc:'14:30 택시 출발'},
@@ -625,7 +666,7 @@ const D2_B = {...D2, title:'오호리 아침 → 모모치 노을', summary:'오
     {t:'19:30', end:'약 1시간 30분', ico:'🍲', title:'모츠나베 오오야마 본점', pay:'card', desc:'19:30으로 예약 · 1인 ¥3,000~4,000', tags:[['warn','예약 권장']], q:'もつ鍋おおやま 本店', key:true},
   ]};
 const D3_C = {...D3, title:'다자이후 + 야나가와 코타츠 뱃놀이', summary:'다자이후(아침) → 야나가와 장어덮밥 → 코타츠 뱃놀이 → 텐진 저녁',
-  notice:'<b>겨울 한정</b> — 야나가와 뱃놀이는 12~2월에 배 안에 <b>코타츠(이불 난로)</b>를 놓아줘요. 니시테츠 ‘다자이후·야나가와 관광 티켓’(약 ¥3,000대)으로 전철+뱃놀이를 묶으면 경제적. ⚠️ 전철 이동이 2시간 넘어 부모님께는 긴 하루예요.',
+  notice:'⚠️ <b>아빠 배멀미가 심하면 비추천</b> — 파도 없는 좁은 수로지만 70분 동안 배에 앉아 있어야 해요. <b>겨울 한정</b> — 야나가와 뱃놀이는 12~2월에 배 안에 <b>코타츠(이불 난로)</b>를 놓아줘요. 니시테츠 ‘다자이후·야나가와 관광 티켓’(약 ¥3,000대)으로 전철+뱃놀이를 묶으면 경제적. ⚠️ 전철 이동이 2시간 넘어 부모님께는 긴 하루예요.',
   items:[
     {t:'07:30', ico:'🥐', title:'호텔 조식', desc:'8:20 출발'},
     {mv:true, mode:'🚇+🚃 지하철 → 니시테츠', dur:'기온 → 텐진 → 다자이후 약 45분', cost:'지하철 ¥210 + 관광 티켓', from:HOTEL, to:'Dazaifu Station', gm:'transit', alt:'텐진 니시테츠 역 창구에서 관광 티켓 구매'},
@@ -646,7 +687,8 @@ const D4_B = {...D4, title:'하카타 구시가지 산책 → 귀국', summary:'
     {t:'10:10', end:'약 1시간', ico:'⛩️', title:'쿠시다 신사 & 가와바타 상점가', desc:'하카타 총진수 신사, 기온 야마카사 장식 가마. 상점가에서 ‘가와바타 젠자이’', q:'Kushida Shrine'},
     {mv:true, mode:'🚇 지하철', dur:'기온 → 하카타 1정거장 2분', cost:'1인 ¥210', from:'Kushida Shrine', to:'JR Hakata City', gm:'transit'},
     {t:'11:30', end:'약 1시간 15분', ico:'🍣', title:'점심 — 하카타역 식당가', desc:'KITTE·아뮤플라자 식당가 (스시·텐동·명란 정식 등). 1인 ¥2,000~3,500', pay:'card', q:'JR Hakata City Kooten'},
-    {t:'13:00', ico:'🎁', title:'마잉구 기념품 쇼핑', desc:'하카타역 1층 — 명란·과자 최종 구매', pay:'card', q:'Ming Hakata Station'},
+    {t:'12:50', end:'약 40분', ico:'🍨', title:'파르페 — 캠벨 얼리 (JR 하카타시티 9층)', desc:'과일가게가 운영하는 카페. 규슈 과일 파르페', pay:'card', tags:[['acc','파르페']], q:'キャンベル・アーリー 博多'},
+    {t:'13:30', ico:'🎁', title:'마잉구 기념품 쇼핑', desc:'하카타역 1층 — 명란·과자 최종 구매', pay:'card', q:'Ming Hakata Station'},
     {t:'14:00', ico:'🧳', title:'9호텔 — 짐 찾기', desc:'지하철 1정거장 또는 도보 15분 · 14:30 택시 출발'},
     {mv:true, mode:'🚕 택시', dur:'20~30분', cost:'¥2,500~3,500', from:HOTEL, to:'Fukuoka Airport International Terminal', gm:'driving'},
     {t:'15:00', ico:'🛂', title:'후쿠오카공항 국제선', desc:'체크인·출국심사·면세점', q:'Fukuoka Airport International Terminal'},
@@ -655,12 +697,12 @@ const D4_B = {...D4, title:'하카타 구시가지 산책 → 귀국', summary:'
 
 const PLANS = [
   {id:'R', name:'느긋한 추천 ⭐', desc:'부모님 동반 · 대중교통 · 오후 휴식', days:[D1,D2_R,D3_R,D4_R],
-   change:'2일차: 오호리(아침) → 하츠키 → 상점가 구경하며 소화 산책 → 카페 → 호텔 휴식 → 캐널시티(선택)<br>3일차: 아침 야나기바시 시장 → 다자이후 → 쇼핑 2시간<br>4일차: 호텔 앞 쿠시다 신사 → 高宮庭園茶寮', reason:'카페·구경 위주, 바닷바람 피하기, 식후 바로 앉지 않고 걷기, 오후 휴식. 공항 가는 날도 여유로움', load:'가벼움'},
+   change:'2일차: 오호리(아침) → 하츠키 → 상점가 구경하며 소화 산책 → 카페 → 호텔 휴식 → 캐널시티(선택)<br>3일차: 아침 야나기바시 시장 → 다자이후 → 쇼핑 2시간<br>3일차 오후: 아마오우 파르페<br>4일차: 하카타 구시가지 절 골목 산책 → 高宮庭園茶寮', reason:'카페·파르페·구경 위주, 바닷바람 피하기, 식후 바로 앉지 않고 걷기, 오후 휴식. 공항 가는 날도 여유로움', load:'가벼움'},
   {id:'A', name:'내 계획 (대중교통)', desc:'짜주신 일정 + 소화 산책·아침 시장', days:[D1,D2,D3,D4_R],
    change:'2일차: 하츠키 뒤 40분 소화 산책 추가<br>3일차: 아침 시장 → 다자이후<br>4일차: 시장이 빠져 쿠시다 신사 → 高宮庭園茶寮', reason:'예약 완료된 하츠키 12:30 기준으로 역산. 2일차는 서쪽(공항선 라인)으로 묶어 이동 최소화', load:'많음 (2·4일차)'},
   {id:'B', name:'노을·야경 동선', desc:'바람 없는 날에만 · 모모치 일몰', days:[D1_B,D2_B,D3,D4_R],
    change:'1일차: 이치란 먼저 → 강변·야타이<br>2일차: 오호리(아침) ↔ 모모치(노을) 순서 교체 + 후쿠오카 타워', reason:'해변은 노을 시간대가 가장 예쁨. 다만 바닷바람이 차갑고 돌아오는 길이 길어요', load:'보통'},
-  {id:'C', name:'다자이후 + 야나가와', desc:'겨울 한정 코타츠 뱃놀이 추가', days:[D1,D2_R,D3_C,D4],
+  {id:'C', name:'다자이후 + 야나가와', desc:'⚠️ 배 — 아빠 배멀미 고려', days:[D1,D2_R,D3_C,D4],
    change:'3일차: 다자이후 후 야나가와 장어덮밥 + 코타츠 뱃놀이<br>4일차: 시장 → 高宮庭園茶寮 (시장을 4일차로)', reason:'12월에만 가능한 경험. 배 위는 야외라 코타츠가 있어도 바람이 차갑고, 전철 이동이 길어 체력 소모 큼', load:'많음'},
   {id:'D', name:'高宮 예약 실패 시', desc:'4일차를 호텔 주변 도보로', days:[D1,D2_R,D3_R,D4_B],
    change:'4일차: 高宮庭園茶寮 대신 쿠시다 신사·하카타역 점심 (2·3일차는 느긋한 추천과 같음)', reason:'예약이 안 될 때 대비. 이동 부담 가장 적음', load:'가벼움'},
@@ -758,6 +800,7 @@ const BUDGET_DEFAULT = [
     {k:'f4', pay:'card', n:'2일 모츠나베 오오야마', b:'p', v:3500, day:1},
     {k:'f5', pay:'cash', n:'3일 다자이후 간식', b:'p', v:800, day:2},
     {k:'f6', pay:'cash', n:'3일 なんから食堂 점심', b:'p', v:1500, day:2},
+    {k:'f11', pay:'card', n:'3일 파르페 (프루츠 플래닛)', b:'p', v:2000, day:2},
     {k:'f7', pay:'card', n:'3일 백화점 식당가 저녁', b:'p', v:3000, day:2},
     {k:'f8', pay:'cash', n:'3일 아침 야나기바시 시장 간식', b:'p', v:1500, day:2},
     {k:'f9', pay:'card', n:'4일 高宮庭園茶寮 점심', b:'p', v:4000, day:3},
