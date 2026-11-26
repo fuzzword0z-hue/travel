@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>후쿠오카 가족여행</title>
+<meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="2026.12.26–12.29 후쿠오카 3박 4일 가족여행 일정·동선·예산">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <style>
 :root{
   color-scheme: light;
@@ -40,7 +40,7 @@
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--text);font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;font-size:15px;line-height:1.55;word-break:keep-all;overflow-wrap:anywhere}
 a{color:inherit}
-.wrap{max-width:880px;margin:0 auto;padding:0 16px 80px}
+.wrap{max-width:880px;margin:0 auto;padding-block:0 80px;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
 /* header */
 .hero{padding:28px 0 18px}
 .hero .eyebrow{font-size:13px;color:var(--accent);font-weight:700;letter-spacing:.02em}
@@ -72,7 +72,7 @@ a{color:inherit}
 .resv li{display:flex;justify-content:space-between;gap:8px;padding:6px 0;border-bottom:1px solid var(--line);font-size:14px}
 .resv li:last-child{border-bottom:0}
 /* tabs */
-.tabs{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);padding:12px 0;margin:18px 0 6px;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+.tabs{position:sticky;top:env(safe-area-inset-top, 0px);z-index:10;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);padding:12px 0;margin:18px 0 6px;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
 .tabs::-webkit-scrollbar{display:none}
 .tab{flex:0 0 auto;border:1px solid var(--line);background:var(--surface);color:var(--text-2);padding:9px 16px;border-radius:999px;font:inherit;font-weight:600;cursor:pointer}
 .tab[aria-selected="true"]{background:var(--navy);border-color:var(--navy);color:var(--bg)}
@@ -251,7 +251,7 @@ details[open] .chev{transform:rotate(90deg)}
       <li><b>“본점”과 예약 맛집 위주</b> — 이치란 총본점, 하츠키 본점, 오오야마 본점처럼 <b>그 지역 대표 맛집</b>을 고르는 스타일이에요. 식사 시간을 축으로 동선을 짜는 게 맞습니다.</li>
       <li><b>자연·정원 + 조용한 분위기</b> — 모모치 해변, 오호리 공원, 高宮庭園茶寮(정원 찻집)까지. 사람 많은 관광지보다 <b>풍경 좋은 곳에서 쉬어가는</b> 걸 좋아하세요.</li>
       <li><b>무리하지 않는 하루 3~4곳</b> — 가족 여행이고 택시를 쓰는 걸 보면 이동 피로를 줄이는 게 중요합니다.</li>
-      <li>⚠️ <b>보완 포인트</b>: ① 1일차 저녁이 늦게 시작돼 배고플 수 있음 ② 모모치 해변은 <b>일몰(17:20경) 때</b>가 가장 예뻐요 ③ 4일차 점심이 남쪽(다카미야)이라 공항 가기 전 시간이 빠듯함 ④ 12/28(월) 규슈국립박물관 휴관, 12/29부터 일부 가게 연말 휴무 시작.</li>
+      <li>⚠️ <b>보완 포인트</b>: ① 1일차 저녁이 늦게 시작돼 배고플 수 있음 ② 모모치 해변은 <b>일몰(17:20경) 때</b>가 가장 예뻐요 ③ 4일차 점심이 남쪽(다카미야)이라 공항 가기 전 시간이 빠듯함 — 高宮庭園茶寮는 타베로그로 미리 예약 ④ 12/28(월) 규슈국립박물관 휴관, 12/29부터 일부 가게 연말 휴무 시작.</li>
     </ul>
   </div>
 
@@ -349,7 +349,7 @@ const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':
 const RESV = [
   ['니시진 하츠키 본점 12/27 12:30', 'ok', '예약 완료'],
   ['모츠나베 오오야마 본점 12/27', 'warn', '예약 권장'],
-  ['高宮庭園茶寮 12/29 점심', 'warn', '연말 영업 확인'],
+  ['高宮庭園茶寮 12/29 점심', 'acc', '타베로그 예약 필요'],
   ['나카스 크루즈 12/26 20:00', 'navy', '선택'],
 ];
 $('#resvList').innerHTML = RESV.map(([t,c,l]) => `<li><span>${esc(t)}</span><span class="badge b-${c}">${l}</span></li>`).join('');
@@ -420,13 +420,13 @@ const D3 = {
 };
 const D4 = {
   date:'12/29', dow:'화', title:'시장 & 정원 점심 → 귀국', summary:'체크아웃 → 야나기바시 시장 → 高宮庭園茶寮 → 공항',
-  notice:'<b>12/29부터 연말 휴무(年末年始)</b> 시작하는 가게가 있어요. 高宮庭園茶寮 영업 여부·예약을 꼭 확인하세요. 야나기바시 시장은 연말 장보기 대목이라 매우 붐벼요.',
+  notice:'<b>高宮庭園茶寮는 12/29 영업해요.</b> 타베로그에서 예약할 수 있으니 갈 거라면 <b>미리 예약</b>하세요 (11:30 전후, 인원수). 야나기바시 시장은 연말 장보기 대목이라 매우 붐벼요.',
   items:[
     {t:'08:00', ico:'🥐', title:'조식 & 체크아웃', desc:'9:30 체크아웃 → 프런트에 짐 맡기기', tips:['짐 보관표 사진 찍어두기']},
     {mv:true, mode:'🚕 택시', dur:'약 8~10분', cost:'¥1,100', from:HOTEL, to:'Yanagibashi Rengo Market', gm:'driving', alt:'도보 약 25분 (나카강을 따라 남쪽으로)'},
     {t:'09:50', end:'약 1시간 15분', ico:'🐟', title:'야나기바시 연합시장', desc:'‘하카타의 부엌’. 어묵 튀김·명란·해산물 간식으로 가볍게 (점심 배는 남겨두기)', tips:['현금 필수 · 1인 ¥1,000~1,500','오전 일찍일수록 덜 붐벼요'], q:'Yanagibashi Rengo Market', key:true},
     {mv:true, mode:'🚕 택시 (추천)', dur:'약 15분', cost:'¥1,800~2,200', from:'Yanagibashi Rengo Market', to:'高宮庭園茶寮', gm:'driving', alt:'버스 약 25분 + 도보, 1인 ¥210 — 4인 이상이면 택시가 시간·비용 모두 유리'},
-    {t:'11:30', end:'약 1시간 45분', ico:'🍵', title:'高宮庭園茶寮 점심', desc:'일본 정원을 바라보며 먹는 점심. 1인 ¥3,000~5,000 예상', tags:[['warn','예약·영업 확인']], tips:['13:15에는 일어나야 일정이 여유로워요'], q:'高宮庭園茶寮', key:true},
+    {t:'11:30', end:'약 1시간 45분', ico:'🍵', title:'高宮庭園茶寮 점심', desc:'일본 정원을 바라보며 먹는 점심. 1인 ¥3,000~5,000 예상', tags:[['acc','타베로그 예약 필수']], tips:['타베로그에서 12/29 11:30 전후로 미리 예약','13:15에는 일어나야 일정이 여유로워요'], q:'高宮庭園茶寮', key:true},
     {mv:true, mode:'🚕 택시', dur:'약 20분', cost:'¥2,500', from:'高宮庭園茶寮', to:HOTEL, gm:'driving'},
     {t:'14:00', ico:'🧳', title:'9호텔 — 짐 찾기', desc:'14:30 택시 출발 (호텔에 택시 호출 부탁)'},
     {mv:true, mode:'🚕 택시', dur:'20~30분', cost:'¥2,500~3,500', from:HOTEL, to:'Fukuoka Airport International Terminal', gm:'driving', alt:'연말 도로 정체 감안해 30분 잡기'},
@@ -478,7 +478,7 @@ const D3_C = {...D3, title:'다자이후 + 야나가와 코타츠 뱃놀이', su
     {mv:true, mode:'🚕 택시', dur:'약 8분', cost:'¥1,200', from:'Don Quijote Fukuoka Tenjin', to:HOTEL, gm:'driving'},
   ]};
 const D4_B = {...D4, title:'하카타 구시가지 여유 산책 → 귀국', summary:'체크아웃 → 야나기바시 시장 → 쿠시다 신사·가와바타 상점가 → 하카타역 점심 → 공항',
-  notice:'<b>高宮庭園茶寮가 연말 휴무이거나 예약이 어려울 때</b>의 대안. 쿠시다 신사·가와바타 상점가가 호텔(레이센마치)에서 도보 5분이라 이동 시간이 30분 이상 줄어요.',
+  notice:'<b>高宮庭園茶寮 예약이 마감됐을 때</b>의 대안. 쿠시다 신사·가와바타 상점가가 호텔(레이센마치)에서 도보 5분이라 이동 시간이 30분 이상 줄어요.',
   items:[
     {t:'08:00', ico:'🥐', title:'조식 & 체크아웃', desc:'9:30 짐 맡기기'},
     {mv:true, mode:'🚕 택시', dur:'약 8~10분', cost:'¥1,100', from:HOTEL, to:'Yanagibashi Rengo Market', gm:'driving'},
@@ -500,8 +500,8 @@ const PLANS = [
    change:'1일차: 이치란 먼저 → 야타이 (크루즈 생략)<br>2일차: 오호리(아침) ↔ 모모치(노을) 순서 교체 + 후쿠오카 타워', reason:'첫날 배고픔·추위 해결, 해변은 노을 시간대가 가장 예쁨. 풍경을 좋아하는 취향 반영', load:'보통'},
   {id:'C', name:'다자이후 + 야나가와', desc:'겨울 한정 코타츠 뱃놀이 추가', days:[D1,D2,D3_C,D4],
    change:'3일차: 다자이후 후 야나가와 장어덮밥 + 코타츠 뱃놀이, 텐진 쇼핑은 저녁 집중형', reason:'전통·미식 취향에 딱. 12월에만 가능한 경험으로 가족 추억 포인트 ↑', load:'조금 많음'},
-  {id:'D', name:'여유로운 마지막 날', desc:'4일차를 호텔 주변으로', days:[D1,D2,D3,D4_B],
-   change:'4일차: 高宮庭園茶寮 대신 쿠시다 신사·가와바타 상점가·하카타역 점심', reason:'연말 휴무·예약 실패 대비. 공항 가는 날 택시 이동 2회 감소, 기념품 쇼핑 시간 확보', load:'가벼움'},
+  {id:'D', name:'여유로운 마지막 날', desc:'高宮 예약 실패 시 · 호텔 주변', days:[D1,D2,D3,D4_B],
+   change:'4일차: 高宮庭園茶寮 대신 쿠시다 신사·가와바타 상점가·하카타역 점심', reason:'高宮庭園茶寮 예약 실패 대비. 공항 가는 날 택시 이동 2회 감소, 기념품 쇼핑 시간 확보', load:'가벼움'},
 ];
 
 /* ---------- 일정 렌더 ---------- */
@@ -668,7 +668,13 @@ function renderBudget(full){
 }
 peopleEl.addEventListener('input', () => { store.set('people', +peopleEl.value); renderBudget(true); });
 rateEl.addEventListener('input', () => { store.set('rate', +rateEl.value); renderBudget(false); });
-$('#resetBudget').onclick = () => { if (!confirm('단가를 기본값으로 되돌릴까요? (항공·숙박 입력값도 지워져요)')) return; bvals = {}; store.set('bvals', bvals); renderBudget(true); };
+let resetArm = null;
+$('#resetBudget').onclick = () => {
+  const b = $('#resetBudget');
+  if (!resetArm){ b.textContent = '한 번 더 누르면 초기화'; resetArm = setTimeout(() => { resetArm = null; b.textContent = '기본값으로'; }, 3000); return; }
+  clearTimeout(resetArm); resetArm = null; b.textContent = '기본값으로';
+  bvals = {}; store.set('bvals', bvals); renderBudget(true);
+};
 renderBudget(true);
 
 /* 툴팁 */
@@ -686,7 +692,7 @@ document.addEventListener('pointermove', e => {
 const CHECK = {
   resv:[
     ['모츠나베 오오야마 본점 예약', '12/27(일) 18:00, 인원수 · 연말 주말이라 필수'],
-    ['高宮庭園茶寮 12/29 영업·예약 확인', '연말 휴무 시 PLAN D(하카타 산책)로 변경'],
+    ['高宮庭園茶寮 12/29 점심 예약 (타베로그)', '12/29 영업 확인됨 · 예약 마감 시 PLAN D(하카타 산책)로 변경'],
     ['나카스 크루즈 탈지 결정', '탈 경우 20:00 회차 운항 여부 확인'],
     ['一丁目 なんから食堂 12/28(월) 영업 확인', '다이묘 1-1-7 · 텐진역 도보 10분'],
     ['니시진 하츠키 알레르기·못 먹는 재료 전달', '이미 예약 완료 — 필요 시 연락'],
