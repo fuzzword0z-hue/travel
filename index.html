@@ -339,7 +339,7 @@ details[open] .chev{transform:rotate(90deg)}
     <h3>💳 일본 결제 계획 · 트래블 카드</h3>
     <div class="paysum" id="paySum"></div>
     <div class="pay-row">
-      <div class="pay-top"><b>트래블로그</b><span class="badge b-ok">① ATM 인출</span><span class="badge b-navy">② 카드결제</span>
+      <div class="pay-top"><b>트래블로그</b><span class="badge b-ok">① 세븐일레븐 ATM 인출</span><span class="badge b-navy">② 카드결제</span>
         <label class="ctl pay-bal">충전 ¥<input type="number" id="balTL" min="0" step="1" value="59784"></label></div>
       <div class="paybar" id="barTL"></div><div class="pay-txt" id="txtTL"></div>
     </div>
@@ -440,7 +440,7 @@ const D1 = {
   items:[
     {t:'13:35', ico:'🛫', title:'청주공항 도착', desc:'출발 2시간 전 도착 · 수하물 위탁, 환전 마무리', q:'청주국제공항'},
     {t:'15:35', ico:'✈️', title:'청주 출발 → 후쿠오카', desc:'비행 약 1시간 25분', key:true},
-    {t:'17:00', ico:'🛬', title:'후쿠오카공항 국제선 도착', desc:'입국심사·세관·수하물 찾기 약 40~60분 → 17:50경 택시 승차', tips:['💴 도착 로비 세븐은행 ATM에서 트래블로그로 1차 현금 인출 (예산 탭 참고)','택시 승강장은 국제선 터미널 1층 정면','3인 + 캐리어는 일반 택시 1대로 충분 (트렁크 2~3개)'], q:'Fukuoka Airport International Terminal'},
+    {t:'17:00', ico:'🛬', title:'후쿠오카공항 국제선 도착', desc:'입국심사·세관·수하물 찾기 약 40~60분 → 17:50경 택시 승차', tips:['💴 도착 로비 세븐일레븐(세븐은행) ATM에서 트래블로그로 1차 현금 인출 (예산 탭 참고)','택시 승강장은 국제선 터미널 1층 정면','3인 + 캐리어는 일반 택시 1대로 충분 (트렁크 2~3개)'], q:'Fukuoka Airport International Terminal'},
     {mv:true, mode:'🚕 택시', dur:'20~30분', cost:'¥2,500~3,500', from:'Fukuoka Airport International Terminal', to:HOTEL, gm:'driving', alt:'대안: 국제선→하카타역 니시테츠 버스 약 20분, 1인 ¥310'},
     {t:'18:30', end:'18:20~18:50', ico:'🏨', title:'9호텔 하카타 체크인', desc:'예상하신 18:40 체크인은 적절해요. 짐 풀고 방한 준비 후 19:10 출발', tips:['저녁이 20시경이라 공항/기내에서 가볍게 요기해 두면 좋아요'], q:HOTEL, key:true},
     {mv:true, mode:'🚶 도보', dur:'약 10분 (호텔 → 나카강변)', cost:'무료', from:HOTEL, to:'Nakasu Yatai Fukuoka', gm:'walking', alt:'호텔이 레이센마치라 나카스까지 걸어서 충분해요 — 가와바타 상점가를 지나 강변으로'},
@@ -756,11 +756,11 @@ function renderPay(P, R, localYen){
   const w1 = ceil1k(Math.min(tlCash + wlCash, cashBy(0) + cashBy(1) + cashFree/2));
   const w2 = Math.max(0, ceil1k(tlCash + wlCash) - w1);
   $('#atmPlan').innerHTML =
-    `<div>🏧 <b>1차 인출 · 12/26 공항 도착 로비</b> — 트래블로그로 <b>${yen(w1)}</b> (택시·이치란·카페·지하철)</div>` +
-    `<div>🏧 <b>2차 인출 · 12/28 아침 편의점 ATM</b> — <b>${yen(w2)}</b> (다자이후·시장·택시) · 남은 현금 보고 조정</div>` +
+    `<div>🏧 <b>1차 인출 · 12/26 공항 도착 로비 세븐일레븐 ATM</b> — 트래블로그로 <b>${yen(w1)}</b> (택시·이치란·카페·지하철)</div>` +
+    `<div>🏧 <b>2차 인출 · 12/28 아침 호텔 근처 세븐일레븐 ATM</b> — <b>${yen(w2)}</b> (다자이후·시장·택시) · 남은 현금 보고 조정</div>` +
     `<div>💳 하츠키·오오야마·백화점·돈키호테·高宮庭園茶寮는 <b>트래블월렛</b>으로 먼저 결제, 잔액이 모자라면 트래블로그 카드로</div>` +
     (short > 0 ? `<div class="short">⚠️ ${yen(short)} 부족 — 앱에서 추가 충전하거나, 쇼핑 예산을 줄이거나, 한국 신용카드(해외결제 수수료 있음)로 보충</div>` : '') +
-    `<div style="color:var(--text-3);font-size:12.5px">인출 수수료·무료 ATM 조건은 각 앱 공지를 확인하세요. 일본 ATM은 1,000엔 단위로 인출돼요.</div>`;
+    `<div style="color:var(--text-3);font-size:12.5px">트래블로그는 세븐일레븐 ATM(세븐은행)에서 인출해요. 공항 ATM이 붐비면 호텔 가는 길 세븐일레븐에서 뽑아도 돼요. 화면에서 한국어 선택 가능 · 1,000엔 단위 인출 · 수수료 조건은 앱 공지 확인</div>`;
 }
 balTL.addEventListener('input', () => { store.set('balTL', +balTL.value); renderBudget(false); });
 balWL.addEventListener('input', () => { store.set('balWL', +balWL.value); renderBudget(false); });
@@ -844,7 +844,7 @@ const CHECK = {
     ['돼지코 어댑터', '일본은 110V 11자 콘센트'],
     ['방한용품', '패딩·목도리·장갑·핫팩 — 강변·해변 바람 강함'],
     ['편한 운동화', '하루 1~1.5만 보 예상'],
-    ['현금은 일본 ATM에서 트래블로그로 인출', '공항 도착 로비·편의점 세븐은행 ATM — 시장·이치란 자판기·택시용'],
+    ['현금은 세븐일레븐 ATM에서 트래블로그로 인출', '공항 도착 로비·시내 세븐일레븐 — 시장·이치란 자판기·택시용'],
     ['상비약', '소화제·감기약·밴드'],
     ['쇼핑용 접이식 가방', '귀국 짐 늘어날 때'],
   ],
@@ -852,7 +852,7 @@ const CHECK = {
     ['Visit Japan Web 등록', '입국심사·세관 QR — 가족 전원'],
     ['eSIM / 포켓와이파이', '도착 즉시 사용 가능하게 미리 설치'],
     ['트래블로그 ¥59,784 · 트래블월렛 ¥50,000 충전 완료', '카드 2장 모두 챙기기 · 앱에서 해외 ATM 인출/결제 설정 켜두기'],
-    ['트래블로그 ATM 인출 수수료·이용 가능 ATM 확인', '앱 공지에서 무료 인출 조건 확인 (세븐은행 ATM 등)'],
+    ['트래블로그 세븐일레븐 ATM 인출 수수료 확인', '앱 공지에서 무료 인출 조건·1회 한도 확인'],
     ['구글 지도 오프라인 저장', '후쿠오카 시내'],
     ['GO 택시 앱', '택시 호출 — 연말엔 잡기 어려울 수 있음'],
   ],
