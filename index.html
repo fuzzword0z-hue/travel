@@ -882,8 +882,8 @@ const BUDGET_DEFAULT = [
     {k:'tx6', pay:'cash', n:'4일 호텔 → 공항 택시 (앱 호출)', b:'car', v:3000, day:3},
   ]},
   {id:'shop', name:'쇼핑', color:'--s6', items:[
-    {k:'s1', pay:'card', n:'부모님 쇼핑 (백화점·돈키호테)', b:'g', v:50000, day:null},
-    {k:'s2', pay:'card', n:'부모님 기념품 (명란·과자·스즈카케 화과자)', b:'g', v:15000, day:null},
+    {k:'s3', pay:'card', n:'부모님 쇼핑 (백화점·돈키호테)', b:'kj', v:200000, day:null},
+    {k:'s4', pay:'card', n:'부모님 기념품 (명란·과자·스즈카케 화과자)', b:'kj', v:150000, day:null},
   ]},
   {id:'etc', name:'기타', color:'--s7', items:[
     {k:'e1', n:'eSIM / 포켓와이파이 (한국에서 결제)', b:'krw', v:40000, day:null},
@@ -891,7 +891,7 @@ const BUDGET_DEFAULT = [
     {k:'e3', pay:'cash', n:'예비비', b:'g', v:10000, day:null},
   ]},
 ];
-const BASIS = {krw:'총액(원)', p:'1인당 ¥', g:'가족 ¥', car:'택시 1대당 ¥'};
+const BASIS = {kj:'가족 원화 예산 (현지 엔화로 결제)', krw:'총액(원)', p:'1인당 ¥', g:'가족 ¥', car:'택시 1대당 ¥'};
 let bvals = store.get('bvals', {});
 /* 환율: 기준일마다 갱신 (11/27 → 12/12 → 12/26). 기준일이 바뀌면 각 기기에서 직접 고친 값은 새 기준으로 초기화돼요 */
 const RATE = {v:837.33, date:'2026-11-27', src:'우리은행 기준율'};
@@ -905,13 +905,14 @@ const yen = n => '¥' + Math.round(n).toLocaleString('ja-JP');
 
 function itemKRW(it, P, R){
   const v = bvals[it.k] ?? it.v;
-  if (it.b==='krw') return v;
+  if (it.b==='krw' || it.b==='kj') return v;
   const cars = Math.ceil(P/4);
   const y = it.b==='p' ? v*P : it.b==='car' ? v*cars : v;
   return y * R / 100;
 }
 function itemYen(it, P){
   const v = bvals[it.k] ?? it.v; if (it.b==='krw') return null;
+  if (it.b==='kj') return v * 100 / (+rateEl.value||RATE.v);
   return it.b==='p' ? v*P : it.b==='car' ? v*Math.ceil(P/4) : v;
 }
 /* 트래블 카드 배분
@@ -990,7 +991,7 @@ function renderBudget(full){
       <summary class="cat-head"><span class="sw" style="background:var(${c.color})"></span><span class="nm">${c.name}</span>
       ${c.paid?'<span class="badge b-ok">신용카드 결제 완료</span>':''}<span class="amt" data-amt="${c.id}"></span><span class="chev">›</span></summary>
       <div class="items">${c.items.map(it => `<div class="item ${c.paid?'paid':''}"><div>${esc(it.n)}<div class="basis">${BASIS[it.b]}${it.b==='car'?` × ${Math.ceil(P/4)}대`:''}${it.pay?(it.pay==='cash'?' · 💴 현금':' · 💳 카드'):''}</div></div>
-        <input type="number" min="0" step="${it.b==='krw'?1000:100}" data-k="${it.k}" value="${c.paid && !(bvals[it.k] ?? it.v) ? '' : (bvals[it.k] ?? it.v)}" aria-label="${esc(it.n)} 단가" ${c.paid?'placeholder="결제 금액"':''}>
+        <input type="number" min="0" step="${it.b==='krw'||it.b==='kj'?10000:100}" data-k="${it.k}" value="${c.paid && !(bvals[it.k] ?? it.v) ? '' : (bvals[it.k] ?? it.v)}" aria-label="${esc(it.n)} 단가" ${c.paid?'placeholder="결제 금액"':''}>
         <div class="sum" data-sum="${it.k}"></div></div>`).join('')}
         ${c.paid?'<div class="item"><div class="basis">💡 결제하신 금액을 입력하면 총액에 반영돼요</div></div>':''}</div></details>`).join('');
     $$('#cats input').forEach(inp => inp.addEventListener('input', () => {
@@ -1000,7 +1001,7 @@ function renderBudget(full){
   }
   cats.forEach(c => {
     $(`[data-amt="${c.id}"]`).textContent = won(c.total);
-    c.items.forEach(it => { const y = itemYen(it,P); $(`[data-sum="${it.k}"]`).textContent = y==null ? won(itemKRW(it,P,R)) : yen(y); });
+    c.items.forEach(it => { const y = itemYen(it,P); $(`[data-sum="${it.k}"]`).textContent = y==null ? won(itemKRW(it,P,R)) : it.b==='kj' ? `≈${yen(y)}` : yen(y); });
   });
   // 날짜별
   const days = [0,1,2,3].map(i => BUDGET_DEFAULT.filter(c=>!c.paid).flatMap(c=>c.items).filter(it=>it.day===i).reduce((s,it)=>s+(itemYen(it,P)||0),0));
