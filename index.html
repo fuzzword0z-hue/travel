@@ -534,7 +534,7 @@ const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':
 const RESV = [
   ['니시진 하츠키 본점 12/27 12:30', 'ok', '예약 완료'],
   ['모츠나베 오오야마 본점 12/27', 'warn', '예약 권장'],
-    ['博多とんかつ 旅と膳 12/29 점심', 'warn', '위치·영업 확인'],
+    ['博多とんかつ 旅と膳 12/29 11:45', 'navy', '영업일 확인'],
   ];
 $('#resvList').innerHTML = RESV.map(([t,c,l]) => `<li><span>${esc(t)}</span><span class="badge b-${c}">${l}</span></li>`).join('');
 
@@ -544,6 +544,8 @@ $('#resvList').innerHTML = RESV.map(([t,c,l]) => `<li><span>${esc(t)}</span><spa
 */
 const HOTEL = '9 Hotel Hakata, 9-16 Reisenmachi, Hakata Ward, Fukuoka';
 const NANKARA = '一丁目 なんから食堂, 1-1-7 Daimyo, Chuo Ward, Fukuoka';
+const TABITOZEN = '博多とんかつ 旅と膳, 4-202 Kamikawabatamachi, Hakata Ward, Fukuoka';
+const YAKATA = 'Yakata, 6-16 Reisenmachi, Hakata Ward, Fukuoka';
 const KAUHII = '28-2 Takatori, Sawara Ward, Fukuoka';
 const HATSUKI = {t:'12:30', end:'2시간 (최대 2시간 30분)', ico:'🥩', title:'니시진 하츠키 본점 — 와규 샤브샤브·스키나베', descHtml:true, desc:'예약 완료 · 1인 ¥8,500 (세금 포함) · <b>2시간 노미호다이 포함</b> · 이마리규·사가규·이토시마규 등 규슈산 흑모와규 6품', pay:'card', tags:[['ok','예약 완료'],['acc','¥8,500/인 · 음료 무제한']], tips:['샤브샤브 / 스키나베 중 선택 — 가족끼리 미리 정해두기 (스키나베는 이토시마 날계란에 찍어 먹어요)','구성: 작은 반찬 → 특선 와규 → 채소 → 우동 → 디저트','부모님 못 드시는 재료는 미리 전달'], q:'西新 初喜 本店', key:true};
 const D1 = {
@@ -672,16 +674,19 @@ const D4_R = {...D4, title:'느긋한 아침 → 카멜리아 점심 뷔페 → 
     {t:'18:00', ico:'✈️', title:'후쿠오카 출발 → 청주', desc:'19:20 청주공항 도착 예정', key:true},
   ]};
 
-const D4_M = {...D4, title:'야나기바시 시장 → 스미요시 산책 → 돈카츠 → 귀국', summary:'지하철로 야나기바시 시장 → 스미요시 거리 구경하며 숙소 쪽으로 → 博多とんかつ 旅と膳 점심 → 짐 찾고 앱 택시로 공항',
+const D4_M = {...D4, title:'야나기바시 시장 → 스미요시 산책 → 돈카츠 → 귀국', summary:'지하철로 야나기바시 시장 → 스미요시 거리 구경하며 숙소 쪽으로 → 博多とんかつ 旅と膳 점심 → 카페 야카타 → 짐 찾고 앱 택시로 공항',
   notice:'<b>마지막 날은 시장에서 시작</b> — 야나기바시 시장은 아침 8시쯤부터 열고 일요일·공휴일 휴무라 12/29(화)는 영업해요 (연말 장보기로 붐빌 수 있어요). 시장에서 스미요시 쪽으로 걸어 올라오며 숙소 근처에서 점심 후 공항으로.',
   items:[
     {t:'08:00', ico:'🥐', title:'가벼운 조식 & 체크아웃', desc:'시장 간식이 있으니 가볍게 · 9:00 체크아웃 → 프런트에 짐 맡기기', tips:['짐 보관표 사진 찍어두기']},
     {mv:true, mode:'🚇 지하철 나나쿠마선', dur:'구시다진자마에역(호텔 도보 약 5분) → 와타나베도리 2정거장 약 4분 · 시장까지 도보 약 5분', cost:'1인 ¥210', from:HOTEL, to:'Yanagibashi Rengo Market', gm:'transit', alt:'역 이름만 신사 이름일 뿐, 신사는 들르지 않아요'},
     {t:'09:20', end:'약 1시간', ico:'🐟', title:'야나기바시 연합시장', pay:'cash', desc:'‘하카타의 부엌’. 어묵 튀김·명란·해산물 간식, 연말 장보기 분위기 구경', tips:['현금 필수 · 1인 ¥1,000~1,500','점심 돈카츠 배는 남겨두기'], q:'Yanagibashi Rengo Market', key:true},
     {mv:true, mode:'🚶 도보', dur:'약 15분 (평지)', cost:'무료', from:'Yanagibashi Rengo Market', to:'Sumiyoshi Shrine Fukuoka', gm:'walking'},
-    {t:'10:35', end:'약 1시간', ico:'🚶', title:'스미요시 거리 구경 → 숙소 쪽으로', desc:'스미요시 신사 쪽 골목과 동네 가게를 구경하며 하카타역·숙소 방향으로 천천히 걸어 올라와요', tips:['숙소까지 총 약 25~30분 거리 — 힘들면 하카타역에서 지하철 1정거장(기온)'], q:'Sumiyoshi Shrine Fukuoka'},
-    {t:'11:45', end:'약 1시간', ico:'🍱', title:'博多とんかつ 旅と膳 — 점심', pay:'card', desc:'하카타 돈카츠 정식. 아빠 입맛에도 무난한 일식', tags:[['warn','위치·영업시간 확인']], tips:['검색으로 가게 정보를 찾지 못했어요 — 구글맵에서 위치·휴무 확인','연말이라 12시 전에 들어가면 덜 붐벼요'], q:'博多とんかつ 旅と膳', key:true},
-    {t:'13:00', end:'약 1시간', ico:'🏮', title:'숙소 근처 자유 시간', desc:'가와바타 상점가 구경, 스즈카케 본점 1층 과자점에서 선물 쇼핑, 또는 호텔 로비에서 쉬기', q:'Kawabata Shopping Arcade Fukuoka'},
+    {t:'10:35', end:'약 1시간', ico:'🚶', title:'스미요시 거리 구경 → 숙소 쪽으로', desc:'스미요시 신사 쪽 골목과 동네 가게를 구경하며 하카타역 서쪽을 지나 가미카와바타(숙소 근처)까지 천천히 걸어 올라와요', tips:['가게까지 총 약 25~30분 거리 — 힘들면 하카타역에서 지하철로 기온·나카스카와바타'], q:'Sumiyoshi Shrine Fukuoka'},
+    {mv:true, mode:'🚶 도보', dur:'스미요시 → 가미카와바타 약 25분 (평지)', cost:'무료', from:'Sumiyoshi Shrine Fukuoka', to:TABITOZEN, gm:'walking'},
+    {t:'11:45', end:'약 1시간', ico:'🍱', title:'博多とんかつ 旅と膳 — 점심', pay:'card', desc:'하카타 돈카츠 정식. 아빠 입맛에도 무난한 일식 · 博多区上川端町 4-202 (호텔 도보권)', tips:['12/29 영업 여부·휴무일은 구글맵에서 한 번 확인','연말이라 12시 전에 들어가면 덜 붐벼요'], q:TABITOZEN, key:true},
+    {mv:true, mode:'🚶 도보', dur:'약 5분', cost:'무료', from:TABITOZEN, to:YAKATA, gm:'walking'},
+    {t:'13:00', end:'약 50분', ico:'☕', title:'카페 야카타 (Yakata)', pay:'card', desc:'호텔과 같은 레이센마치 블록에 있는 카페 · 博多区冷泉町 6-16. 마지막 커피 한 잔 후 바로 호텔로', tips:['시간이 빠듯하면 테이크아웃','영업시간·휴무 확인'], q:YAKATA, key:true},
+    {mv:true, mode:'🚶 도보', dur:'약 2~3분', cost:'무료', from:YAKATA, to:HOTEL, gm:'walking'},
     {t:'14:05', ico:'🧳', title:'9호텔 — 짐 찾기 · 택시 앱 호출', desc:'14:20쯤 앱으로 택시 호출 → 14:30 출발', tips:['GO 앱 또는 우버(Uber)로 호출 가능 · 안 잡히면 프런트에 부탁','연말이라 미리 여유 있게 호출'], q:HOTEL},
     {mv:true, mode:'🚕 택시 (앱 호출)', dur:'20~30분', cost:'¥2,500~3,500', from:HOTEL, to:'Fukuoka Airport International Terminal', gm:'driving', alt:'연말 도로 정체 감안해 30분 잡기'},
     {t:'15:00', end:'출발 3시간 전', ico:'🛂', title:'후쿠오카공항 국제선', desc:'체크인·출국심사 후 면세점', q:'Fukuoka Airport International Terminal'},
@@ -733,7 +738,7 @@ const PLANS = [
   {id:'R', name:'느긋한 추천 ⭐', desc:'부모님 동반 · 대중교통 · 오후 휴식', days:[D1,D2_R,D3_R,D4_R],
    change:'2일차: 기온 절 골목 → 하츠키 → 소화 산책 → 카페 → 하카타역 옥상 정원·구경<br>3일차: 아침 시장 → 다자이후 → 아마오우 파르페<br>4일차: 조식 대신 호텔 오쿠라 카멜리아 점심 뷔페 (모두 도보)', reason:'카페·파르페·구경 위주, 바닷바람 피하기, 4일차는 모두 도보. 공항 가는 날도 여유로움', load:'가벼움'},
   {id:'A', name:'내 계획 (대중교통)', desc:'4일차: 시장 → 스미요시 → 돈카츠', days:[D1,D2,D3,D4_M],
-   change:'2일차: 기온 절 골목 → 하츠키 → 소화 산책 → 카페 → 하카타역 옥상 정원·구경<br>3일차: 다자이후(직행버스) → 텐진 쇼핑<br>4일차: 지하철로 야나기바시 시장 → 스미요시 거리 → 博多とんかつ 旅と膳 → 앱 택시로 공항', reason:'오전은 호텔 근처를 걸어서, 오후엔 쉬어가기. 4일차는 하카타 일대에서만', load:'보통'},
+   change:'2일차: 기온 절 골목 → 하츠키 → 소화 산책 → 카페 → 하카타역 옥상 정원·구경<br>3일차: 다자이후(직행버스) → 텐진 쇼핑<br>4일차: 지하철로 야나기바시 시장 → 스미요시 거리 → 博多とんかつ 旅と膳 → 카페 야카타 → 앱 택시로 공항', reason:'오전은 호텔 근처를 걸어서, 오후엔 쉬어가기. 4일차는 하카타 일대에서만', load:'보통'},
   {id:'B', name:'노을·야경 동선', desc:'바람 없는 날에만 · 모모치 일몰', days:[D1_B,D2_B,D3,D4_R],
    change:'1일차: 이치란 먼저 → 강변·야타이<br>2일차: 오호리(아침) → 하츠키 → 모모치 노을 + 후쿠오카 타워', reason:'해변은 노을 시간대가 가장 예쁨. 다만 바닷바람이 차갑고 돌아오는 길이 길어요', load:'보통'},
   {id:'C', name:'다자이후 + 야나가와', desc:'⚠️ 배 — 아빠 배멀미 고려', days:[D1,D2_R,D3_C,D4],
@@ -838,6 +843,7 @@ const BUDGET_DEFAULT = [
     {k:'f7', pay:'card', n:'3일 백화점 식당가 저녁', b:'p', v:3000, day:2},
     {k:'f8b', pay:'cash', n:'4일 아침 야나기바시 시장 간식', b:'p', v:1500, day:3},
     {k:'f16', pay:'card', n:'4일 博多とんかつ 旅と膳 점심', b:'p', v:2000, day:3},
+    {k:'f17', pay:'card', n:'4일 카페 야카타', b:'p', v:800, day:3},
     {k:'f10', pay:'card', n:'편의점·간식 (4일간)', b:'p', v:2000, day:null},
   ]},
   {id:'trans', name:'교통', color:'--s4', items:[
@@ -1003,7 +1009,7 @@ document.addEventListener('pointermove', e => {
 const CHECK = {
   resv:[
     ['모츠나베 오오야마 본점 예약', '12/27(일) 18:00, 인원수 · 연말 주말이라 필수'],
-    ['博多とんかつ 旅と膳 위치·12/29 영업 확인', '구글맵에서 확인 · 예약 가능하면 11:45로'],
+    ['博多とんかつ 旅と膳·카페 야카타 12/29 영업 확인', '둘 다 호텔 도보권 · 구글맵에서 휴무일 확인'],
     ['택시 앱 설치 (GO 또는 Uber)', '4일차 호텔 → 공항 · 해외 카드 등록까지 미리'],
     ['一丁目 なんから食堂 12/28(월) 영업 확인', '다이묘 1-1-7 · 텐진역 도보 10분'],
     ['하츠키 샤브샤브 / 스키나베 정하기', '예약 완료 · 노미호다이 포함 · 못 드시는 재료 있으면 미리 연락'],
