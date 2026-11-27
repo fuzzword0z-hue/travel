@@ -527,7 +527,7 @@ const D1 = {
     {t:'13:35', ico:'🛫', title:'청주공항 도착', desc:'출발 2시간 전 도착 · 수하물 위탁', q:'청주국제공항'},
     {t:'15:35', ico:'✈️', title:'청주 출발 → 후쿠오카', desc:'비행 약 1시간 25분', key:true},
     {t:'17:00', ico:'🛬', title:'후쿠오카공항 국제선 도착', desc:'입국심사·세관·수하물 찾기 약 40~60분 → 17:50경 택시 승차', tips:['💴 도착 로비 세븐일레븐(세븐뱅크) ATM에서 트래블로그로 1차 현금 인출 (예산 탭 참고)','🚕 GO·우버 앱으로 부를 때는 승차 지점을 국제선 <b>‘ITN reserved Taxi Stand No.12’(예약 택시 승차장 12번)</b>으로 설정 — 앱 택시는 여기서만 타요','줄 서서 타는 일반 택시는 국제선 터미널 1층 정면 승강장','3인 + 캐리어는 일반 택시 1대로 충분 (트렁크 2~3개)'], tipsHtml:true, q:'Fukuoka Airport International Terminal'},
-    {mv:true, mode:'🚕 택시 (GO·우버 앱 호출)', dur:'15~25분', cost:'앱 예상 약 ¥1,600~2,500 + 수수료', from:'Fukuoka Airport International Terminal', to:HOTEL, gm:'driving', alt:'승차 지점: 국제선 예약 택시 승차장 12번 (ITN reserved Taxi Stand No.12) · 앱에 표시되는 요금을 확인하고 호출'},
+    {mv:true, mode:'🚕 택시 (GO·우버 앱 호출)', dur:'15~25분', cost:'앱 예상 약 ¥1,600~2,500 + 수수료', from:'Fukuoka Airport International Terminal', to:HOTEL, gm:'driving', alt:'승차 지점: 국제선 예약 택시 승차장 12번 (ITN reserved Taxi Stand No.12) · 앱 호출은 호출비·수수료가 붙을 수 있어 앱에 표시되는 요금을 확인하고 호출'},
     {t:'18:30', end:'18:20~18:50', ico:'🏨', title:'9호텔 하카타 체크인', desc:'짐 풀고 방한 준비 후 19:10 출발', tips:['저녁이 20시경이라 공항/기내에서 가볍게 요기해 두면 좋아요'], q:HOTEL, key:true},
     {mv:true, mode:'🚶 도보', dur:'약 10분 (호텔 → 나카강변)', cost:'무료', from:HOTEL, to:'Nakasu Yatai Fukuoka', gm:'walking', alt:'가와바타 상점가(지붕 있는 아케이드)를 지나 강변으로'},
     {t:'19:15', end:'약 45분', ico:'🌃', title:'나카스 강변 산책 & 야타이 구경', desc:'나카강변 포장마차(야타이) 거리와 강에 비친 네온 야경. 후쿠하쿠 데아이바시 다리 → 하카타 리버레인 쪽으로 천천히', tips:['12월 밤 강바람이 차가워요 — 부모님 목도리·장갑·핫팩 챙기기','강변 산책로는 평지라 걷기 편해요. 힘드시면 중간에 바로 이치란으로'], q:'Nakasu Yatai Fukuoka', key:true},
@@ -553,8 +553,8 @@ const D4_M = {date:'12/29', dow:'화', title:'야나기바시 시장 → 스미�
     {mv:true, mode:'🚶 도보', dur:'약 7분 (나카스카와바타역 쪽)', cost:'무료', from:YAKATA, to:'鈴懸 本店', gm:'walking'},
     {t:'13:45', end:'약 10분', ico:'🎁', title:'스즈카케 본점 과자점 — 포장만', pay:'card', desc:'1층 과자점(菓舗)에서 선물용 화과자만 빠르게 포장', tips:['카페 줄은 서지 않고 매장만 · 포장 상자는 캐리어에 눕히지 않게'], q:'鈴懸 本店'},
     {mv:true, mode:'🚶 도보', dur:'약 8분', cost:'무료', from:'鈴懸 本店', to:HOTEL, gm:'walking'},
-    {t:'14:05', ico:'🧳', title:'9호텔 — 짐 찾기 · 택시 앱 호출', desc:'14:20쯤 앱으로 택시 호출 → 14:30 출발', tips:['GO 앱 → 안 잡히면 우버(Uber)로 · 둘 다 안 되면 프런트에 부탁','연말이라 미리 여유 있게 호출'], q:HOTEL},
-    {mv:true, mode:'🚕 택시 (앱 호출)', dur:'20~30분', cost:'¥2,500~3,500', from:HOTEL, to:'Fukuoka Airport International Terminal', gm:'driving', alt:'연말 도로 정체 감안해 30분 잡기'},
+    {t:'14:05', ico:'🧳', title:'9호텔 — 짐 찾기 · 택시 앱 호출', desc:'14:20쯤 앱으로 택시 호출 → 14:30 출발', tips:['GO 앱 → 안 잡히면 우버(Uber)로 · 둘 다 안 되면 프런트에 부탁','앱 호출은 호출비(迎車料金, 택시 회사별 약 ¥0~500)와 앱 수수료(약 ¥100)가 붙어요 — 호출 전 앱에 표시되는 요금 확인','호출비를 아끼려면 큰길에서 지나가는 빈 택시를 잡아도 돼요 (짐이 있으니 호텔 앞 호출이 편해요)','연말이라 미리 여유 있게 호출'], q:HOTEL},
+    {mv:true, mode:'🚕 택시 (GO·우버 앱 호출)', dur:'20~30분', cost:'약 ¥2,000~2,500 + 호출비 약 ¥300~400', from:HOTEL, to:'Fukuoka Airport International Terminal', gm:'driving', alt:'앱으로 호텔 앞까지 부르면 호출(迎車)비가 붙어요 · 연말 도로 정체 감안해 30분 잡기'},
     {t:'15:00', end:'출발 3시간 전', ico:'🛂', title:'후쿠오카공항 국제선', desc:'체크인·출국심사 후 면세점', q:'Fukuoka Airport International Terminal'},
     {t:'18:00', ico:'✈️', title:'후쿠오카 출발 → 청주', desc:'19:20 청주공항 도착 예정', key:true},
   ]};
@@ -874,9 +874,9 @@ const BUDGET_DEFAULT = [
     {k:'f10', pay:'card', n:'편의점·간식 (4일간)', b:'p', v:2000, day:null},
   ]},
   {id:'trans', name:'교통', color:'--s4', note:'🚇 지하철은 각자 개인 카드(카카오페이 Tap&go 등)로 터치 결제 — 공용 예산에서 빠지지 않아요', items:[
-    {k:'tx1b', pay:'cash', n:'1일 공항 → 호텔 택시 (GO·우버)', b:'car', v:2500, day:0},
+    {k:'tx1c', pay:'cash', n:'1일 공항 → 호텔 택시 (GO·우버, 호출비 포함)', b:'car', v:2900, day:0},
     {k:'tx17', pay:'cash', n:'3일 다자이후 직행버스 왕복', b:'p', v:1400, day:2},
-    {k:'tx6b', pay:'cash', n:'4일 호텔 → 공항 택시 (GO·우버)', b:'car', v:2500, day:3},
+    {k:'tx6c', pay:'cash', n:'4일 호텔 → 공항 택시 (GO·우버, 호출비 포함)', b:'car', v:2900, day:3},
   ]},
   {id:'shop', name:'쇼핑', color:'--s6', items:[
     {k:'s3', pay:'card', n:'부모님 쇼핑 (백화점·돈키호테)', b:'kj', v:200000, day:null},
