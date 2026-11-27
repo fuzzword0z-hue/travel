@@ -262,6 +262,10 @@ details[open] .chev{transform:rotate(90deg)}
 .rp-menu li{margin:2px 0}
 .rp-warn{font-size:13px;color:var(--warn)}
 .rp-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:2px}
+.src-card summary{cursor:pointer;list-style:none;font-size:13px;color:var(--text-3);font-weight:600;display:flex;align-items:center;gap:6px}
+.src-card summary::-webkit-details-marker{display:none}
+.src-card[open] summary{margin-bottom:8px}
+.src-card[open] .chev{transform:rotate(90deg)}
 .src-list{margin:8px 0 0;padding-left:18px;font-size:12.5px;color:var(--text-3)}
 .src-list a{color:var(--navy)}
 .plans-hint{font-size:12px;color:var(--text-3);margin:0 0 4px}
@@ -351,11 +355,11 @@ details[open] .chev{transform:rotate(90deg)}
 
   <div id="reportDays"></div>
 
-  <div class="card" style="margin-top:16px">
-    <h3>📷 사진 · 정보 출처</h3>
+  <details class="card src-card" style="margin-top:16px">
+    <summary>📷 사진 · 정보 출처 <span class="chev">›</span></summary>
     <div class="muted-line" style="margin-top:0">사진은 <a href="https://commons.wikimedia.org" target="_blank" rel="noopener">위키미디어 공용</a>의 자유 이용 사진이에요(사진을 누르면 원본·저작자·라이선스). 식당 사진 중 ‘예시’ 표시는 그 가게 사진이 아니라 같은 메뉴의 예시예요. 지도 © OpenStreetMap 기여자.</div>
     <ul class="src-list" id="reportSources"></ul>
-  </div>
+  </details>
 </section>
 
 <!-- 예산 -->
