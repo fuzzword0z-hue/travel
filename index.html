@@ -226,6 +226,41 @@ details[open] .chev{transform:rotate(90deg)}
 .sp-top b{font-size:15.5px}
 .sp-d{font-size:14px;color:var(--text-2)}
 .sp-d b{color:var(--text)}
+/* report */
+.map-top{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.map-top h3{margin:0}
+.map-days{display:flex;gap:6px;flex-wrap:wrap}
+.map-day{border:1px solid var(--line);background:var(--surface);color:var(--text-2);border-radius:999px;padding:5px 11px;font:inherit;font-size:13px;font-weight:700;cursor:pointer}
+.map-day[aria-selected="true"]{background:var(--navy);border-color:var(--navy);color:var(--bg)}
+.route-map{height:300px;border-radius:12px;overflow:hidden;background:var(--surface-2);position:relative;z-index:0}
+.map-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;color:var(--text-3);font-size:13.5px}
+.map-legend{list-style:none;margin:10px 0 4px;padding:0;display:flex;flex-wrap:wrap;gap:6px 12px;font-size:13px;color:var(--text-2)}
+.map-legend li{display:flex;align-items:center;gap:5px}
+.pin-num{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;color:#fff;font-size:11.5px;font-weight:800;flex:0 0 auto;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.35)}
+.rp-day{margin-top:22px}
+.rp-day-h{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin:0 0 10px}
+.rp-day-h h3{margin:0;font-size:18px}
+.rp-day-h span{color:var(--text-3);font-size:13px}
+.rp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media (max-width:640px){.rp-grid{grid-template-columns:1fr}}
+.rp-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;min-width:0}
+.rp-photo{position:relative;aspect-ratio:16/9;max-width:100%;background:var(--surface-2);display:flex;align-items:center;justify-content:center;font-size:44px}
+.rp-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.rp-photo .ex{position:absolute;left:8px;top:8px;background:rgba(0,0,0,.55);color:#fff;font-size:11px;font-weight:700;padding:2px 7px;border-radius:999px}
+.rp-photo .no{position:absolute;right:8px;top:8px;background:var(--surface);color:var(--text);font-size:12px;font-weight:800;padding:2px 8px;border-radius:999px;border:1px solid var(--line)}
+.rp-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:6px}
+.rp-name{font-weight:800;font-size:16px}
+.rp-sub{font-size:12.5px;color:var(--text-3)}
+.rp-desc{font-size:14px;color:var(--text-2);margin:0}
+.rp-menu{margin:2px 0 0;padding:8px 10px;background:var(--surface-2);border-radius:10px;font-size:13.5px;color:var(--text-2)}
+.rp-menu b{color:var(--text)}
+.rp-menu .mh{font-size:12px;font-weight:800;color:var(--accent);margin-bottom:3px}
+.rp-menu ul{margin:0;padding-left:18px}
+.rp-menu li{margin:2px 0}
+.rp-warn{font-size:13px;color:var(--warn)}
+.rp-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:2px}
+.src-list{margin:8px 0 0;padding-left:18px;font-size:12.5px;color:var(--text-3)}
+.src-list a{color:var(--navy)}
 .plans-hint{font-size:12px;color:var(--text-3);margin:0 0 4px}
 @media print{.bnav,.theme-btn{display:none}section[hidden]{display:block}}
 </style>
@@ -300,107 +335,22 @@ details[open] .chev{transform:rotate(90deg)}
 
 <!-- 추천 -->
 <section id="tab-ideas" class="view" hidden>
-  <h2 class="sec-title">여행 취향 분석</h2>
-  <div class="card">
-    <h3>계획표에서 읽히는 우리 가족 스타일</h3>
-    <div class="taste">
-      <span class="badge b-acc">🍣 미식이 1순위 (본점·코스 예약)</span>
-      <span class="badge b-navy">🌳 정원·공원 산책</span>
-      <span class="badge b-navy">🏮 민속촌·전통 골목 · 탁 트인 곳</span>
-      <span class="badge b-acc">🍨 파르페 · 예쁜 카페</span>
-      <span class="badge b-navy">🐟 시장 구경</span>
-      <span class="badge b-acc">☕ 카페 · 👀 구경 (미술관·박물관 X)</span>
-      <span class="badge b-navy">🛍️ 백화점 쇼핑</span>
-      <span class="badge b-ok">🐢 느긋한 속도 · 🚇 대중교통</span>
-      <span class="badge b-warn">🔥 따뜻한 곳 · 바닷바람 X</span>
-      <span class="badge b-warn">🍵 녹차·말차 X · 🧀 양식 X(아빠)</span>
-    </div>
-    <ul class="why">
-      <li><b>“본점”과 예약 맛집 위주</b> — 이치란 총본점, 하츠키 본점, 오오야마 본점처럼 <b>그 지역 대표 맛집</b>을 고르는 스타일이에요. 식사 시간을 축으로 동선을 짜는 게 맞습니다.</li>
-      <li><b>카페와 구경이 좋아요</b> — 부모님은 미술관·박물관보다 <b>카페에서 쉬고 상점가·시장·백화점을 구경</b>하는 걸 좋아하세요. 오호리 공원, 高宮庭園茶寮(정원 찻집)처럼 풍경 좋은 곳에서 쉬어가는 일정이 잘 맞아요.</li>
-      <li><b>따뜻한 동선 · 쉬기보다 구경</b> — 12월 바닷가는 바람이 세서 모모치 해변은 뺐어요. 부모님이 체력이 좋으셔서 호텔 휴식 대신 지붕 있는 상점가·하카타역 구경과 카페를 넣었어요.</li>
-      <li><b>역사적으로 불편한 곳은 제외</b> — 명성황후 시해에 쓰인 칼이 보관된 쿠시다 신사, 임진왜란 침략 장수 구로다 나가마사의 성(후쿠오카성터)은 일정에서 뺐어요.</li>
-      <li><b>느긋하게, 대중교통으로</b> — 부모님(60·70대)과 함께라 <b>하루 장소 3~4곳 + 오후 휴식</b>이 적당해요. 지하철·버스는 환승이 적은 노선 위주로 골랐어요.</li>
-    </ul>
+  <h2 class="sec-title">여행 리포트</h2>
+  <p class="sec-desc">‘내 계획’ 기준으로 날짜별 동선과 장소를 정리했어요. 메뉴는 리뷰·SNS·맛집 사이트에서 많이 언급된 것 위주예요.</p>
+
+  <div class="card map-card">
+    <div class="map-top"><h3>🗺️ 일자별 동선 지도</h3><div class="map-days" id="mapDays" role="tablist" aria-label="지도 날짜"></div></div>
+    <div id="routeMap" class="route-map" role="img" aria-label="일자별 동선 지도"><div class="map-fallback" id="mapFallback">지도를 불러오는 중이에요…</div></div>
+    <ol class="map-legend" id="mapLegend"></ol>
+    <div class="muted-line">핀 위치는 대략적인 위치예요. 정확한 길찾기는 각 장소의 📍 지도 버튼을 이용하세요. 지도는 인터넷 연결이 필요해요.</div>
   </div>
 
-  <h2 class="sec-title">🍨 파르페·예쁜 카페</h2>
-  <p class="sec-desc">일정 동선 근처 위주로 골랐어요. 영업시간·휴무는 방문 전 구글맵에서 확인하세요.</p>
-  <div class="spots">
-    <div class="card spot"><div class="sp-top"><b>다이묘 파르페 프루츠 플래닛</b><span class="badge b-ok">3일차 일정 포함</span></div>
-      <div class="sp-d">청과 도매상이 운영하는 과일 파르페 전문점. 겨울엔 후쿠오카 딸기 <b>아마오우</b> 파르페. なんから食堂·백화점과 같은 다이묘·텐진 권역이에요.</div>
-      <a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E5%90%8D%E3%83%91%E3%83%95%E3%82%A7+%E3%83%95%E3%83%AB%E3%83%BC%E3%83%84%E3%83%97%E3%83%A9%E3%83%8D%E3%83%83%E3%83%88">📍 지도</a></div>
-    <div class="card spot"><div class="sp-top"><b>캠벨 얼리</b><span class="badge b-navy">하카타역 9층</span></div>
-      <div class="sp-d">과일가게가 운영하는 카페로 규슈 과일 파르페가 인기. JR 하카타시티 9층이라 비·바람 걱정 없어요. 4일차 하카타역 쇼핑 때 배가 남으면 들러요.</div>
-      <a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%99%E3%83%AB%E3%83%BB%E3%82%A2%E3%83%BC%E3%83%AA%E3%83%BC+%E5%8D%9A%E5%A4%9A">📍 지도</a></div>
-    <div class="card spot"><div class="sp-top"><b>스즈카케 본점</b><span class="badge b-warn">부모님 취향 확인</span></div>
-      <div class="sp-d">후쿠오카 유명 화과자점 본점. 카페는 11시 오픈 · 웨이팅 있음. 말차·녹차 메뉴가 많아 부모님보다는 <b>나 혼자 또는 1층 과자점에서 선물 구경</b>용으로 추천해요. 호텔 도보권.</div>
-      <a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E9%88%B4%E6%87%B8+%E6%9C%AC%E5%BA%97+%E5%8D%9A%E5%A4%9A">📍 지도</a></div>
-  </div>
+  <div id="reportDays"></div>
 
-  <h2 class="sec-title">🏛️ 웅장하고 예쁜 곳 · 테마가 확실한 식당·카페</h2>
-  <p class="sec-desc">마지막 날 공항 가기 전에 들르기 좋은 곳 위주예요.</p>
-  <div class="spots">
-    <div class="card spot"><div class="sp-top"><b>高宮庭園茶寮</b><span class="badge b-ok">베스트 추천 4일차</span></div>
-      <div class="sp-d">다이쇼 시대 문화재 <b>‘구 다카미야 가이지마가 주택’</b>을 고친 정원 레스토랑. 넓은 다다미 대연회장과 일본 정원, 규슈 제철 재료 코스(‘사토야마 퀴진’). 잇큐 평점 4.18, 분위기 4.55. 런치 11:00~ 마지막 입장 13:30 · 월요일 휴무 · 12세 미만 일부 좌석 제한.</div>
-      <a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E9%AB%98%E5%AE%AE%E5%BA%AD%E5%9C%92%E8%8C%B6%E5%AF%AE">📍 지도</a></div>
-    <div class="card spot"><div class="sp-top"><b>카페 게이후 (カフェ渓風)</b><span class="badge b-navy">200년 고택 · 정원</span></div>
-      <div class="sp-d">남구 요코테의 <b>200년 된 고택</b>을 고친 카페. 툇마루 자리에서 손질된 정원을 보며 식사. 11:00~17:30 · 수·목 휴무 → 2·3일차 가능. 시내에서 버스로 가야 해서 반나절 일정이 필요해요.</div>
-      <a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E3%82%AB%E3%83%95%E3%82%A7%E6%B8%93%E9%A2%A8+%E7%A6%8F%E5%B2%A1">📍 지도</a></div>
-  </div>
-
-  <h2 class="sec-title">☕ 넓고 큰 카페</h2>
-  <p class="sec-desc">블루잼처럼 공간이 넓은 곳이에요. 영업시간은 방문 전 구글맵에서 확인하세요.</p>
-  <div class="spots">
-    <div class="card spot"><div class="sp-top"><b>블루잼 (BLUE JAM)</b><span class="badge b-navy">반나절 코스</span></div>
-      <div class="sp-d">무첨가 자연파 빵집 2층 카페. <b>무로미강이 보이는</b> 탁 트인 전망. 나나쿠마선 지로마루역 도보 16분 · 니시진에서 버스. 대형 카페를 따로 가고 싶을 때 반나절 코스로 좋아요.</div>
-      <a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=BLUE+JAM+%E6%97%A9%E8%89%AF%E5%8C%BA%E7%94%B0%E6%9D%91">📍 지도</a></div>
-    <div class="card spot"><div class="sp-top"><b>그랑미라주 홀노트 카페</b><span class="badge b-navy">텐진 이마이즈미</span></div>
-      <div class="sp-d">천장이 높고 좌석이 아주 많은 대형 카페. 3일차 텐진 쇼핑 중 쉬어가기 좋아요.</div>
-      <a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=GRANDMIRAGE+WHOLE+NOTE+CAFE">📍 지도</a></div>
-    <div class="card spot"><div class="sp-top"><b>스타벅스 텐진 츠타야 서점</b><span class="badge b-navy">약 150석</span></div>
-      <div class="sp-d">후쿠오카현 최대급 스타벅스. 서점과 함께라 구경하며 쉬기 좋고, 비·바람 부는 날 대안으로 편해요.</div>
-      <a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E7%A6%8F%E5%B2%A1%E5%A4%A9%E7%A5%9E+%E8%94%A6%E5%B1%8B%E6%9B%B8%E5%BA%97+%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%90%E3%83%83%E3%82%AF%E3%82%B9">📍 지도</a></div>
-  </div>
-
-  <h2 class="sec-title">🚄 하카타에서 1시간 이내 당일치기</h2>
-  <p class="sec-desc">대중교통으로 다녀오기 쉽고, 탁 트인 곳·구경거리가 많은 곳 위주예요.</p>
-  <div class="spots">
-    <div class="card spot"><div class="sp-top"><b>요시노가리 역사공원 (사가)</b><span class="badge b-navy">민속촌 느낌 최강</span></div>
-      <div class="sp-d">2천 년 전 야요이 시대 마을을 통째로 복원한 넓은 야외 공원(초가집·망루). 하카타에서 JR로 도스 환승 약 1시간. 다만 <b>매우 넓고 겨울엔 바람이 차서</b> 많이 걸어야 해요.</div>
-      <a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E5%90%89%E9%87%8E%E3%83%B6%E9%87%8C%E6%AD%B4%E5%8F%B2%E5%85%AC%E5%9C%92">📍 지도</a></div>
-    <div class="card spot"><div class="sp-top"><b>다케오 온천 (사가)</b><span class="badge b-navy">따뜻함</span></div>
-      <div class="sp-d">특급으로 약 1시간. 붉은 누문이 있는 온천 마을, 수천 년 된 녹나무 숲길(다케오 신사), 족욕. 조용하고 따뜻하게 쉬고 싶을 때. 구경거리는 많지 않아요.</div>
-      <a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E6%AD%A6%E9%9B%84%E6%B8%A9%E6%B3%89+%E6%A5%BC%E9%96%80">📍 지도</a></div>
-  </div>
-
-  <h2 class="sec-title">🏮 민속촌 느낌 · 탁 트인 전통 장소</h2>
-  <p class="sec-desc">후쿠오카 시내에는 오키나와 같은 민속촌은 없어요. 대신 비슷한 분위기를 걸어서 즐길 수 있는 곳이에요.</p>
-  <div class="spots">
-    <div class="card spot"><div class="sp-top"><b>하카타 구시가지</b><span class="badge b-ok">일정 포함</span></div>
-      <div class="sp-d">호텔 바로 옆. 쇼후쿠지·조텐지·도초지 같은 오래된 절 마당과 돌담 골목. 입장료 없이 걷는 탁 트인 산책. 동네 전체가 옛 거리는 아니고, <b>큰길은 현대 도시 · 절이 모인 골목 안쪽</b>에 옛 분위기가 남아 있어요.</div>
-      <a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E8%81%96%E7%A6%8F%E5%AF%BA+%E7%A6%8F%E5%B2%A1">📍 지도</a></div>
-    <div class="card spot"><div class="sp-top"><b>라쿠스이엔 (楽水園)</b><span class="badge b-warn">12/29 휴원</span></div>
-      <div class="sp-d">1906년 하카타 상인 별장 터의 연못 정원. 작은 연못 정원이에요. 다실 체험이 말차라 부모님 취향과 안 맞아 일정에서는 뺐어요. 정원만 잠깐 보고 싶을 때 하카타역 도보권 · 9:00~17:00.</div>
-      <a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E6%A5%BD%E6%B0%B4%E5%9C%92+%E7%A6%8F%E5%B2%A1">📍 지도</a></div>
-    <div class="card spot"><div class="sp-top"><b>다자이후 참배길 · 야나기바시 시장</b><span class="badge b-ok">3일차 일정 포함</span></div>
-      <div class="sp-d">기와지붕 상점이 늘어선 참배길과 현지인 시장. 구경 좋아하시는 부모님께 이번 여행에서 가장 민속촌에 가까운 하루예요.</div></div>
-  </div>
-
-  <h2 class="sec-title">플랜 비교</h2>
-  <p class="sec-desc">‘일정·동선’ 탭에서 각 플랜의 상세 시간표를 볼 수 있어요.</p>
-  <div class="card tbl-scroll">
-    <table class="compare">
-      <thead><tr><th>플랜</th><th>바뀌는 점</th><th>추천 이유</th><th>이동 강도</th></tr></thead>
-      <tbody id="compareBody"></tbody>
-    </table>
-  </div>
-
-  <h2 class="sec-title">상황별 팁</h2>
-  <div class="grid g3">
-    <div class="card"><h3>☔ 비 오거나 바람 부는 날</h3><div style="font-size:14px;color:var(--text-2)">일정 탭에서 <b>‘☔ 비 오는 날’</b> 예비 일정을 고르세요. 가와바타 상점가 → 텐진 지하상가 → 하카타역 쇼핑몰까지 지붕·실내로만 이어져요.</div></div>
-    <div class="card"><h3>🧓 잠깐 쉬고 싶을 때</h3><div style="font-size:14px;color:var(--text-2)">쉬고 싶으면 시장이나 쇼핑을 한 곳 건너뛰고 백화점 카페에서 쉬어가세요. 지하철역 엘리베이터는 역 안내도에서 ‘EV’ 표시를 찾으세요.</div></div>
-    <div class="card"><h3>⏰ 웨이팅이 너무 길 때</h3><div style="font-size:14px;color:var(--text-2)">이치란은 <b>하카타역 지점</b>도 같은 맛. 모츠나베는 하카타역 KITTE·아뮤플라자 식당가에 오오야마 지점이 있어요.</div></div>
+  <div class="card" style="margin-top:16px">
+    <h3>📷 사진 · 정보 출처</h3>
+    <div class="muted-line" style="margin-top:0">사진은 <a href="https://commons.wikimedia.org" target="_blank" rel="noopener">위키미디어 공용</a>의 자유 이용 사진이에요(사진을 누르면 원본·저작자·라이선스). 식당 사진 중 ‘예시’ 표시는 그 가게 사진이 아니라 같은 메뉴의 예시예요. 지도 © OpenStreetMap 기여자.</div>
+    <ul class="src-list" id="reportSources"></ul>
   </div>
 </section>
 
@@ -487,7 +437,7 @@ details[open] .chev{transform:rotate(90deg)}
   <div class="bnav-in" role="tablist">
     <button class="tab" role="tab" data-tab="home" aria-selected="true"><span class="ti">🏠</span>홈</button>
     <button class="tab" role="tab" data-tab="plan" aria-selected="false"><span class="ti">🗓️</span>일정</button>
-    <button class="tab" role="tab" data-tab="ideas" aria-selected="false"><span class="ti">💡</span>추천</button>
+    <button class="tab" role="tab" data-tab="ideas" aria-selected="false"><span class="ti">📖</span>리포트</button>
     <button class="tab" role="tab" data-tab="budget" aria-selected="false"><span class="ti">💰</span>예산</button>
     <button class="tab" role="tab" data-tab="check" aria-selected="false"><span class="ti">✅</span>준비물</button>
   </div>
@@ -624,7 +574,7 @@ const D3_A = {
     {mv:true, mode:'🚶 도보', dur:'약 7분', cost:'무료', from:AOKIDO, to:'Iwataya Department Store Tenjin', gm:'walking'},
     {t:'14:00', end:'약 1시간 40분', ico:'🛍️', title:'텐진 쇼핑 (이와타야·다이마루·지하상가)', pay:'card', desc:'백화점과 지하상가 구경 · 부모님 쇼핑. 쉬고 싶으면 대형 카페(그랑미라주 홀노트 카페 등)', tips:['백화점은 여권 제시 시 면세(¥5,000 이상)','👤 갸또러스크 선물은 개인 토스 카드로 따로 결제','집합 장소·시간 정해두기'], q:'Iwataya Department Store Tenjin', key:true},
     {mv:true, mode:'🚶 도보', dur:'약 7분 (다이묘 쪽으로)', cost:'무료', from:'Iwataya Department Store Tenjin', to:'大名パフェ フルーツプラネット', gm:'walking'},
-    {t:'15:50', end:'약 50분', ico:'🍨', title:'파르페 — 다이묘 파르페 프루츠 플래닛', pay:'card', desc:'청과 도매상이 운영하는 과일 파르페 전문점. 겨울엔 후쿠오카 딸기 ‘아마오우’ 파르페', tips:['3인이면 2개 시켜 나눠 먹어도 충분 — 저녁 모츠나베 배 남겨두기','인기점이라 대기 있을 수 있어요 · 영업시간 확인'], tags:[['acc','파르페']], q:'大名パフェ フルーツプラネット', key:true},
+    {t:'15:50', end:'약 50분', ico:'🍨', title:'파르페 — 다이묘 파르페 프루츠 플래닛', pay:'card', desc:'청과 도매상이 운영하는 과일 파르페 전문점. 겨울엔 후쿠오카 딸기 ‘아마오우’ 파르페', tips:['⚠️ 리뷰상 ‘밤 파르페 전문점’ — 오후에 여는지 꼭 확인. 안 열면 다이마루 텐진점 안 FRUITS PLANET(10:00~20:00 게재) 확인','3인이면 2개 시켜 나눠 먹어도 충분 — 저녁 모츠나베 배 남겨두기'], tags:[['acc','파르페'],['warn','영업시간 확인']], q:'大名パフェ フルーツプラネット', key:true},
     {mv:true, mode:'🚶 도보', dur:'약 10분', cost:'무료', from:'大名パフェ フルーツプラネット', to:'Don Quijote Fukuoka Tenjin', gm:'walking'},
     {t:'17:00', end:'약 50분', ico:'🏬', title:'돈키호테 텐진본점', pay:'card', desc:'과자·약·화장품 구매 & 면세', q:'Don Quijote Fukuoka Tenjin'},
     {mv:true, mode:'🚇 지하철', dur:'텐진 → 기온 약 4분 · 호텔까지 도보 5분', cost:'1인 ¥210', from:'Tenjin Station Fukuoka', to:HOTEL, gm:'transit'},
@@ -660,7 +610,7 @@ const D3_BEST = {
     {mv:true, mode:'🚶 도보', dur:'약 7분', cost:'무료', from:AOKIDO, to:'Iwataya Department Store Tenjin', gm:'walking'},
     {t:'14:20', end:'약 1시간 40분', ico:'🛍️', title:'텐진 쇼핑 (이와타야·다이마루·지하상가)', pay:'card', desc:'부모님 쇼핑 · 면세', tips:['여권 제시 시 면세(¥5,000 이상)','👤 갸또러스크 선물은 개인 토스 카드로 따로 결제','집합 장소·시간 정해두기'], q:'Iwataya Department Store Tenjin', key:true},
     {mv:true, mode:'🚶 도보', dur:'약 7분 (다이묘 쪽으로)', cost:'무료', from:'Iwataya Department Store Tenjin', to:'大名パフェ フルーツプラネット', gm:'walking'},
-    {t:'16:10', end:'약 50분', ico:'🍨', title:'파르페 — 다이묘 파르페 프루츠 플래닛', pay:'card', desc:'청과 도매상이 운영하는 과일 파르페 전문점. 겨울엔 후쿠오카 딸기 ‘아마오우’ 파르페', tips:['3인이면 2개 시켜 나눠 먹어도 충분 — 저녁 배 남겨두기','영업시간 확인'], tags:[['acc','파르페']], q:'大名パフェ フルーツプラネット'},
+    {t:'16:10', end:'약 50분', ico:'🍨', title:'파르페 — 다이묘 파르페 프루츠 플래닛', pay:'card', desc:'청과 도매상이 운영하는 과일 파르페 전문점. 겨울엔 후쿠오카 딸기 ‘아마오우’ 파르페', tips:['⚠️ 리뷰상 ‘밤 파르페 전문점’ — 오후에 여는지 꼭 확인. 안 열면 다이마루 텐진점 안 FRUITS PLANET(10:00~20:00 게재) 확인','3인이면 2개 시켜 나눠 먹어도 충분 — 저녁 배 남겨두기'], tags:[['acc','파르페'],['warn','영업시간 확인']], q:'大名パフェ フルーツプラネット'},
     {mv:true, mode:'🚇 지하철', dur:'텐진 → 기온 약 4분 · 호텔까지 도보 5분', cost:'1인 ¥210', from:'Tenjin Station Fukuoka', to:HOTEL, gm:'transit'},
     {t:'17:30', end:'약 1시간', ico:'🛍️', title:'호텔에 쇼핑 짐 두고 쉬기', desc:''},
     {t:'18:45', end:'약 1시간 30분', ico:'🍲', title:'모츠나베 오오야마 본점', pay:'card', desc:'호텔 근처. 된장(미소) 맛이 시그니처, 마무리 짬뽕면', tags:[['warn','예약 권장']], q:'もつ鍋おおやま 本店', key:true},
@@ -768,7 +718,130 @@ function renderDays(){
 }
 renderPlanBtns(); renderDays();
 
-$('#compareBody').innerHTML = PLANS.map(p => `<tr><td><b>${p.id}</b><br>${esc(p.name)}</td><td>${p.change}</td><td>${esc(p.reason)}</td><td>${esc(p.load)}</td></tr>`).join('');
+
+/* ---------- 여행 리포트 ---------- */
+const WM = f => ({src:'https://commons.wikimedia.org/wiki/Special:FilePath/'+encodeURIComponent(f)+'?width=720', page:'https://commons.wikimedia.org/wiki/File:'+encodeURIComponent(f)});
+const REPORT = [
+  {day:'1일차', date:'12/26 (토)', title:'도착 · 이치란 · 나카스 야경', color:'#c8452f', spots:[
+    {n:'9호텔 하카타', ico:'🏨', ll:[33.5925,130.4090], q:HOTEL, sub:'博多区冷泉町 9-16 · 숙소', d:'나카스·가와바타 상점가·기온역이 모두 걸어서 5~10분인 위치. 이번 여행의 거점이에요.'},
+    {n:'이치란 라멘 총본점', ico:'🍜', ll:[33.5935,130.4052], q:'Ichiran Ramen Main Store Nakasu', img:'Ichiran_Ramen.JPG', sub:'中洲 · 24시간 · 나카스카와바타역 도보 1분', d:'1인 칸막이 ‘맛집중 카운터’로 유명한 이치란의 본점. 진한 돈코츠 국물에 잡내 없이 깔끔하다는 평이 많아요.',
+      menu:['<b>천연 돈코츠 라멘</b> — 기본 한 그릇에 맛 설정표(국물 진하기·기름·마늘·파·차슈·비밀 매운 소스)를 체크','<b>반숙 달걀·차슈 추가</b>가 인기 토핑','면 추가(카에다마)로 2번째 면을 주문하는 사람이 많아요'], tip:'부모님은 ‘비밀 소스’를 기본(1/2)보다 약하게 시작하세요. 웨이팅 30~60분 각오.'},
+    {n:'나카스 강변 · 야타이', ico:'🏮', ll:[33.5893,130.4048], q:'Nakasu Yatai Fukuoka', img:'Nakasu_Yatai_Stalls_(19979437930).jpg', sub:'나카강변 포장마차 거리', d:'강을 따라 포장마차 불빛이 이어지는 후쿠오카 대표 밤 풍경. 밥 먹고 천천히 걷기 좋아요.',
+      menu:['<b>야키라멘</b>(볶음 라멘)·<b>교자</b>·<b>오뎅</b>이 야타이 단골 메뉴','배부르면 오뎅 한 접시만 나눠 먹어도 충분'], tip:'현금만 받는 곳이 많아요.'},
+  ]},
+  {day:'2일차', date:'12/27 (일)', title:'기온 절 골목 · 하츠키 · 오호리', color:'#257de0', spots:[
+    {n:'하카타 구시가지 (쇼후쿠지·조텐지·도초지)', ico:'🏯', ll:[33.5960,130.4138], q:'聖福寺 福岡', img:'Shofukuji_01.jpg', sub:'기온역 주변 · 경내 산책 무료', d:'일본 최초의 선종 사찰 쇼후쿠지의 넓은 경내와 돌담길, 조텐지의 돌 정원과 하카타 센넨몬, 도초지의 붉은 오층탑이 걸어서 이어져요.',
+      menu:['<b>볼거리</b>: 쇼후쿠지 누문·불전, 조텐지 돌 정원 ‘센토테이’, 하카타 센넨몬, 도초지 오층탑'], tip:'큰길보다 절 사이 골목 안쪽이 옛 분위기예요.'},
+    {n:'가와바타 상점가', ico:'🏮', ll:[33.5940,130.4072], q:'Kawabata Shopping Arcade Fukuoka', img:'Hakata_Kawabata-dori_Shopping_Street_20170918-2.jpg', sub:'지붕 있는 100년 아케이드', d:'나카스카와바타역과 바로 이어지는 오래된 아케이드 상점가. 비 오는 날에도 구경하기 좋아요.'},
+    {n:'니시진 하츠키 본점', ico:'🥩', ll:[33.5845,130.3572], q:'西新 初喜 本店', img:'Sukiyaki_001.jpg', ex:true, sub:'早良区西新 · 12/27 12:30 예약 완료', d:'규슈산 흑모와규(이마리규·사가규·이토시마규 등) 샤브샤브 또는 스키나베 코스.',
+      menu:['<b>예약 코스 ¥8,500</b> (세금 포함, 6품, 2시간 노미호다이)','구성: 작은 반찬 → 특선 흑모와규 → 채소 → 우동 → 디저트','<b>스키나베</b>는 이토시마산 날계란에 찍어 먹어요 · 담백한 걸 원하면 <b>샤브샤브</b>(폰즈·참깨·다시 소스)'], tip:'예약 화면 기준 정보예요. 화요일 휴무.'},
+    {n:'도진마치 상점가', ico:'🛍️', ll:[33.5880,130.3745], q:'唐人町商店街', sub:'니시진 → 오호리 공원 사이', d:'지붕 있는 현지 상점가. 하츠키에서 오호리 공원까지 소화시키며 걷는 길목이에요.'},
+    {n:'오호리 공원', ico:'🌳', ll:[33.5862,130.3768], q:'Ohori Park', img:'Ohori_Park_02.jpg', sub:'넓은 호수 공원 · 무료', d:'둘레 약 2km 호수를 따라 산책로가 이어져요. 해 질 녘(17:20경) 호수 풍경이 예뻐요. 일본정원은 들어가지 않아요.'},
+    {n:'카페 아쿠아무', ico:'☕', ll:[33.5832,130.3790], q:'カフェ アクアム 福岡市美術館', img:'Ohori_Park_02.jpg', ex:true, sub:'오호리 공원 안 시립미술관 1층 · 9:00~19:00 · 월요일·연말연시 휴무', d:'호수를 보며 쉬는 카페. 미술관 전시는 보지 않아도 카페만 이용할 수 있어요.',
+      menu:['<b>오호리 도그</b>(핫도그)·<b>바게트 샌드</b>·<b>전갱이 튀김 샌드</b>가 리뷰에 자주 나와요','<b>치즈케이크</b>, <b>소프트크림</b>'], warn:'연말연시 휴무가 있어 12/27(일) 영업 여부를 꼭 확인하세요.'},
+    {n:'釜かつ (가마카츠)', ico:'🍚', ll:[33.5813,130.3722], q:KAMAKATSU, img:'Kamameshi_001.jpg', ex:true, sub:'中央区鳥飼 1-5-27 · 저녁 17:00~21:30 · 화요일 휴무', d:'주문 후 짓는 가마솥밥(가마메시)이 메인인 일식집. 낮이나 밤이나 가마솥밥이 붙은 정식·고젠을 내요.',
+      menu:['<b>가마솥밥 정식·고젠</b> — 반찬과 국이 함께 나오는 일본 가정식 세트','가게 이름처럼 <b>돈카츠</b>와 가마솥밥 조합도 있어요'], tip:'가마솥밥은 짓는 데 시간이 걸려요. 앉자마자 주문하세요.'},
+  ]},
+  {day:'3일차', date:'12/28 (월)', title:'다자이후 · 텐진 · 모츠나베', color:'#00b894', spots:[
+    {n:'다자이후 텐만구', ico:'⛩️', ll:[33.5215,130.5350], q:'Dazaifu Tenmangu', img:'Honden_Dazaifu_Tenmangu_Shrine_(15558158424).jpg', sub:'직행버스 ‘타비토’ 약 40분', d:'학문의 신을 모신 신사. 기와지붕 상점이 늘어선 참배길 구경이 이 날의 하이라이트예요.',
+      menu:['<b>우메가에모치</b> — 노포 <b>가사노야</b>(1922년 창업, 참배길 4개 점포) 1개 ¥150, 갓 구워 겉이 바삭하고 팥이 달지 않다는 평','<b>사보 기쿠치</b>의 ‘메오토모치’(우메가에모치 2개 세트) ¥280'], tip:'가게마다 갓 구운 걸 비교해 먹는 사람이 많아요.'},
+    {n:'우메가에모치', ico:'🍡', ll:null, img:'Umegaemochi_in_Dazaifu.jpg', sub:'다자이후 명물 구운 찹쌀떡', d:'얇은 찹쌀 반죽에 팥소를 넣고 매화 무늬 틀에 구워요. 참배길 곳곳에서 바로 구워 팔아요.'},
+    {n:'一膳めし 青木堂', ico:'🍚', ll:[33.5872,130.3925], q:AOKIDO, img:'Tonjiru_teishoku.jpg', ex:true, sub:'中央区大名 1-11-28 · 1957년 창업 · 일요일 휴무', d:'쇼와 레트로 분위기의 대중식당. 진열된 반찬을 골라 밥·된장국과 먹는 방식이에요.',
+      menu:['반찬을 하나씩 골라 담는 <b>일본 가정식</b>','리뷰에서는 <b>볶음 요리·면 요리 종류가 많은 점</b>이 장점으로 꼽혀요'], tip:'현금 준비 권장.'},
+    {n:'텐진 쇼핑 (이와타야·다이마루)', ico:'🛍️', ll:[33.5890,130.3990], q:'Iwataya Department Store Tenjin', img:'Daimaru_Fukuoka-Tenjin_Department_Store_20171111.jpg', sub:'지하상가로 연결', d:'백화점 두 곳과 텐진 지하상가. 여권을 보여주면 ¥5,000 이상 면세.'},
+    {n:'다이묘 파르페 프루츠 플래닛', ico:'🍨', ll:[33.5866,130.3936], q:'大名パフェ フルーツプラネット', img:'Strawberry_Parfait,_Senbikiya_(6639279479).jpg', ex:true, sub:'中央区大名 1-15-7 · 과일가게가 운영', d:'파르페가 100종 넘게 있는 과일 파르페 전문점. 아이스크림을 파르페용으로 따로 만들어 과일 맛을 살린 산뜻한 단맛이라는 평이에요.',
+      menu:['<b>하카타 아마오우 파르페</b> — 제철 딸기의 단맛이 잘 느껴지고 달지 않다는 리뷰','<b>머스크멜론 & 크림치즈 아이스 파르페</b>(잡지 소개 ¥1,836)'], warn:'리뷰상 ‘밤 파르페 전문점’이에요. 오후 3~4시에 여는지 꼭 확인하세요. 안 열면 다이마루 텐진점 안 FRUITS PLANET(10:00~20:00 게재)을 확인해 보세요.'},
+    {n:'모츠나베 오오야마 본점', ico:'🍲', ll:[33.5930,130.4112], q:'もつ鍋おおやま 本店', img:'Motsunabe.jpg', ex:true, sub:'호텔 근처 · 12/28 18:45', d:'손님의 약 90%가 주문한다는 미소 모츠나베의 대표 가게. 리뷰 사이트 평점도 높아요.',
+      menu:['<b>모츠나베 미소맛</b> — 규슈 된장·사이쿄 된장을 블렌딩한 대표 메뉴','<b>스모츠</b>(초간장 곱창 무침), <b>말고기 회 3종</b>, 육회','마무리는 <b>짬뽕면</b>'], tip:'곱창 식감은 호불호가 있어요. 부모님 입맛엔 미소맛이 무난해요.'},
+  ]},
+  {day:'4일차', date:'12/29 (화)', title:'시장 · 돈카츠 · 귀국', color:'#f47230', spots:[
+    {n:'야나기바시 연합시장', ico:'🐟', ll:[33.5838,130.4010], q:'Yanagibashi Rengo Market', img:'Yanagibashi_Rengo_Ichiba_by_LWY_in_Fukuoka.jpg', sub:'‘하카타의 부엌’ · 8시쯤부터 · 일요일·공휴일 휴무', d:'생선가게·어묵가게가 모인 작은 시장. 연말 장보기로 활기차요.',
+      menu:['<b>멘도코로 산키</b>의 <b>마루텐 우동</b> ¥430 (1950년부터, 어묵튀김을 얹은 우동)','<b>야나기바시 식당</b>의 <b>해산물덮밥</b> ¥670 (생선가게 직영, 5가지 회)','<b>다카마쓰 가마보코</b> — 어묵·튀김 약 30종, 하나씩 사서 먹기 좋아요'], tip:'점심이 돈카츠라 간식으로 가볍게.'},
+    {n:'스미요시 거리', ico:'🚶', ll:[33.5862,130.4128], q:'Sumiyoshi Shrine Fukuoka', sub:'시장 → 숙소 쪽 산책길', d:'동네 가게를 구경하며 하카타역 서쪽을 지나 숙소 쪽으로 걸어 올라와요.'},
+    {n:'博多とんかつ 旅と膳', ico:'🍱', ll:[33.5940,130.4083], q:TABITOZEN, img:'Tonkatsu_by_ayustety_in_Tokyo.jpg', ex:true, sub:'博多区上川端町 4-202 · 호텔 도보권', d:'하카타 돈카츠 정식 가게.', warn:'리뷰·메뉴 정보를 찾지 못했어요. 구글맵에서 메뉴와 12/29 영업을 확인해 주세요.'},
+    {n:'카페 야카타', ico:'☕', ll:[33.5929,130.4096], q:YAKATA, sub:'博多区冷泉町 6-16 · 호텔과 같은 동네', d:'공항 가기 전 마지막 커피.', warn:'검색으로 가게 정보를 찾지 못했어요. 영업시간을 구글맵에서 확인해 주세요.'},
+    {n:'스즈카케 본점', ico:'🎁', ll:[33.5948,130.4060], q:'鈴懸 本店', img:'Monaka-1.jpg', ex:true, sub:'上川端町 · 1층 과자점 9시 오픈', d:'후쿠오카를 대표하는 화과자점의 본점. 포장만 빠르게 해 가요.',
+      menu:['<b>스즈노모나카</b> — 방울 모양 대표 과자, 팥소가 꽉 차고 껍질이 고소','<b>스즈노마루모치</b> — 손으로 구운 약 5cm 미니 도라야키','선물용은 <b>개별 포장 세트</b>나 직접 팥을 채우는 <b>오테즈메</b>가 편해요'], tip:'생과자는 유통기한이 2~3일이라 가족용으로, 선물은 개별 포장으로.'},
+  ]},
+];
+const REPORT_SOURCES = [
+  ['Hot Pepper · 博多もつ鍋 おおやま 本店','https://www.hotpepper.jp/strJ000112990/report/list_16/'],
+  ['GLTJP · おおやま 本店','https://www.gltjp.com/ja/directory/item/13260/'],
+  ['Walker Plus · 柳橋連合市場','https://www.walkerplus.com/article/143951/'],
+  ['クロスロードふくおか · 柳橋連合市場','https://www.crossroadfukuoka.jp/spot/12640'],
+  ['るるぶ&more · 太宰府 参道','https://rurubu.jp/andmore/article/3631'],
+  ['co-trip · 太宰府 食べ歩き','https://co-trip.jp/article/535919/'],
+  ['Walker Plus · 大名パフェ フルーツプラネット','https://www.walkerplus.com/article/192845/'],
+  ['Retty · 大名パフェ フルーツプラネット','https://retty.me/restaurant/100001430654/'],
+  ['クロスロードふくおか · カフェ アクアム','https://www.crossroadfukuoka.jp/inbound-shop/15432'],
+  ['aumo · 鈴懸','https://aumo.jp/articles/22882'],
+  ['co-trip · 鈴懸 本店','https://co-trip.jp/article/75095/'],
+  ['釜かつ 鳥飼店 Instagram','https://www.instagram.com/kamakatsutorikai/'],
+  ['autoreserve · 一膳めし 青木堂','https://autoreserve.com/it/restaurants/nVpHughWoPP4PnEm2KdZ'],
+  ['Ekiten · 一蘭 本社総本店 口コミ','https://www.ekiten.jp/shop_1317730/review/'],
+  ['福岡市 · 博多旧市街','https://www.city.fukuoka.lg.jp/hakataku/t-shinko/luw/'],
+];
+
+function renderReport(){
+  let n = 0;
+  $('#reportDays').innerHTML = REPORT.map(day => `<div class="rp-day">
+    <div class="rp-day-h"><h3>${day.day} · ${esc(day.title)}</h3><span>${day.date}</span></div>
+    <div class="rp-grid">${day.spots.map(sp => {
+      const num = sp.ll ? (++n, day.spots.filter(x=>x.ll).indexOf(sp)+1) : null;
+      const ph = sp.img ? WM(sp.img) : null;
+      return `<article class="rp-card">
+        <div class="rp-photo">${ph ? `<a href="${ph.page}" target="_blank" rel="noopener" aria-label="${esc(sp.n)} 사진 원본"><img loading="lazy" src="${ph.src}" alt="${esc(sp.n)}${sp.ex?' 예시 사진':''}" onerror="this.closest('.rp-photo').innerHTML='<span>${sp.ico}</span>'"></a>` : `<span>${sp.ico}</span>`}
+          ${sp.ex?'<span class="ex">메뉴 예시 사진</span>':''}${num?`<span class="no" style="border-color:${day.color}">${day.day.replace('일차','')}-${num}</span>`:''}</div>
+        <div class="rp-body">
+          <div class="rp-name">${sp.ico} ${esc(sp.n)}</div>
+          ${sp.sub?`<div class="rp-sub">${esc(sp.sub)}</div>`:''}
+          <p class="rp-desc">${esc(sp.d)}</p>
+          ${sp.menu?`<div class="rp-menu"><div class="mh">${/볼거리/.test(sp.menu[0])?'👀 볼거리':'⭐ 많이 먹고 추천하는 메뉴'}</div><ul>${sp.menu.map(m=>`<li>${m}</li>`).join('')}</ul></div>`:''}
+          ${sp.tip?`<div class="rp-sub">💡 ${esc(sp.tip)}</div>`:''}
+          ${sp.warn?`<div class="rp-warn">⚠️ ${esc(sp.warn)}</div>`:''}
+          ${sp.q?`<div class="rp-links"><a class="maplink" target="_blank" rel="noopener" href="${map(sp.q)}">📍 지도</a></div>`:''}
+        </div></article>`;}).join('')}</div></div>`).join('');
+  $('#reportSources').innerHTML = REPORT_SOURCES.map(([t,u])=>`<li><a href="${u}" target="_blank" rel="noopener">${esc(t)}</a></li>`).join('');
+}
+renderReport();
+
+/* 지도 (Leaflet · OpenStreetMap) — 리포트 탭을 열 때 불러와요 */
+let mapDay = 0, lmap = null, mapLayer = null, leafletState = 'idle';
+function loadLeaflet(cb){
+  if (window.L) return cb();
+  if (leafletState === 'loading') return;
+  leafletState = 'loading';
+  const css = document.createElement('link'); css.rel='stylesheet'; css.href='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css'; document.head.appendChild(css);
+  const js = document.createElement('script'); js.src='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js';
+  js.onload = () => { leafletState='ready'; cb(); };
+  js.onerror = () => { leafletState='failed'; $('#mapFallback').textContent='지도를 불러오지 못했어요 (인터넷 연결 확인). 아래 장소 목록과 📍 지도 버튼을 이용하세요.'; };
+  document.head.appendChild(js);
+}
+function renderMapDays(){
+  $('#mapDays').innerHTML = REPORT.map((d,i)=>`<button type="button" class="map-day" role="tab" data-i="${i}" aria-selected="${i===mapDay}">${d.day}</button>`).join('');
+  $$('.map-day').forEach(b => b.onclick = () => { mapDay = +b.dataset.i; renderMapDays(); drawMap(); });
+  const day = REPORT[mapDay];
+  $('#mapLegend').innerHTML = day.spots.filter(s=>s.ll).map((s,i)=>`<li><span class="pin-num" style="background:${day.color}">${i+1}</span>${esc(s.n)}</li>`).join('');
+}
+function drawMap(){
+  if (!window.L) return;
+  const day = REPORT[mapDay];
+  const pts = day.spots.filter(s=>s.ll);
+  if (!lmap){
+    $('#mapFallback').remove();
+    lmap = L.map('routeMap', {scrollWheelZoom:false, attributionControl:true});
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom:18, attribution:'© OpenStreetMap'}).addTo(lmap);
+  }
+  if (mapLayer) mapLayer.remove();
+  mapLayer = L.layerGroup().addTo(lmap);
+  L.polyline(pts.map(s=>s.ll), {color:day.color, weight:3, opacity:.8, dashArray:'6 6'}).addTo(mapLayer);
+  pts.forEach((s,i) => L.marker(s.ll, {icon: L.divIcon({className:'', html:`<span class="pin-num" style="background:${day.color}">${i+1}</span>`, iconSize:[20,20], iconAnchor:[10,10]})})
+    .bindTooltip(`${i+1}. ${s.n}`).addTo(mapLayer));
+  lmap.fitBounds(L.latLngBounds(pts.map(s=>s.ll)).pad(0.15));
+  setTimeout(()=>lmap.invalidateSize(), 50);
+}
+renderMapDays();
+function initMapIfVisible(){ if (!$('#tab-ideas').hidden) loadLeaflet(drawMap); }
 
 /* ---------- 하단 메뉴 ---------- */
 const VIEWS = ['home','plan','ideas','budget','check'];
@@ -779,6 +852,7 @@ function showView(id, {scroll=true} = {}){
   if (location.hash.slice(1) !== id) history.replaceState(null, '', '#'+id);
   store.set('tab', id);
   if (scroll) window.scrollTo(0, 0);
+  if (id === 'ideas') setTimeout(initMapIfVisible, 0);
   if (id === 'plan') { const sel = $('.plan-btn[aria-pressed="true"]'); if (sel) sel.scrollIntoView({block:'nearest', inline:'center'}); }
 }
 $$('.tab').forEach(t => t.onclick = () => showView(t.dataset.tab));
