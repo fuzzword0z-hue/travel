@@ -897,8 +897,8 @@ renderQuickDays();
   pay: 'cash' = 현금(트래블로그 인출), 'card' = 카드결제(트래블월렛 우선)
 */
 const BUDGET_DEFAULT = [
-  {id:'air', name:'항공권', color:'--s1', paid:true, items:[{k:'air1', n:'청주 ⇄ 후쿠오카 왕복 (한국 신용카드)', b:'krw', v:0, day:null}]},
-  {id:'hotel', name:'숙박', color:'--s2', paid:true, items:[{k:'ht1', n:'9호텔 하카타 3박 (한국 신용카드)', b:'krw', v:0, day:null}]},
+  {id:'air', name:'항공권', color:'--s1', paid:true, items:[{k:'air1', n:'청주 ⇄ 후쿠오카 왕복 (한국 신용카드)', b:'krw', v:1403700, day:null}]},
+  {id:'hotel', name:'숙박', color:'--s2', paid:true, items:[{k:'ht1', n:'9호텔 하카타 3박 (한국 신용카드)', b:'krw', v:1650401, day:null}]},
   {id:'food', name:'식비', color:'--s3', items:[
     {k:'f1', pay:'cash', n:'1일 이치란 라멘', b:'p', v:1500, day:0},
     {k:'f2', pay:'card', n:'2일 하츠키 와규 코스 (노미호다이 포함)', b:'p', v:8500, day:1},
@@ -1028,7 +1028,7 @@ function renderBudget(full){
       <summary class="cat-head"><span class="sw" style="background:var(${c.color})"></span><span class="nm">${c.name}</span>
       ${c.paid?'<span class="badge b-ok">신용카드 결제 완료</span>':''}<span class="amt" data-amt="${c.id}"></span><span class="chev">›</span></summary>
       <div class="items">${c.items.map(it => `<div class="item ${c.paid?'paid':''}"><div>${esc(it.n)}<div class="basis">${BASIS[it.b]}${it.b==='car'?` × ${Math.ceil(P/4)}대`:''}${it.pay?(it.pay==='cash'?' · 💴 현금':' · 💳 카드'):''}</div></div>
-        <input type="number" min="0" step="${it.b==='krw'?1000:100}" data-k="${it.k}" value="${c.paid && !bvals[it.k] ? '' : (bvals[it.k] ?? it.v)}" aria-label="${esc(it.n)} 단가" ${c.paid?'placeholder="결제 금액"':''}>
+        <input type="number" min="0" step="${it.b==='krw'?1000:100}" data-k="${it.k}" value="${c.paid && !(bvals[it.k] ?? it.v) ? '' : (bvals[it.k] ?? it.v)}" aria-label="${esc(it.n)} 단가" ${c.paid?'placeholder="결제 금액"':''}>
         <div class="sum" data-sum="${it.k}"></div></div>`).join('')}
         ${c.paid?'<div class="item"><div class="basis">💡 결제하신 금액을 입력하면 총액에 반영돼요</div></div>':''}</div></details>`).join('');
     $$('#cats input').forEach(inp => inp.addEventListener('input', () => {
