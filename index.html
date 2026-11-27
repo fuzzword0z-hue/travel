@@ -325,7 +325,7 @@ details[open] .chev{transform:rotate(90deg)}
   <div style="font-size:14px;color:var(--text-2)">
     <div>• <b style="color:var(--text)">후쿠오카 지하철</b>은 이용객 많은 역의 바리어프리화가 끝나서 이번에 타는 역(기온·나카스카와바타·텐진·니시진·도진마치·하카타·구시다진자마에·와타나베도리)은 엘리베이터가 있어요. 역 안에서 <b style="color:var(--text)">‘エレベーター / EV’</b> 표시를 따라가세요. 엘리베이터가 한쪽 출구에만 있는 역도 있어 조금 돌아갈 수 있어요.</div>
     <div style="margin-top:4px">• <b style="color:var(--text)">다자이후</b>는 니시테츠 전철 환승역(후츠카이치)에 계단 구간이 있다는 후기가 있어서, 갈 때·올 때 모두 <b style="color:var(--text)">하카타 버스터미널 직행버스</b>로 바꿨어요. 버스 승차 계단은 1~2칸 — 앞문 손잡이를 잡고 천천히.</div>
-    <div style="margin-top:4px">• <b style="color:var(--text)">요금 내기</b>: 지하철은 컨택리스(터치) <b style="color:var(--text)">Visa·Mastercard·JCB·AMEX</b> 카드를 개찰구에 대면 되고, 하루 최대 ¥640으로 자동 상한돼요. <b style="color:var(--text)">카카오페이 Tap&amp;go</b>는 카카오페이 공식 안내상 <b style="color:var(--text)">안드로이드 전용</b> NFC 터치 결제로 일본 지하철에서 쓸 수 있어요(앱 → 결제하기 → 상단 Tap&amp;go 켜기 → 개찰구에 폰 대기). 단 <b style="color:var(--text)">폰·카드 1개 = 1명</b>이라 부모님은 각자 트래블로그·트래블월렛 실물 카드 터치나 발권기 승차권으로 타요.</div>
+    <div style="margin-top:4px">• <b style="color:var(--text)">요금 내기</b>: 지하철은 컨택리스(터치) <b style="color:var(--text)">Visa·Mastercard·JCB·AMEX</b> 카드를 개찰구에 대면 되고, 하루 최대 ¥640으로 자동 상한돼요. <b style="color:var(--text)">카카오페이 Tap&amp;go</b>는 카카오페이 공식 안내상 <b style="color:var(--text)">안드로이드 전용</b> NFC 터치 결제로 일본 지하철에서 쓸 수 있어요(앱 → 결제하기 → 상단 Tap&amp;go 켜기 → 개찰구에 폰 대기). 단 <b style="color:var(--text)">폰·카드 1개 = 1명</b>이라 부모님은 각자 <b style="color:var(--text)">각자 개인 카드</b>(컨택리스)나 발권기 승차권으로 타요. 지하철 요금은 공용 예산이 아니라 <b style="color:var(--text)">각자 개인 카드에서 지출</b>돼요.</div>
   </div>
 </div>
 
@@ -344,7 +344,7 @@ details[open] .chev{transform:rotate(90deg)}
 <!-- 일정 -->
 <section id="tab-plan" class="view" hidden>
   <h2 class="sec-title">일정 & 당일 동선</h2>
-  <p class="sec-desc">이동 시간·요금은 예상치(3인 기준)예요. 택시는 공항 오갈 때만 타요. ♿ 지하철은 엘리베이터로, 다자이후는 계단 많은 환승을 피해 직행버스로 다녀요. 💴 현금 / 💳 카드 표시는 결제 수단 추천이에요.</p>
+  <p class="sec-desc">이동 시간·요금은 예상치(3인 기준)예요. 택시는 공항 오갈 때만 타요. ♿ 지하철은 엘리베이터로, 다자이후는 계단 많은 환승을 피해 직행버스로 다녀요. 🚇 지하철 요금은 각자 개인 카드에서 지출돼요. 💴 현금 / 💳 카드 표시는 결제 수단 추천이에요.</p>
   <p class="plans-hint">← 옆으로 넘겨 다른 플랜 보기 →</p>
   <div class="plans" id="planBtns"></div>
   <div class="days" id="dayBtns" role="tablist" aria-label="날짜"></div>
@@ -873,12 +873,9 @@ const BUDGET_DEFAULT = [
     {k:'f17', pay:'card', n:'4일 카페 야카타', b:'p', v:800, day:3},
     {k:'f10', pay:'card', n:'편의점·간식 (4일간)', b:'p', v:2000, day:null},
   ]},
-  {id:'trans', name:'교통', color:'--s4', items:[
+  {id:'trans', name:'교통', color:'--s4', note:'🚇 지하철은 각자 개인 카드(카카오페이 Tap&go 등)로 터치 결제 — 공용 예산에서 빠지지 않아요', items:[
     {k:'tx1', pay:'cash', n:'1일 공항 → 호텔 택시', b:'car', v:3000, day:0},
-    {k:'tx16', pay:'card', n:'2일 지하철 2회 (터치 결제)', b:'p', v:600, day:1},
     {k:'tx17', pay:'cash', n:'3일 다자이후 직행버스 왕복', b:'p', v:1400, day:2},
-    {k:'tx18', pay:'card', n:'3일 지하철 3회 (터치 결제)', b:'p', v:630, day:2},
-    {k:'tx19', pay:'card', n:'4일 지하철 1회 (터치 결제)', b:'p', v:210, day:3},
     {k:'tx6', pay:'cash', n:'4일 호텔 → 공항 택시 (앱 호출)', b:'car', v:3000, day:3},
   ]},
   {id:'shop', name:'쇼핑', color:'--s6', items:[
@@ -956,7 +953,7 @@ function renderPay(P, R, localYen){
   $('#atmPlan').innerHTML =
     `<div>🏧 <b>1차 인출 · 12/26 공항 도착 로비 세븐일레븐 ATM</b> — 트래블로그로 <b>${yen(w1)}</b> (공항 택시·이치란·야타이)</div>` +
     `<div>🏧 <b>2차 인출 · 12/28 아침 호텔 근처 세븐일레븐 ATM</b> — <b>${yen(w2)}</b> (다자이후 버스·간식·青木堂·4일차 시장·공항 택시) · 남은 현금 보고 조정</div>` +
-    `<div>💳 하츠키·釜かつ·오오야마·파르페·백화점·돈키호테·旅と膳·지하철 터치는 <b>트래블월렛</b>으로 먼저 결제, 잔액이 모자라면 트래블로그 카드로</div>` +
+    `<div>💳 하츠키·釜かつ·오오야마·파르페·백화점·돈키호테·旅と膳은 <b>트래블월렛</b>으로 먼저 결제, 잔액이 모자라면 트래블로그 카드로</div>` +
     (short > 0 ? `<div class="short">⚠️ ${yen(short)} 부족 — 앱에서 추가 충전하거나, 쇼핑 예산을 줄이거나, 한국 신용카드(해외결제 수수료 있음)로 보충</div>` : '') +
     `<div style="color:var(--text-3);font-size:12.5px">트래블로그는 세븐일레븐(세븐뱅크) ATM에서 수수료 없이 인출돼요 (하나머니 엔화 잔액 기준). 1회 최대 ¥100,000 · 1,000엔 단위. 아래 출금 순서 참고</div>`;
 }
@@ -990,7 +987,7 @@ function renderBudget(full){
     $('#cats').innerHTML = cats.map(c => `<details class="card cat" ${store.get('open-'+c.id, c.id==='food')?'open':''} data-cat="${c.id}">
       <summary class="cat-head"><span class="sw" style="background:var(${c.color})"></span><span class="nm">${c.name}</span>
       ${c.paid?'<span class="badge b-ok">신용카드 결제 완료</span>':''}<span class="amt" data-amt="${c.id}"></span><span class="chev">›</span></summary>
-      <div class="items">${c.items.map(it => `<div class="item ${c.paid?'paid':''}"><div>${esc(it.n)}<div class="basis">${BASIS[it.b]}${it.b==='car'?` × ${Math.ceil(P/4)}대`:''}${it.pay?(it.pay==='cash'?' · 💴 현금':' · 💳 카드'):''}</div></div>
+      <div class="items">${c.note?`<div class="item"><div class="basis" style="color:var(--text-2)">${esc(c.note)}</div></div>`:''}${c.items.map(it => `<div class="item ${c.paid?'paid':''}"><div>${esc(it.n)}<div class="basis">${BASIS[it.b]}${it.b==='car'?` × ${Math.ceil(P/4)}대`:''}${it.pay?(it.pay==='cash'?' · 💴 현금':' · 💳 카드'):''}</div></div>
         <input type="number" min="0" step="${it.b==='krw'||it.b==='kj'?10000:100}" data-k="${it.k}" value="${c.paid && !(bvals[it.k] ?? it.v) ? '' : (bvals[it.k] ?? it.v)}" aria-label="${esc(it.n)} 단가" ${c.paid?'placeholder="결제 금액"':''}>
         <div class="sum" data-sum="${it.k}"></div></div>`).join('')}
         ${c.paid?'<div class="item"><div class="basis">💡 결제하신 금액을 입력하면 총액에 반영돼요</div></div>':''}</div></details>`).join('');
@@ -1058,7 +1055,7 @@ const CHECK = {
     ['eSIM / 포켓와이파이', '도착 즉시 사용 가능하게 미리 설치'],
     ['트래블로그 ¥59,784 · 트래블월렛 ¥50,000 충전 완료 (공용)', '카드 2장 모두 챙기기 · 앱에서 해외 ATM 인출/결제 설정 켜두기'],
     ['토스 카드 (개인 환전)', '갸또러스크 선물용 — 공용 카드와 구분해서 지갑에'],
-    ['지하철 결제 수단 (1인 1개)', '나: 카카오페이 Tap&go(안드로이드) · 부모님: 트래블 카드 실물 터치 또는 승차권 · 출발 전 국내 교통카드 단말기에서 Tap&go 켜짐 확인'],
+    ['지하철 결제 수단 (1인 1개)', '각자 개인 카드로 결제 (공용 예산 X) · 나: 카카오페이 Tap&go(안드로이드) · 부모님: 개인 컨택리스 카드 또는 승차권'],
     ['트래블로그 앱에서 해외 인출 기준 통화 확인', '하나머니 엔화 잔액에서 인출되도록 설정 — 그래야 수수료 무료'],
     ['구글 지도 오프라인 저장', '후쿠오카 시내'],
     ['구글맵 대중교통 길찾기 연습', '버스 정류장·시간은 구글맵이 가장 정확해요 · 2일차는 지하철 1일권(¥640)'],
