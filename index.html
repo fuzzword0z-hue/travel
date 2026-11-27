@@ -532,7 +532,7 @@ const D1 = {
     {mv:true, mode:'🚶 도보', dur:'약 10분 (호텔 → 나카강변)', cost:'무료', from:HOTEL, to:'Nakasu Yatai Fukuoka', gm:'walking', alt:'가와바타 상점가(지붕 있는 아케이드)를 지나 강변으로'},
     {t:'19:15', end:'약 45분', ico:'🌃', title:'나카스 강변 산책 & 야타이 구경', desc:'나카강변 포장마차(야타이) 거리와 강에 비친 네온 야경. 후쿠하쿠 데아이바시 다리 → 하카타 리버레인 쪽으로 천천히', tips:['12월 밤 강바람이 차가워요 — 부모님 목도리·장갑·핫팩 챙기기','강변 산책로는 평지라 걷기 편해요. 힘드시면 중간에 바로 이치란으로'], q:'Nakasu Yatai Fukuoka', key:true},
     {mv:true, mode:'🚶 도보', dur:'약 5분', cost:'무료', from:'Nakasu Yatai Fukuoka', to:'Ichiran Ramen Main Store Nakasu', gm:'walking'},
-    {t:'20:00', end:'웨이팅 30~60분', ico:'🍜', title:'이치란 라멘 총본점 (나카스)', desc:'24시간 영업 · 예약 불가. 토요일 저녁이라 대기가 있을 수 있어요', tips:['식권 자판기 — 현금 준비 (트래블로그로 인출한 현금)','부모님이 오래 서 계시기 힘들면 순번 받아두고 근처에서 쉬기','1인 ¥1,000~1,600 (토핑·반숙란·밥 추가 시)'], pay:'cash', q:'Ichiran Ramen Main Store Nakasu', key:true},
+    {t:'20:00', end:'웨이팅 30~60분', ico:'🍜', title:'이치란 라멘 총본점 (나카스)', desc:'24시간 영업 · 예약 불가. 토요일 저녁이라 대기가 있을 수 있어요', tips:['식권 자판기에서 카드 결제 가능 (트래블월렛)','부모님이 오래 서 계시기 힘들면 순번 받아두고 근처에서 쉬기','1인 ¥1,000~1,600 (토핑·반숙란·밥 추가 시)'], pay:'card', q:'Ichiran Ramen Main Store Nakasu', key:true},
     {mv:true, mode:'🚶 도보', dur:'약 10분', cost:'무료', from:'Ichiran Ramen Main Store Nakasu', to:HOTEL, gm:'walking'},
     {t:'21:30', ico:'🏪', title:'호텔 복귀 · 편의점', desc:'다음 날 아침 간식·음료 구매 후 휴식'},
   ]
@@ -609,7 +609,7 @@ const D1_B = {...D1, title:'도착 & 일찍 먹고 야타이 산책', summary:'�
   items:[
     ...D1.items.slice(0,5),
     {mv:true, mode:'🚶 도보', dur:'약 10분', cost:'무료', from:HOTEL, to:'Ichiran Ramen Main Store Nakasu', gm:'walking'},
-    {t:'19:10', end:'웨이팅 30~60분', ico:'🍜', title:'이치란 라멘 총본점 (나카스)', desc:'배고프니 저녁 먼저! 대기 중 순번표 받고 근처 구경 가능', pay:'cash', q:'Ichiran Ramen Main Store Nakasu', key:true},
+    {t:'19:10', end:'웨이팅 30~60분', ico:'🍜', title:'이치란 라멘 총본점 (나카스)', desc:'배고프니 저녁 먼저! 대기 중 순번표 받고 근처 구경 가능', pay:'card', q:'Ichiran Ramen Main Store Nakasu', key:true},
     {t:'20:30', end:'약 1시간', ico:'🌃', title:'나카스 강변 & 야타이 2차', desc:'배부르게 먹고 강변 산책. 야타이에서 교자·오뎅 한 접시 나눠 먹기(1인 ¥1,000 내외)', pay:'cash', tips:['추우면 따뜻한 포장마차 안에서 쉬어가기 — 현금만 받는 곳이 많아요'], q:'Nakasu Yatai Fukuoka'},
     {mv:true, mode:'🚶 도보', dur:'약 10분', cost:'무료', from:'Nakasu Yatai Fukuoka', to:HOTEL, gm:'walking'},
     {t:'21:45', ico:'🏪', title:'호텔 복귀 · 편의점', desc:'휴식'},
@@ -858,8 +858,8 @@ renderQuickDays();
 const BUDGET_DEFAULT = [
   {id:'air', name:'항공권', color:'--s1', paid:true, items:[{k:'air1', n:'청주 ⇄ 후쿠오카 왕복 (한국 신용카드)', b:'krw', v:1403700, day:null}]},
   {id:'hotel', name:'숙박', color:'--s2', paid:true, items:[{k:'ht1', n:'9호텔 하카타 3박 (한국 신용카드)', b:'krw', v:1650401, day:null}]},
-  {id:'food', name:'식비', color:'--s3', note:'💴 백화점·큰 식당(하츠키·오오야마) 말고는 현금만 받는 곳이 많아요 — 카페·작은 식당·시장은 현금으로 잡았어요', items:[
-    {k:'f1', pay:'cash', n:'1일 이치란 라멘', b:'p', v:1500, day:0},
+  {id:'food', name:'식비', color:'--s3', note:'💴 백화점·큰 식당(이치란·하츠키·오오야마) 말고는 현금만 받는 곳이 많아요 — 카페·작은 식당·시장은 현금으로 잡았어요', items:[
+    {k:'f1', pay:'card', n:'1일 이치란 라멘', b:'p', v:1500, day:0},
     {k:'f22', pay:'cash', n:'1일 야타이 간식 (선택)', b:'p', v:1000, day:0},
     {k:'f2', pay:'card', n:'2일 하츠키 와규 코스 (노미호다이 포함)', b:'p', v:8500, day:1},
     {k:'f3b', pay:'cash', n:'2일 오호리 호숫가 카페', b:'p', v:1000, day:1},
@@ -954,9 +954,9 @@ function renderPay(P, R, localYen){
   const w1 = Math.min(wTotal, ceil1k(cashBy(0) + cashBy(1) + cashFree/2));
   const w2 = Math.max(0, wTotal - w1);
   $('#atmPlan').innerHTML =
-    `<div>🏧 <b>1차 인출 · 12/26 공항 도착 로비 세븐일레븐 ATM</b> — 트래블로그로 <b>${yen(w1)}</b> (공항 택시·이치란·야타이·2일차 카페·釜かつ)</div>` +
+    `<div>🏧 <b>1차 인출 · 12/26 공항 도착 로비 세븐일레븐 ATM</b> — 트래블로그로 <b>${yen(w1)}</b> (공항 택시·야타이·2일차 카페·釜かつ)</div>` +
     `<div>🏧 <b>2차 인출 · 12/28 아침 호텔 근처 세븐일레븐 ATM</b> — <b>${yen(w2)}</b> (다자이후 버스·간식·青木堂·파르페·4일차 시장·旅と膳·야카타·공항 택시) · 남은 현금 보고 조정</div>` +
-    `<div>💳 하츠키·오오야마·백화점·돈키호테·편의점은 <b>트래블월렛</b>으로 먼저 결제, 잔액이 모자라면 트래블로그 카드로</div>` +
+    `<div>💳 이치란·하츠키·오오야마·백화점·돈키호테·편의점은 <b>트래블월렛</b>으로 먼저 결제, 잔액이 모자라면 트래블로그 카드로</div>` +
     (short > 0 ? `<div class="short">⚠️ ${yen(short)} 부족 (현금 ${yen(cashLeft)} · 카드 ${yen(cardLeft)}) — 현금이 모자라면 <b>트래블로그</b>(인출용)에, 카드가 모자라면 <b>트래블월렛</b>에 추가 충전하거나 한국 신용카드(해외결제 수수료 있음)로 보충</div>` : '') +
     `<div style="color:var(--text-3);font-size:12.5px">트래블로그는 세븐일레븐(세븐뱅크) ATM에서 수수료 없이 인출돼요 (하나머니 엔화 잔액 기준). 1회 최대 ¥100,000 · 1,000엔 단위. 아래 출금 순서 참고</div>`;
 }
