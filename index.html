@@ -612,7 +612,7 @@ const D2_A = {
   ]
 };
 const D3_A = {
-  date:'12/28', dow:'월', title:'다자이후 → 青木堂 점심 → 텐진 쇼핑 → 모츠나베', summary:'다자이후 텐만구 → 一膳めし 青木堂 점심 → 텐진 백화점·돈키호테 → 호텔에 짐 두고 오오야마 모츠나베',
+  date:'12/28', dow:'월', title:'다자이후 → 青木堂 점심 → 텐진 쇼핑·파르페 → 모츠나베', summary:'다자이후 텐만구 → 一膳めし 青木堂 점심 → 텐진 백화점 → 아마오우 파르페 → 돈키호테 → 호텔에 짐 두고 오오야마 모츠나베',
   notice:'<b>쇼핑 짐은 호텔에 두고 저녁</b> — 오오야마 본점이 호텔에서 가까워요. 텐진에서 지하철 4분이면 호텔이라, 짐을 두고 가볍게 저녁 먹으러 가요.',
   items:[
     {t:'07:45', ico:'🥐', title:'호텔 조식', desc:'8:40 출발'},
@@ -622,8 +622,10 @@ const D3_A = {
     {mv:true, mode:'🚶 도보', dur:'약 10분', cost:'무료', from:'Nishitetsu Fukuoka Tenjin Station', to:AOKIDO, gm:'walking'},
     {t:'12:50', end:'약 1시간', ico:'🍚', title:'一膳めし 青木堂 — 점심', pay:'cash', descHtml:true, desc:'텐진 한복판의 <b>레트로 대중식당</b>. 진열된 반찬을 골라 밥·된장국과 먹는 일본 가정식이라 아빠 입맛에도 잘 맞아요 · 中央区大名 1-11-28', tips:['일요일 휴무 → 12/28(월) 영업','반찬을 하나씩 고르는 방식 — 1인 ¥1,000~2,000 정도','현금 준비 권장'], q:AOKIDO, key:true},
     {mv:true, mode:'🚶 도보', dur:'약 7분', cost:'무료', from:AOKIDO, to:'Iwataya Department Store Tenjin', gm:'walking'},
-    {t:'14:00', end:'약 3시간', ico:'🛍️', title:'텐진 쇼핑 (이와타야·다이마루·지하상가)', pay:'card', desc:'백화점과 지하상가 구경 · 부모님 쇼핑. 쉬고 싶으면 대형 카페(그랑미라주 홀노트 카페 등)', tips:['백화점은 여권 제시 시 면세(¥5,000 이상)','👤 갸또러스크 선물은 개인 토스 카드로 따로 결제','집합 장소·시간 정해두기'], q:'Iwataya Department Store Tenjin', key:true},
-    {mv:true, mode:'🚶 도보', dur:'5~10분', cost:'무료', from:'Daimaru Fukuoka Tenjin', to:'Don Quijote Fukuoka Tenjin', gm:'walking'},
+    {t:'14:00', end:'약 1시간 40분', ico:'🛍️', title:'텐진 쇼핑 (이와타야·다이마루·지하상가)', pay:'card', desc:'백화점과 지하상가 구경 · 부모님 쇼핑. 쉬고 싶으면 대형 카페(그랑미라주 홀노트 카페 등)', tips:['백화점은 여권 제시 시 면세(¥5,000 이상)','👤 갸또러스크 선물은 개인 토스 카드로 따로 결제','집합 장소·시간 정해두기'], q:'Iwataya Department Store Tenjin', key:true},
+    {mv:true, mode:'🚶 도보', dur:'약 7분 (다이묘 쪽으로)', cost:'무료', from:'Iwataya Department Store Tenjin', to:'大名パフェ フルーツプラネット', gm:'walking'},
+    {t:'15:50', end:'약 50분', ico:'🍨', title:'파르페 — 다이묘 파르페 프루츠 플래닛', pay:'card', desc:'청과 도매상이 운영하는 과일 파르페 전문점. 겨울엔 후쿠오카 딸기 ‘아마오우’ 파르페', tips:['3인이면 2개 시켜 나눠 먹어도 충분 — 저녁 모츠나베 배 남겨두기','인기점이라 대기 있을 수 있어요 · 영업시간 확인'], tags:[['acc','파르페']], q:'大名パフェ フルーツプラネット', key:true},
+    {mv:true, mode:'🚶 도보', dur:'약 10분', cost:'무료', from:'大名パフェ フルーツプラネット', to:'Don Quijote Fukuoka Tenjin', gm:'walking'},
     {t:'17:00', end:'약 50분', ico:'🏬', title:'돈키호테 텐진본점', pay:'card', desc:'과자·약·화장품 구매 & 면세', q:'Don Quijote Fukuoka Tenjin'},
     {mv:true, mode:'🚇 지하철', dur:'텐진 → 기온 약 4분 · 호텔까지 도보 5분', cost:'1인 ¥210', from:'Tenjin Station Fukuoka', to:HOTEL, gm:'transit'},
     {t:'18:10', end:'약 30분', ico:'🛍️', title:'호텔에 쇼핑 짐 두기', desc:'잠깐 쉬고 가볍게 나가기'},
@@ -706,7 +708,7 @@ const D_RAIN = {
 
 const PLANS = [
   {id:'A', name:'내 계획', desc:'직접 짠 일정 · 하츠키(일) · 오오야마(월) · 旅と膳(화)', days:[D1,D2_A,D3_A,D4_M],
-   change:'—', reason:'직접 고른 맛집과 동선. 2일차 하츠키 후 오호리까지 걷기, 3일차 짐 두고 오오야마, 4일차 시장·돈카츠·카페로 마무리', load:'보통'},
+   change:'—', reason:'직접 고른 맛집과 동선. 2일차 하츠키 후 오호리까지 걷기, 3일차 아마오우 파르페 후 짐 두고 오오야마, 4일차 시장·돈카츠·카페로 마무리', load:'보통'},
   {id:'B', pk:'BEST', name:'베스트 추천 ⭐', desc:'모든 플랜에서 좋았던 것만 모은 일정', days:[D1_B,D2_A,D3_BEST,D4_BEST],
    change:'1일차: 이치란 먼저 → 강변·야타이 (배고픔 먼저 해결)<br>2일차: 내 계획과 같음 (하츠키 예약 유지)<br>3일차: 아침 야나기바시 시장 → 다자이후 → 青木堂 점심 → 텐진 쇼핑 → 아마오우 파르페 → 오오야마<br>4일차: 가와바타·스즈카케 포장 → 高宮庭園茶寮 점심', reason:'시장·참배길·대중식당·파르페를 하루에 모아 구경을 좋아하시는 부모님께 꽉 찬 3일차, 마지막 날은 웅장한 옛 저택 정원에서 마무리', load:'보통'},
   {id:'RAIN', pk:'예비', name:'☔ 비 오는 날', desc:'지붕·실내로만 이어지는 하루', days:[D_RAIN],
