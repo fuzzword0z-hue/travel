@@ -353,8 +353,8 @@ details[open] .chev{transform:rotate(90deg)}
   <h2 class="sec-title">☕ 넓고 큰 카페</h2>
   <p class="sec-desc">블루잼처럼 공간이 넓은 곳이에요. 영업시간은 방문 전 구글맵에서 확인하세요.</p>
   <div class="spots">
-    <div class="card spot"><div class="sp-top"><b>블루잼 (BLUE JAM)</b><span class="badge b-navy">2일차 대안</span></div>
-      <div class="sp-d">무첨가 자연파 빵집 2층 카페. <b>무로미강이 보이는</b> 탁 트인 전망. 나나쿠마선 지로마루역 도보 16분 · 니시진에서 버스. 2일차 카우히이야 대신 갈 수 있어요.</div>
+    <div class="card spot"><div class="sp-top"><b>블루잼 (BLUE JAM)</b><span class="badge b-navy">반나절 코스</span></div>
+      <div class="sp-d">무첨가 자연파 빵집 2층 카페. <b>무로미강이 보이는</b> 탁 트인 전망. 나나쿠마선 지로마루역 도보 16분 · 니시진에서 버스. 대형 카페를 따로 가고 싶을 때 반나절 코스로 좋아요.</div>
       <a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=BLUE+JAM+%E6%97%A9%E8%89%AF%E5%8C%BA%E7%94%B0%E6%9D%91">📍 지도</a></div>
     <div class="card spot"><div class="sp-top"><b>그랑미라주 홀노트 카페</b><span class="badge b-navy">텐진 이마이즈미</span></div>
       <div class="sp-d">천장이 높고 좌석이 아주 많은 대형 카페. 3일차 텐진 쇼핑 중 쉬어가기 좋아요.</div>
@@ -546,6 +546,8 @@ const HOTEL = '9 Hotel Hakata, 9-16 Reisenmachi, Hakata Ward, Fukuoka';
 const NANKARA = '一丁目 なんから食堂, 1-1-7 Daimyo, Chuo Ward, Fukuoka';
 const TABITOZEN = '博多とんかつ 旅と膳, 4-202 Kamikawabatamachi, Hakata Ward, Fukuoka';
 const AOKIDO = '一膳めし 青木堂, 1-11-28 Daimyo, Chuo Ward, Fukuoka';
+const KAMAKATSU = '釜かつ, 1-5-27 Torikai, Chuo Ward, Fukuoka';
+const AQUAM = 'カフェ アクアム 福岡市美術館';
 const YAKATA = 'Yakata, 6-16 Reisenmachi, Hakata Ward, Fukuoka';
 const KAUHII = '28-2 Takatori, Sawara Ward, Fukuoka';
 const HATSUKI = {t:'12:30', end:'2시간 (최대 2시간 30분)', ico:'🥩', title:'니시진 하츠키 본점 — 와규 샤브샤브·스키나베', descHtml:true, desc:'예약 완료 · 1인 ¥8,500 (세금 포함) · <b>2시간 노미호다이 포함</b> · 이마리규·사가규·이토시마규 등 규슈산 흑모와규 6품', pay:'card', tags:[['ok','예약 완료'],['acc','¥8,500/인 · 음료 무제한']], tips:['샤브샤브 / 스키나베 중 선택 — 가족끼리 미리 정해두기 (스키나베는 이토시마 날계란에 찍어 먹어요)','구성: 작은 반찬 → 특선 와규 → 채소 → 우동 → 디저트','부모님 못 드시는 재료는 미리 전달'], q:'西新 初喜 本店', key:true};
@@ -699,24 +701,24 @@ const D4_M = {...D4, title:'야나기바시 시장 → 스미요시 산책 → �
 
 /* ---------- 내 계획 2·3일차 ---------- */
 const D2_A = {
-  date:'12/27', dow:'일', title:'기온 절 골목 → 카우히이야 → 하츠키 → 오호리까지 산책', summary:'하카타 구시가지 → 카페 카우히이야 → 하츠키 와규 점심 → 상점가 구경하며 오호리 공원까지 소화 산책 → 하카타역 노을·가벼운 저녁',
-  notice:'<b>서쪽에서 동쪽으로 한 방향</b> — 점심 전에 카우히이야(다카토리)에 들르고, 점심 후엔 니시진 → 도진마치 상점가(지붕 있는 아케이드) → 오호리 공원까지 <b>약 30분 평지를 걸으며 소화</b>해요. 저녁은 점심이 무거우니 하카타역에서 가볍게. 지하철을 4번 타서 <b>1일권(¥640)</b>이 이득.',
+  date:'12/27', dow:'일', title:'기온 절 골목 → 하츠키 → 오호리 산책 → 釜かつ', summary:'하카타 구시가지 → 니시진 상점가 → 하츠키 와규 점심 → 도진마치 상점가 구경하며 오호리 공원까지 → 호숫가 카페 → 노을 → 釜かつ 저녁',
+  notice:'<b>서쪽에서 동쪽으로 한 방향</b> — 점심 후 니시진 → 도진마치 상점가(지붕 있는 아케이드) → 오호리 공원까지 <b>약 30분 평지를 걸으며 소화</b>하고, 호숫가 카페에서 쉬었다가 근처 釜かつ에서 저녁. 지하철은 아침·밤 2번이라 1회권으로 충분해요.',
   items:[
     {t:'08:30', ico:'🥐', title:'호텔 조식', desc:'9:30 출발 — 걸어서 바로 구시가지로'},
     {mv:true, mode:'🚶 도보', dur:'약 7분', cost:'무료', from:HOTEL, to:'聖福寺 福岡', gm:'walking'},
     {t:'09:40', end:'약 1시간', ico:'🏯', title:'하카타 구시가지 — 기온의 절과 골목', descHtml:true, desc:'<b>쇼후쿠지</b>(일본 최초의 선종 사찰, 넓은 경내와 돌담길) → <b>조텐지</b>(돌 정원, 하카타 센넨몬) → <b>도초지</b>(붉은 오층탑) → 지붕 있는 <b>가와바타 상점가</b>. 모두 평지, 경내 산책 무료', tips:['큰길은 현대 도시라 ‘절 사이 골목 안쪽’을 따라 걸으세요','일요일이라 하카타 센넨몬 앞에 10~15시 관광 가이드'], q:'聖福寺 福岡', key:true},
-    {mv:true, mode:'🚇 지하철 공항선', dur:'나카스카와바타 → 후지사키 약 14분 (환승 없음) · 카페까지 도보 약 7분', cost:'1일권 ¥640', from:'Nakasu-Kawabata Station', to:KAUHII, gm:'transit', alt:'역 발권기에서 1일권 구매 (한국어 화면)'},
-    {t:'11:10', end:'약 50분', ico:'☕', title:'카페 카우히이야', pay:'cash', desc:'점심 전 커피 한 잔 · 早良区高取 28-2', tips:['오픈 시간 확인 — 11시 전에 안 열면 점심 후 산책 시작 전에 들르기'], q:KAUHII},
-    {mv:true, mode:'🚶 도보', dur:'약 10~15분 (니시진 상점가 따라)', cost:'무료', from:KAUHII, to:'西新 初喜 本店', gm:'walking'},
+    {mv:true, mode:'🚇 지하철 공항선', dur:'나카스카와바타 → 니시진 약 10분 (환승 없음)', cost:'1인 ¥300', from:'Nakasu-Kawabata Station', to:'Nishijin Station Fukuoka', gm:'transit'},
+    {t:'11:00', end:'약 1시간 20분', ico:'🏮', title:'니시진 중앙상점가 구경', desc:'현지인 시장 분위기의 상점가. 예약 15분 전 식당 앞 도착', q:'Nishijin Shopping Street Fukuoka'},
     HATSUKI,
     {mv:true, mode:'🚶 소화 산책', dur:'니시진 → 도진마치 상점가 → 오호리 공원 약 30분 (평지)', cost:'무료', from:'西新 初喜 本店', to:'Ohori Park Fukuoka', gm:'walking', alt:'도진마치 상점가는 지붕 있는 아케이드라 바람을 피하며 구경해요 · 힘들면 니시진 → 오호리코엔 지하철 4분'},
-    {t:'14:30', end:'약 45분', ico:'🏮', title:'니시진·도진마치 상점가 구경', desc:'반찬가게·과일가게·잡화점이 이어진 현지 상점가를 구경하며 동쪽으로', q:'唐人町商店街'},
-    {t:'15:20', end:'약 1시간 10분', ico:'🌳', title:'오호리 공원 호숫가 산책', desc:'넓은 호수를 따라 걷기 (일본정원은 들어가지 않아요). 벤치에서 쉬거나 호숫가 스타벅스에서 따뜻한 음료', tips:['호수 한 바퀴는 약 2km — 반 바퀴만 걸어도 충분'], q:'Ohori Park', key:true},
-    {mv:true, mode:'🚇 지하철 공항선', dur:'오호리코엔 → 하카타 약 11분', cost:'1일권 사용', from:'Ohori Park Fukuoka', to:'JR Hakata City', gm:'transit'},
-    {t:'16:50', end:'약 1시간', ico:'🌇', title:'하카타역 — 옥상 정원 노을 & 쇼핑몰 구경', pay:'card', desc:'JR 하카타시티 옥상 ‘츠바메노모리 히로바’에서 일몰(17:20경) → 아뮤플라자·마잉구 구경', tips:['옥상은 바람이 불 수 있어요 — 노을만 보고 실내로'], q:'JR Hakata City'},
-    {t:'18:00', end:'약 1시간', ico:'🍜', title:'가벼운 저녁 — 하카타역 식당가', pay:'card', desc:'점심이 무거웠으니 우동·소바나 가벼운 정식으로. JR 하카타시티·KITTE 식당가', q:'JR Hakata City'},
-    {mv:true, mode:'🚇 지하철', dur:'하카타 → 기온 1정거장 · 도보 5분', cost:'1일권 사용', from:'JR Hakata City', to:HOTEL, gm:'transit'},
-    {t:'19:20', ico:'🏨', title:'호텔 복귀 · 휴식', desc:''},
+    {t:'14:30', end:'약 45분', ico:'🏮', title:'도진마치 상점가 구경', desc:'반찬가게·과일가게·잡화점이 이어진 현지 상점가를 구경하며 오호리 공원 쪽으로', q:'唐人町商店街'},
+    {t:'15:20', end:'약 30분', ico:'🌳', title:'오호리 공원 호숫가 산책', desc:'넓은 호수를 따라 걷기 (일본정원은 들어가지 않아요)', q:'Ohori Park', key:true},
+    {t:'15:50', end:'약 1시간', ico:'☕', title:'호숫가 카페 — 카페 아쿠아무', pay:'card', desc:'공원 안 시립미술관 1층에 있는 카페. 테라스·창가에서 호수 전망 (전시는 안 봐도 돼요). 9:00~19:00, 월요일 휴무 → 일요일 OK', tips:['대안: Café de OPERA(오호리코엔역 도보 3분, 수제 와플) 또는 공원 스타벅스'], q:AQUAM, key:true},
+    {t:'17:00', end:'약 30분', ico:'🌅', title:'호수 노을 산책', desc:'일몰(17:20경)에 맞춰 호숫가를 조금 더 걷기', q:'Ohori Park'},
+    {mv:true, mode:'🚶 도보', dur:'약 10~15분 (공원 서쪽 → 도리카이)', cost:'무료', from:'Ohori Park Fukuoka', to:KAMAKATSU, gm:'walking'},
+    {t:'17:45', end:'약 1시간 15분', ico:'🍚', title:'釜かつ — 저녁', pay:'card', desc:'가마솥밥(가마메시)과 돈카츠 가게 · 中央区鳥飼 1-5-27', tips:['영업시간·휴무 확인 (검색으로 확인 못 함)','점심이 와규라 양은 나눠서 가볍게'], tags:[['warn','영업 확인']], q:KAMAKATSU, key:true},
+    {mv:true, mode:'🚶+🚇 도보 → 지하철 공항선', dur:'도진마치역 도보 약 10분 · 도진마치 → 기온 약 12분 · 도보 5분', cost:'1인 ¥300', from:KAMAKATSU, to:HOTEL, gm:'transit'},
+    {t:'19:30', ico:'🏨', title:'호텔 복귀 · 휴식', desc:''},
   ]
 };
 const D3_A = {
@@ -785,8 +787,8 @@ const D3_C = {...D3, title:'다자이후 + 야나가와 코타츠 뱃놀이', su
 const PLANS = [
   {id:'R', name:'느긋한 추천 ⭐', desc:'부모님 동반 · 대중교통 · 오후 휴식', days:[D1,D2_R,D3_R,D4_R],
    change:'2일차: 기온 절 골목 → 하츠키 → 소화 산책 → 카페 → 하카타역 옥상 정원·구경<br>3일차: 아침 시장 → 다자이후 → 아마오우 파르페<br>4일차: 조식 대신 호텔 오쿠라 카멜리아 점심 뷔페 (모두 도보)', reason:'카페·파르페·구경 위주, 바닷바람 피하기, 4일차는 모두 도보. 공항 가는 날도 여유로움', load:'가벼움'},
-  {id:'A', name:'내 계획 (대중교통)', desc:'하츠키 → 오호리 산책 · 모츠나베는 3일차', days:[D1,D2_A,D3_A,D4_M],
-   change:'2일차: 기온 절 골목 → 카우히이야 → 하츠키 → 상점가 구경하며 오호리 공원까지 소화 산책 → 하카타역 노을·가벼운 저녁<br>3일차: 다자이후 → 一膳めし 青木堂 점심 → 텐진 쇼핑·돈키호테 → 호텔에 짐 두고 오오야마 모츠나베<br>4일차: 지하철로 야나기바시 시장 → 스미요시 거리 → 博多とんかつ 旅と膳 → 카페 야카타 → 스즈카케 포장 → 앱 택시로 공항', reason:'오전은 호텔 근처를 걸어서, 오후엔 쉬어가기. 4일차는 하카타 일대에서만', load:'보통'},
+  {id:'A', name:'내 계획 (대중교통)', desc:'하츠키 → 오호리 산책 · 釜かつ · 모츠나베는 3일차', days:[D1,D2_A,D3_A,D4_M],
+   change:'2일차: 기온 절 골목 → 니시진 상점가 → 하츠키 → 도진마치 상점가 구경하며 오호리 공원까지 → 호숫가 카페 → 釜かつ 저녁<br>3일차: 다자이후 → 一膳めし 青木堂 점심 → 텐진 쇼핑·돈키호테 → 호텔에 짐 두고 오오야마 모츠나베<br>4일차: 지하철로 야나기바시 시장 → 스미요시 거리 → 博多とんかつ 旅と膳 → 카페 야카타 → 스즈카케 포장 → 앱 택시로 공항', reason:'오전은 호텔 근처를 걸어서, 오후엔 쉬어가기. 4일차는 하카타 일대에서만', load:'보통'},
   {id:'B', name:'노을·야경 동선', desc:'바람 없는 날에만 · 모모치 일몰', days:[D1_B,D2_B,D3,D4_R],
    change:'1일차: 이치란 먼저 → 강변·야타이<br>2일차: 오호리(아침) → 하츠키 → 모모치 노을 + 후쿠오카 타워', reason:'해변은 노을 시간대가 가장 예쁨. 다만 바닷바람이 차갑고 돌아오는 길이 길어요', load:'보통'},
   {id:'C', name:'다자이후 + 야나가와', desc:'⚠️ 배 — 아빠 배멀미 고려', days:[D1,D2_R,D3_C,D4],
@@ -883,9 +885,9 @@ const BUDGET_DEFAULT = [
   {id:'food', name:'식비', color:'--s3', items:[
     {k:'f1', pay:'cash', n:'1일 이치란 라멘', b:'p', v:1500, day:0},
     {k:'f2', pay:'card', n:'2일 하츠키 와규 코스 (노미호다이 포함)', b:'p', v:8500, day:1},
-    {k:'f3', pay:'cash', n:'2일 카페 카우히이야', b:'p', v:1000, day:1},
+    {k:'f3b', pay:'card', n:'2일 오호리 호숫가 카페', b:'p', v:1000, day:1},
     {k:'f4', pay:'card', n:'3일 모츠나베 오오야마', b:'p', v:3500, day:2},
-    {k:'f20', pay:'card', n:'2일 가벼운 저녁 (하카타역)', b:'p', v:1500, day:1},
+    {k:'f21', pay:'card', n:'2일 釜かつ 저녁', b:'p', v:2000, day:1},
     {k:'f5', pay:'cash', n:'3일 다자이후 간식', b:'p', v:800, day:2},
     {k:'f11', pay:'card', n:'3일 파르페 (프루츠 플래닛)', b:'p', v:2000, day:2},
     {k:'f18', pay:'cash', n:'3일 一膳めし 青木堂 점심', b:'p', v:1500, day:2},
@@ -896,7 +898,7 @@ const BUDGET_DEFAULT = [
   ]},
   {id:'trans', name:'교통', color:'--s4', items:[
     {k:'tx1', pay:'cash', n:'1일 공항 → 호텔 택시', b:'car', v:3000, day:0},
-    {k:'tx2', pay:'cash', n:'2일 지하철 1일권', b:'p', v:640, day:1},
+    {k:'tx14', pay:'cash', n:'2일 지하철 2회', b:'p', v:600, day:1},
     {k:'tx10', pay:'cash', n:'3일 지하철·직행버스·니시테츠·지하철', b:'p', v:1540, day:2},
     {k:'tx11', pay:'cash', n:'4일 지하철 (구시다진자마에 → 와타나베도리)', b:'p', v:210, day:3},
     {k:'tx6', pay:'cash', n:'4일 호텔 → 공항 택시', b:'car', v:3000, day:3},
@@ -1059,7 +1061,7 @@ const CHECK = {
     ['모츠나베 오오야마 본점 예약', '12/28(월) 18:45, 3명 · 연말이라 필수'],
     ['博多とんかつ 旅と膳·카페 야카타 12/29 영업 확인', '둘 다 호텔 도보권 · 구글맵에서 휴무일 확인'],
     ['택시 앱 설치 (GO 또는 Uber)', '4일차 호텔 → 공항 · 해외 카드 등록까지 미리'],
-    ['카우히이야 오픈 시간 확인', '2일차 11시쯤 방문 예정 · 늦게 열면 점심 후로'],
+    ['釜かつ 12/27(일) 저녁 영업 확인', '도리카이 1-5-27 · 오호리 공원에서 도보 10~15분'],
     ['하츠키 샤브샤브 / 스키나베 정하기', '예약 완료 · 노미호다이 포함 · 못 드시는 재료 있으면 미리 연락'],
   ],
   pack:[
