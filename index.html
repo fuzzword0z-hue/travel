@@ -227,11 +227,13 @@ details[open] .chev{transform:rotate(90deg)}
 .sp-d{font-size:14px;color:var(--text-2)}
 .sp-d b{color:var(--text)}
 /* report */
-.map-top{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.map-top{margin-bottom:10px}
 .map-top h3{margin:0}
-.map-days{display:flex;gap:6px;flex-wrap:wrap}
-.map-day{border:1px solid var(--line);background:var(--surface);color:var(--text-2);border-radius:999px;padding:5px 11px;font:inherit;font-size:13px;font-weight:700;cursor:pointer}
-.map-day[aria-selected="true"]{background:var(--navy);border-color:var(--navy);color:var(--bg)}
+.map-days{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;position:sticky;top:env(safe-area-inset-top, 0px);z-index:5;background:var(--bg);padding:8px 0;margin-bottom:8px}
+.map-day{border:1px solid var(--line);background:var(--surface);color:var(--text-2);border-radius:12px;padding:8px 4px;font:inherit;cursor:pointer;text-align:center}
+.map-day b{display:block;color:var(--text);font-size:15px}
+.map-day span{font-size:12px}
+.map-day[aria-selected="true"]{border-color:var(--navy);box-shadow:inset 0 0 0 1px var(--navy);background:var(--navy-soft)}
 .route-map{height:300px;border-radius:12px;overflow:hidden;background:var(--surface-2);position:relative;z-index:0}
 .map-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;color:var(--text-3);font-size:13.5px}
 .map-legend{list-style:none;margin:10px 0 4px;padding:0;display:flex;flex-wrap:wrap;gap:6px 12px;font-size:13px;color:var(--text-2)}
@@ -244,7 +246,8 @@ details[open] .chev{transform:rotate(90deg)}
 .rp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
 @media (max-width:640px){.rp-grid{grid-template-columns:1fr}}
 .rp-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;min-width:0}
-.rp-photo{position:relative;aspect-ratio:16/9;max-width:100%;background:var(--surface-2);display:flex;align-items:center;justify-content:center;font-size:44px}
+.rp-photo{position:relative;aspect-ratio:16/9;max-width:100%;overflow:hidden;background:var(--surface-2);display:flex;align-items:center;justify-content:center;font-size:44px;flex:0 0 auto}
+.rp-photo a{display:block;width:100%;height:100%}
 .rp-photo img{width:100%;height:100%;object-fit:cover;display:block}
 .rp-photo .ex{position:absolute;left:8px;top:8px;background:rgba(0,0,0,.55);color:#fff;font-size:11px;font-weight:700;padding:2px 7px;border-radius:999px}
 .rp-photo .no{position:absolute;right:8px;top:8px;background:var(--surface);color:var(--text);font-size:12px;font-weight:800;padding:2px 8px;border-radius:999px;border:1px solid var(--line)}
@@ -338,8 +341,9 @@ details[open] .chev{transform:rotate(90deg)}
   <h2 class="sec-title">여행 리포트</h2>
   <p class="sec-desc">‘내 계획’ 기준으로 날짜별 동선과 장소를 정리했어요. 메뉴는 리뷰·SNS·맛집 사이트에서 많이 언급된 것 위주예요.</p>
 
+  <div class="map-days" id="mapDays" role="tablist" aria-label="날짜 선택"></div>
   <div class="card map-card">
-    <div class="map-top"><h3>🗺️ 일자별 동선 지도</h3><div class="map-days" id="mapDays" role="tablist" aria-label="지도 날짜"></div></div>
+    <div class="map-top"><h3 id="mapTitle">🗺️ 동선 지도</h3></div>
     <div id="routeMap" class="route-map" role="img" aria-label="일자별 동선 지도"><div class="map-fallback" id="mapFallback">지도를 불러오는 중이에요…</div></div>
     <ol class="map-legend" id="mapLegend"></ol>
     <div class="muted-line">핀 위치는 대략적인 위치예요. 정확한 길찾기는 각 장소의 📍 지도 버튼을 이용하세요. 지도는 인터넷 연결이 필요해요.</div>
@@ -784,7 +788,7 @@ const REPORT_SOURCES = [
 
 function renderReport(){
   let n = 0;
-  $('#reportDays').innerHTML = REPORT.map(day => `<div class="rp-day">
+  $('#reportDays').innerHTML = [REPORT[mapDay]].map(day => `<div class="rp-day">
     <div class="rp-day-h"><h3>${day.day} · ${esc(day.title)}</h3><span>${day.date}</span></div>
     <div class="rp-grid">${day.spots.map(sp => {
       const num = sp.ll ? (++n, day.spots.filter(x=>x.ll).indexOf(sp)+1) : null;
@@ -801,12 +805,11 @@ function renderReport(){
           ${sp.warn?`<div class="rp-warn">⚠️ ${esc(sp.warn)}</div>`:''}
           ${sp.q?`<div class="rp-links"><a class="maplink" target="_blank" rel="noopener" href="${map(sp.q)}">📍 지도</a></div>`:''}
         </div></article>`;}).join('')}</div></div>`).join('');
+  if ($('#reportSources').children.length) return;
   $('#reportSources').innerHTML = REPORT_SOURCES.map(([t,u])=>`<li><a href="${u}" target="_blank" rel="noopener">${esc(t)}</a></li>`).join('');
 }
-renderReport();
-
 /* 지도 (Leaflet · OpenStreetMap) — 리포트 탭을 열 때 불러와요 */
-let mapDay = 0, lmap = null, mapLayer = null, leafletState = 'idle';
+let mapDay = (()=>{ const now=new Date(); const d=Math.floor((new Date(now.getFullYear(),now.getMonth(),now.getDate())-new Date(2026,11,26))/86400000); return d>=0&&d<4?d:0; })(), lmap = null, mapLayer = null, leafletState = 'idle';
 function loadLeaflet(cb){
   if (window.L) return cb();
   if (leafletState === 'loading') return;
@@ -818,9 +821,13 @@ function loadLeaflet(cb){
   document.head.appendChild(js);
 }
 function renderMapDays(){
-  $('#mapDays').innerHTML = REPORT.map((d,i)=>`<button type="button" class="map-day" role="tab" data-i="${i}" aria-selected="${i===mapDay}">${d.day}</button>`).join('');
-  $$('.map-day').forEach(b => b.onclick = () => { mapDay = +b.dataset.i; renderMapDays(); drawMap(); });
+  $('#mapDays').innerHTML = REPORT.map((d,i)=>`<button type="button" class="map-day" role="tab" data-i="${i}" aria-selected="${i===mapDay}"><b>${d.day}</b><span>${d.date}</span></button>`).join('');
+  $$('.map-day').forEach(b => b.onclick = () => {
+    mapDay = +b.dataset.i; renderMapDays(); renderReport(); drawMap();
+    const bar = $('#mapDays'); if (bar.getBoundingClientRect().top <= 1) window.scrollTo(0, bar.offsetTop - 4);
+  });
   const day = REPORT[mapDay];
+  $('#mapTitle').textContent = `🗺️ ${day.day} 동선 · ${day.title}`;
   $('#mapLegend').innerHTML = day.spots.filter(s=>s.ll).map((s,i)=>`<li><span class="pin-num" style="background:${day.color}">${i+1}</span>${esc(s.n)}</li>`).join('');
 }
 function drawMap(){
@@ -841,6 +848,7 @@ function drawMap(){
   setTimeout(()=>lmap.invalidateSize(), 50);
 }
 renderMapDays();
+renderReport();
 function initMapIfVisible(){ if (!$('#tab-ideas').hidden) loadLeaflet(drawMap); }
 
 /* ---------- 하단 메뉴 ---------- */
