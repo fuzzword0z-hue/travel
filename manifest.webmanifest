@@ -1,7 +1,7 @@
 {
-  "name": "후쿠오카 가족여행",
-  "short_name": "후쿠오카",
-  "description": "2026.12.26–12.29 후쿠오카 3박 4일 가족여행 일정·동선·예산",
+  "name": "가족여행",
+  "short_name": "가족여행",
+  "description": "우리 가족 여행 일정·동선·예산·준비물을 한눈에",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

@@ -1,6 +1,6 @@
 // 오프라인 지원: 한 번 열어두면 데이터가 없어도 페이지가 열려요.
-const CACHE = 'fukuoka-trip-v40';
-const FILES = ['./', './index.html', './manifest.webmanifest', './icon.svg'];
+const CACHE = 'fukuoka-trip-v41';
+const FILES = ['./', './index.html', './manifest.webmanifest', './icon.svg', './og-image.jpg'];
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(FILES)).then(() => self.skipWaiting()));
